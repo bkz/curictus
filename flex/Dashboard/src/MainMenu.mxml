@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    creationComplete="init()"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+        
+    <mx:Script source="defs.as" />
+
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>    
+        <![CDATA[       
+            import mx.managers.PopUpManager;
+            import vrs.shared.Patient;
+            
+            private var shutdownDialog:ShutdownDialog;
+            			
+            public function init():void {
+            }
+            
+            public function update(p:Patient):void {
+                if (p.alias == "guest") {
+                    userLabel.text = _('Guest');
+					this.avatarImage.source = DASHBOARD_ADDRESS + "static/avatars/medium/guest.jpg";
+                    introButton.glow();
+                }
+                else {
+                    userLabel.text = p.alias;
+					this.avatarImage.source = DASHBOARD_ADDRESS + "static/avatars/medium/" + (1 + int(p.pincode) % NUM_AVATAR_IMAGES) + ".jpg";
+                    app.dashboardService.hasPlayedBefore('intro',
+                        function(yes:Boolean):void {
+                            if (yes) {
+                                trainButton.glow();
+                            }
+                            else {
+                                introButton.glow();
+                            }
+                        });
+                }
+            }
+            
+            private function exitAction():void {
+                shutdownDialog = new ShutdownDialog();
+                PopUpManager.addPopUp(shutdownDialog, this, true);
+                PopUpManager.centerPopUp(shutdownDialog);
+            }
+        ]]>
+    </mx:Script>
+    
+    <mx:VBox width="100%" height="100%" styleName="roundedBox" horizontalAlign="center" 
+        filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    > 
+   
+        <mx:Canvas width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+            <mx:VBox width="100%" height="100%"
+				paddingTop="0"
+				paddingBottom="0"
+				paddingLeft="0"
+				paddingRight="0"
+			>
+				<mx:Image source="{DASHBOARD_ADDRESS + 'static/wallpapers/dashboard/mainmenu.jpg'}" />
+			</mx:VBox>
+            <mx:VBox width="100%" height="100%" horizontalAlign="center" paddingTop="20" paddingLeft="20" paddingRight="20" paddingBottom="20">				
+                <mx:Text selectable="false" width="100%" id="welcomeLabel" textAlign="center" text="{_('Welcome!')}" styleName="message" color="0xffffff"
+                    filters="{[new GlowFilter(0x000000, 1.0, 5, 5)]}" />
+                <mx:Spacer height="50%" />
+				<mx:Box borderStyle="solid" borderColor="0xffffff" cornerRadius="5" borderThickness="5" filters="{[new GlowFilter(0x000000, 0.25, 30, 30)]}">
+					<mx:Image id="avatarImage" width="256" height="256" />
+				</mx:Box>
+				<mx:Label id="userLabel" textAlign="center" text="" styleName="message" color="0xffffff" fontSize="50" width="100%" 
+                        filters="{[new GlowFilter(0x000000, 1.0, 3, 3)]}" />
+				<mx:Spacer height="50%" />
+            </mx:VBox>
+        </mx:Canvas>
+        
+		<mx:Spacer height="10" />
+		
+        <mx:HBox width="100%">
+        
+            <local:StretchButton width="100%" height="200"
+                label="{_('Exit')}" 
+                click="exitAction()" 
+                icon="@Embed(source='assets/icons/images/quit.png')" 
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                id="introButton"
+                label="{_('Intro')}"
+                icon="@Embed(source='assets/icons/images/info.png')"
+                click="app.setCurrentActivity('intro')"
+            />
+            
+             <local:StretchButton width="100%" height="200"
+                id="trainButton"
+                label="{_('Train')}"
+                icon="@Embed(source='assets/icons/images/play.png')"
+                click="app.currentState='selectActivityState'"
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                label="{_('Assess')}"
+                icon="@Embed(source='assets/icons/images/assess.png')"
+                click="app.currentState='selectAssessmentState'"
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                label="{_('Help')}"
+                icon="@Embed(source='assets/icons/images/help.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/help.png')"
+                click="{this.app.showHelp(_('$dashboard_mainmenu_help'))}"
+            />
+        </mx:HBox>
+    </mx:VBox>
+</mx:VBox>

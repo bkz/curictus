@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    styleName="activityButton"
+    mouseDown="{app.clickSoundAsset.play()}"
+    mouseUp="{}"
+	mouseOver="styleName = 'activityButtonOver'"
+	mouseOut="styleName = 'activityButton'"
+    width="300" 
+    height="188"
+    horizontalScrollPolicy="off"
+    verticalScrollPolicy="off"
+	>
+    <mx:Script source="defs.as" />
+
+    <mx:Script>
+    <![CDATA[
+        
+    public function setPincode(pincode:String):void {        
+        this.img.source = DASHBOARD_ADDRESS + "static/avatars/" + (1 + int(pincode) % NUM_AVATAR_IMAGES) + ".jpg";
+        this.pincodeLabel.text = pincode;
+        this.enabled = true;
+        this.visible = true;
+    }
+    
+    public function getPincode():String {
+        return this.pincodeLabel.text;
+    }
+    
+    public function clear():void {
+        this.img.source = null;
+        this.pincodeLabel.text = "";
+        this.enabled = false;
+        this.visible = false;
+    }
+        
+    ]]>
+    </mx:Script>
+    <mx:Image id="img" width="128" height="128" top="5" left="86" />
+    <mx:Label id="pincodeLabel" text="" bottom="-8" width="100%" textAlign="center" paddingBottom="0" />
+</mx:Canvas>

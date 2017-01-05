@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div style="float:right">
+  <p style="margin-top:-80px" />
+  <form action="/list" method="post">
+    <input size="30" type="text" name="search" value="{{ search }}" />
+    <input type="submit" value="{{ _("Search") }}" name="submit" class="submit" /> 
+  </form>
+</div>
+
+<h4>{{ _("Open issues") }}</h4>
+{% if len(open_issues) > 0 %}
+<table width="95%">
+<thead>
+  <tr>
+    <th>{{ _("ID") }}</th>
+    <th>{{ _("Created") }}</th>
+    <th>{{ _("Modified") }}</th>
+    <th>{{ _("Description") }}</th>
+    <th>{{ _("Patient injury") }}</th>
+    <th>{{ _("Status") }}</th>
+  </tr>  
+</thead>
+<tbody>
+  {% for i in open_issues %}
+  <tr>
+    <td>
+      <a href="/issue?guid={{ i.guid }}">{{ i.id }}
+    </td> 
+    <td>{{ i.created.strftime("%Y-%m-%d %H:%M:%S") }}</td> 
+    <td>{{ i.modified.strftime("%Y-%m-%d %H:%M:%S") }}</td> 
+    <td>
+      <a href="/issue?guid={{ i.guid }}">{{ i.description[:40] + "..." }}</a> 
+    </td>
+    <td>{{ handler.get_severity_name(i.severity) }}</td>
+    <td>{{ handler.get_status_name(i.status) }}</td>
+  </tr>
+  {% end %}
+</tbody>
+</table>
+{% else %}
+  <p>{{ _("No matching issues found!") }}<p>
+{% end %}
+
+<h4>{{ _("Closed issues") }}</h4>
+{% if len(closed_issues) > 0 %}
+<table width="95%">
+<thead>
+  <tr>
+    <th>{{ _("ID") }}</th>
+    <th>{{ _("Created") }}</th>
+    <th>{{ _("Modified") }}</th>
+    <th>{{ _("Description") }}</th>
+    <th>{{ _("Patient injury") }}</th>
+    <th>{{ _("Status") }}</th>
+  </tr>  
+</thead>
+<tbody>
+  {% for i in closed_issues %}
+  <tr>
+    <td>
+      <a href="/issue?guid={{ i.guid }}">{{ i.id }}
+    </td> 
+    <td>{{ i.created.strftime("%Y-%m-%d %H:%M:%S") }}</td> 
+    <td>{{ i.modified.strftime("%Y-%m-%d %H:%M:%S") }}</td> 
+    <td>
+      <a href="/issue?guid={{ i.guid }}">{{ i.description[:40] + "..." }}</a> 
+    </td>
+    <td>{{ handler.get_severity_name(i.severity) }}</td>
+    <td>{{ handler.get_status_name(i.status) }}</td>
+  </tr>
+  {% end %}
+</tbody>
+</table>
+{% else %}
+  <p>{{ _("No matching issues found!") }}<p>
+{% end %}
+
+
+{% end %}

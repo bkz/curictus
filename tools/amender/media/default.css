@@ -1,0 +1,119 @@
+/*
+======================================================================
+
+  Custom CSS
+
+======================================================================
+*/
+
+body {
+   font-family: arial, helvetica, sans-serif;
+   color: #333;
+   margin:0;
+   padding:0;
+}
+
+image {
+   border: none;
+}
+
+p {
+   margin:0 0 10px 0;
+   padding:0;
+}
+
+em { 
+  font-style: normal;
+  background-color: #CFFFB9;
+  padding: 4px;
+}
+
+form {
+   font-size: 13px;
+}
+
+form ol {
+   list-style:none;
+   margin:0;
+   padding:0;
+}
+
+form li {
+   margin-bottom:1px;
+   padding:6px;
+}
+
+form label {
+   color:#0066CC;
+   float:left;
+   line-height:20px;	 /* This will make the labels vertically centered with the inputs */
+   margin-right:10px;
+   text-align:right;
+   width: 100px;
+}
+
+pre {
+   width: 90%;
+   background-color: #eee;
+   padding: 1em;
+   -moz-border-radius: 1em;
+   -webkit-border-radius: 1em;
+}
+
+h4 {
+   margin-left: -20px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   background: #185F91;
+   color: white;
+   text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+   padding: 4px 10px;
+   -moz-border-radius: 1em;
+   -webkit-border-radius: 1em;
+}
+
+table {
+   border:1px solid #ccc;
+   border-collapse: collapse;
+   font-size: 13px;
+}
+
+
+td,th {
+   border:1px solid #ccc;
+   border-collapse: collapse;
+   padding: 10px;
+}	
+
+thead th {
+   text-align:left;
+}
+
+/*
+======================================================================
+
+  Layout CSS
+
+======================================================================
+*/
+
+div#outer {
+   width: 80%;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+div#header {
+}
+
+div#main {
+}
+
+div#footer {
+   padding: 15px;
+   margin-top: 40px;
+   border-top: thin solid #cccccc;
+   font-size: x-small;
+}

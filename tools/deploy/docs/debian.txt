@@ -1,0 +1,297 @@
+######################################################################
+# Debian 6 installation.
+######################################################################
+
+* Tips
+  Install mintty as a terminal replacement on cygwin
+
+* General
+  Choose a good root pwd
+  Important: remember to set clock to UTC (documented below)
+  Important: remember UTF encodings (documented below)
+  If questions arise, log in to another server (beta) and cat its files
+  dos2unix may be required for conf files ("Bad interpreter" errors)
+
+* Known issues
+  Discovered on stable server: Linode's dhcp setup on the stable server will
+  overwrite hostname on reboot. dhcp conf seems to be overwritten on
+  reboot. Not fixed.
+
+######################################################################
+# Bootstrap Debian 6 PCMS/Analytics server.
+######################################################################
+
+* Login over SSH as root and apply security upgrades
+$ apt-get update
+$ apt-get upgrade -V
+
+* Install basic server admin tools (sudo, SSH, etc...)
+$ apt-get install sudo openssh-client openssh-server
+
+* Setup server hostname
+$ echo "yoda" > /etc/hostname
+$ hostname -F /etc/hostname
+$ nano /etc/hosts
+  # Edit so that you get something similar to:
+  # 127.0.0.1 ... localhost yoda
+
+
+* Setup etc/UTC as time zone (NOT etc/UCT)
+$ dpkg-reconfigure tzdata
+
+* Install ntp daemon
+$ apt-get install ntp
+$ /etc/init.d/ntp restart
+
+* Add the default admin account (password = admin, other fields blank)
+$ adduser admin
+
+* Setup sudo and make "admin" superuser
+$ visudo
+  # Add the following line:
+  admin ALL=(ALL) ALL
+
+* Logout and setup ~/.ssh/authorized_keys from local machine
+$ KEYCODE=`cat curictus.pub`
+$ ssh -q admin@X.X.X.X "mkdir ~/.ssh 2>/dev/null; chmod 700 ~/.ssh; echo "$KEYCODE" >> ~/.ssh/authorized_keys; chmod 644 ~/.ssh/authorized_keys"
+  # Optionally configure local ~.ssh/config:
+  # Host yoda
+  #  Hostname X.X.X.X
+  #  User admin
+  #  IdentityFile ~/.ssh/custom/curictus
+
+* Login to server (as admin) and setup SSH to disable root and password based login
+$ sudo nano /etc/ssh/sshd_config
+  # Whitelist users.
+  AllowUsers admin
+  # Disable root login altogether.
+  PermitRootLogin no
+  # Only allow key-based authentication.
+  PasswordAuthentication no
+$ sudo /etc/init.d/ssh restart
+
+* Install basic developer/server software
+sudo apt-get install build-essential subversion curl wget screen htop
+
+* Setup PostgreSQL (adminpack needed for remote pgAdmin)
+$ sudo apt-get install postgresql postgresql-contrib
+$ sudo -s -u postgres
+$ psql template1 < /usr/share/postgresql/8.4/contrib/adminpack.sql
+$ psql -c "ALTER USER postgres WITH PASSWORD 'postgres'" -d template1
+$ exit
+
+* Change password for postgres account (password = postgres)
+$ sudo -s
+$ passwd postgres
+$ exit
+
+* S Add Postgres 'python' account (password = python)
+$ sudo -s -u postgres
+$ createuser python --pwprompt # (no extra privileges)
+$ exit
+
+* Setup Postgres to use password based authentication
+$ sudo nano /etc/postgresql/8.4/main/pg_hba.conf
+  # Edit: local   all   all   ident
+  #       local   all   all   md5
+$ sudo /etc/init.d/postgresql restart
+
+* Fix crazy log rotation Postgresd setting
+$ sudo nano /etc/postgresql/8.4/main/postgresql.conf
+  # Edit so that get the following:
+  # log_rotation_size = 100MB 
+$ sudo /etc/init.d/postgresql restart
+
+* Create VRS DB (note UTF-8 is a must!)
+$ sudo -s -u postgres
+$ createdb vrs -E UTF8 -T template1
+$ psql -U python vrs
+$ exit
+
+* Exit any intermediate shells and return to the admin account
+
+* Setup password less access to VRS DB
+$ nano ~/.pgpass
+  # Add the following line
+  # *:*:vrs:python:python
+$ chmod 0600 ~/.pgpass
+$ psql -U python vrs
+
+* Build and install nginx
+$ sudo -s
+$ cd /opt/
+$ apt-get -y install libpcre3-dev build-essential libssl-dev
+$ wget http://nginx.org/download/nginx-0.8.54.tar.gz
+$ tar xvf nginx-*.gz && cd /opt/nginx-*
+$ adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+$ ./configure --prefix=/opt/nginx --user=nginx --group=nginx
+$ make install
+
+* Setup nginx init script (copy /conf/init.d/nginx, dos2unix nginx)
+$ nano /etc/init.d/nginx
+$ chmod +x /etc/init.d/nginx
+$ /usr/sbin/update-rc.d -f nginx defaults
+$ /etc/init.d/nginx start
+$ exit
+
+* Setup nginx configuration (copy /conf/nginx.conf)
+$ sudo nano /opt/nginx/conf/nginx.conf
+$ /etc/init.d/nginx restart
+
+* Lockdown iptables firewall (ports open ssh:22, http:80, https:443)
+$ sudo -s
+$ iptables -L
+$ iptables -F
+  # Copy firewall script from /conf/iptables.rules
+$ nano /opt/iptables.rules
+$ iptables-restore < /opt/iptables.rules
+$ iptables -L
+$ nano /etc/network/if-pre-up.d/iptables
+   # Add the following lines:
+   #!/bin/sh
+   # /sbin/iptables-restore < /opt/iptables.rules
+$ chmod +x /etc/network/if-pre-up.d/iptables
+
+* Reboot server and make sure firewall/nginx starts etc
+
+* Setup Python environment (using admin account for trunk)
+$ sudo apt-get install python python-dev libpq-dev python-setuptools swig unzip dos2unix
+$ sudo easy_install virtualenv
+$ cd ~
+$ svn co "https://svn.curictus.se/svn/curictus/trunk/prerequisites/python/libs" thirdparty
+$ cd thirdparty
+$ for x in `ls *.tar.gz`; do tar xzf $x; done
+$ rm *.tar.gz
+  # You should now have the following structure:
+  # ~/thirdparty/boto-*/setup.py ~/thirdparty/psycopg2/setup.py ...
+$ cd ~ && mkdir dist && cd dist
+$ svn co https://svn.curictus.se/svn/curictus/trunk/Curegame/media
+$ svn co https://svn.curictus.se/svn/curictus/trunk/Curegame/modules
+$ svn export https://svn.curictus.se/svn/curictus/trunk/Curegame/bootstrap.py
+
+* Setup nginx static files directory (serve /static files from media folder)
+  cd ~ && ln -s dist/media static
+
+* Setup nginx frontends server1..serverN (where N=2 in this setup)
+$ cd ~ && virtualenv --no-site-packages server1 && cd server1 && source bin/activate
+$ cp  ~/dist/bootstrap.py . && cp -R ~/dist/media . && cp -R ~/dist/modules . && cp -R ~/thirdparty .
+  # Run `python setup.py` for each directory in ~/server1/thirdparty
+$ cd ~/server1/thirdparty
+$ for x in `ls `; do cd $x && python setup.py install && cd .. ; done
+  # Edit a local config.cfg for each server
+$ nano ~/server1/config.cfg
+  # Fill in the following template (note port should be 8000+N):
+  # ZONE_GUID      = 'server1'
+  # STATION_GUID   = 'server1'
+  # STATION_ALIAS  = 'server1'
+  # REMOTE_HOST    = 'dev.curictus.se'
+  # REMOTE_ADDR    = "127.0.0.1"
+  # REMOTE_PORT    = 8001
+  # S3_UPLOAD_DIR  = '/home/admin/upload/'
+  # POSTGRES_DB    = 'vrs'
+  # POSTGRES_USER  = 'python'
+  # POSTGRES_PASS  = 'python'
+  # CUSTOMER_ZONES = {
+  #    u"81f438b7-faaf-41a5-9ee9-2affd18061e8" : (u"Curictus", "2319", "dev.curictus.se"),
+  # }
+$ cd ~ && cd server1 && source bin/activate && python bootstrap.py server
+$ deactivate
+
+* Setup dameontools to automatically manage our frontends
+$ sudo apt-get install daemontools-run
+  # For each frontend setup a ~/serverN/run service script:
+  #!/usr/bin/env bash
+  # source /home/admin/server1/bin/activate
+  # cd /home/admin/server1
+  # exec setuidgid admin python bootstrap.py server
+$ sudo mkdir /etc/service/server1 && cd /etc/service/server1
+$ sudo ln -s /home/admin/server1/run .
+$ sudo chmod +x run
+$ sudo svstat /etc/service/server1
+  # Make sure service shutdown and restart works correctly
+$ sudo svc -d /etc/service/server1
+$ sudo svstat /etc/service/server1
+$ sudo svc -u /etc/service/server1
+$ sudo svstat /etc/service/server1
+
+* Create helper scripts from /conf/pcms/*.sh to /home/admin
+$ chmod +x *.sh
+$ dos2unix *.sh
+$ ~/stop.sh
+$ ~/update.sh
+$ ~/deploy.sh
+$ ~/start.sh
+$ ~/status.sh
+
+######################################################################
+# Tarsnap backup via cron.
+######################################################################
+
+* Enable cron logging (as root)
+  nano /etc/rsyslog.conf
+  # Uncomment the `cron` line under the rules section
+  /etc/init.d/rsyslog restart
+
+* Forward cron mail to sysadmins (admin and optionally for root)
+  # Create and edit ~/.forward with a list of emails (separated with newlines)
+  babar.zafar@curictus.com
+  daniel.goude@curictus.com
+
+* Setup Tarsnap software (as root)
+  apt-get -y install e2fslibs-dev zlibc libssl-dev
+  wget https://www.tarsnap.com/download/tarsnap-autoconf-1.0.29.tgz
+  tar xzvf tarsnap-autoconf-*.tgz && cd tarsnap-autoconf-* && ./configure && make install clean
+
+* Setup config and upload keyfile (as admin)
+  mkdir ~/.tarsnaprc
+  # Copy `runbackup` and `.tarsnaprc` from /conf to ~/ (i.e. /home/admin)
+  chmod +x ~/.runbackup
+  # Copy appropriate key (dev/beta/stable -> tarsnap-(host)-rw.key) from vault101 to ~/.tarsnap/
+  # Edit ~/.tarsnaprc to match the chosen key filename
+  tarsnap --list-archives && tarsnap --print-stats
+  ./runbackup
+
+* Setup cron daily schedule (as admin)
+  apt-get -y install sendmail mailutils
+  crontab -e
+  # Append the following lines:
+  SHELL=/bin/bash
+  PATH=/usr/local/bin:/usr/bin:/bin
+  @daily ~/runbackup
+
+######################################################################
+# Administrative tasks.
+######################################################################
+
+* Basic system diagnostics
+$ free -m
+$ vmstat 1 20
+$ htop
+
+* Setup static IP (make sure router only shared 192.168.1.XXX where XXX > 100):
+$ sudo nano /etc/network/interfaces
+  # Edit to something like this:
+  # iface eth0 inet static
+  #  address 192.168.1.XXX
+  #  netmask 255.255.255.0
+  #  gateway 192.168.1.1
+$ sudo /etc/init.d/networking restart
+
+* Backup and restore Postgres
+$ sudo -s -u postgres
+$ pg_dump -U python -Fc vrs > db.dump
+($ pg_dump -U python vrs > vrs.psql)
+
+$ ./stop.sh
+$ sudo -s -u postgres
+$ dropdb vrs
+$ createdb vrs -E UTF8 -T template1
+$ pg_restore -d vrs db.dump
+($ psql vrs < vrs.psql)
+
+* Tunnel connection pgAdmin can route via localhost:5433
+$ ssh -L 5433:server:5432 admin@server
+
+######################################################################
+# The End.
+######################################################################

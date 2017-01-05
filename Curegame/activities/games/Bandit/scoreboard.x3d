@@ -1,0 +1,13 @@
+<!-- Score board -->
+<Transform translation="0 -0.005 0.03" scale="0.148 0.1 1">
+    <Shape>
+        <Appearance>
+            <ImageTexture url="textures/scoreboard.png" />
+            <TextureTransform scale="1 1" />
+        </Appearance>
+        <IndexedFaceSet coordIndex=" 0 1 2 3" solid="false">
+                <Coordinate point="1.0 1.0 0.0, -1.0 1.0 0.0, -1.0 -1.0 0.0, 1.0 -1.0 0.0, "/>
+        </IndexedFaceSet>
+    </Shape>
+</Transform>
+

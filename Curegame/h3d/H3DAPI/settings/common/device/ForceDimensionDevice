@@ -1,0 +1,8 @@
+<DeviceInfo>
+  <ForceDimensionDevice positionCalibration="3 0 0 0
+  0 3 0 0
+  0 0 3 0 
+  0 0 0 1" desiredHapticsRate="1000">
+	<GodObjectRenderer/>
+  </ForceDimensionDevice>
+</DeviceInfo>

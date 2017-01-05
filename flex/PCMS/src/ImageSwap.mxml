@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	<mx:Metadata>
+        [Event(name="imageLoaded", type="flash.events.Event")]
+	</mx:Metadata>
+	<mx:Script>
+    <![CDATA[
+        import gs.TweenLite;
+        import gs.utils.tween.TweenFilterLiteVars;
+        import gs.utils.tween.TweenLiteVars;
+        import mx.effects.Tween;
+        
+        private var loadedImages:Array = [];
+        private var newSource:String;
+        
+        public function changeImage(source:String):void {
+            this.newSource = source;
+            TweenLite.to(this.loadedImages[0], 0.25, {alpha:.5})
+            this.loadImage();
+        }
+        
+        private function loadImage():void {
+            var image:SmoothImage = new SmoothImage()
+            image.addEventListener(Event.COMPLETE, handleImageComplete)
+            image.load(newSource);
+            image.percentHeight = 100
+            image.percentWidth = 100
+            /*
+            image.setStyle('verticalAlign', 'middle')
+            image.setStyle('horizontalAlign', 'center');
+            */
+        }
+        
+        private function handleImageComplete(event:Event):void {
+            var image:SmoothImage = event.target as SmoothImage
+            displayImage(image);
+        }
+        
+        private function displayImage(image:SmoothImage):void {
+            image.alpha = 0;
+            this.imageContainer.addChild(image)
+            this.loadedImages.push(image);
+            image.validateNow();
+            TweenLite.to(this.loadedImages[0], 0.25, {alpha:0, onComplete:removeOldImage})
+            TweenLite.to(image, 0.25, {alpha:1, onComplete:imageLoaded});				
+        }
+        
+        private function removeOldImage():void {
+            if(this.loadedImages.length > 1) {
+                this.imageContainer.removeChildAt(0)
+                this.loadedImages.shift();
+            }
+        }
+        
+        private function imageLoaded():void {
+            this.dispatchEvent(new Event('imageLoaded'));
+        }
+        
+    ]]>
+	</mx:Script>
+	<mx:Canvas id="imageContainer" width="100%" height="100%"/>
+</mx:Canvas>

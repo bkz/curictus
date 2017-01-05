@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+    
+    <mx:Script source="defs.as" />
+
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Style>
+    <![CDATA[
+        .idLabelText {
+            fontSize: 250;
+            color: #000;
+        }
+        .keyboardButton {
+            font-size: 60;
+        }
+    ]]>    
+    </mx:Style>
+    <mx:Script>
+    <![CDATA[
+        import flash.events.MouseEvent;
+        public static var ID_MAX_LENGTH:Number = 4;
+        
+        [Bindable] private var keyHeight:Number = 105;
+        [Bindable] private var keyWidth:Number = 138;
+        
+        public function enableUserCreate():void {
+            this.loginButton.enabled = true;
+        }
+        
+        public function resetLogin():void {
+            this.idLabel.text = "";
+            this.loginMessage.text = _('Type a new 4-digit PIN code.');
+            this.numberButtons.enabled = true;
+            this.zeroButton.enabled = true;
+            this.loginButton.enabled = false;
+        }
+        
+        private function clickNum(evt:MouseEvent):void {
+            this.app.defaultSoundAsset.play();
+            this.idLabel.text += evt.target.label;
+            if (this.idLabel.text.length > ID_MAX_LENGTH - 1) {
+                this.numberButtons.enabled = false;
+                this.zeroButton.enabled = false;
+                app.checkNewPincode(this.idLabel.text);
+            }
+        }
+        
+        private function clickBackspace(evt:MouseEvent):void {
+            this.idLabel.text = this.idLabel.text.substring(0, this.idLabel.text.length - 1);
+            this.numberButtons.enabled = true;
+            this.zeroButton.enabled = true;
+            this.loginButton.enabled = false;
+            this.loginMessage.text = _('Type a new 4-digit PIN code.');
+        }
+    ]]>
+    </mx:Script>
+    
+    <mx:VBox width="100%" height="100%" styleName="roundedBox" horizontalAlign="center"
+        filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    >
+        <mx:Label id="loginMessage" textAlign="center" text="{_('Type a new 4-digit PIN code.')}" styleName="message" width="100%" />
+		<mx:Label id="idLabel" textAlign="center" text="" styleName="idLabelText" width="100%" />
+        <mx:Spacer height="100%" />
+
+        <mx:HBox width="100%" height="100%">
+            <local:StretchButton
+                label="{_('Back')}"
+                icon="@Embed(source='assets/icons/images/back.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/back.png')"
+                click="resetLogin();app.currentState='initMenuState'" 
+            />
+                
+            <mx:VBox verticalGap="3">
+                <mx:Box id="numberButtons">
+                <mx:HBox horizontalAlign="center" horizontalGap="3">
+                    <mx:Repeater id="rp" dataProvider="{[7, 8, 9]}">
+                        <mx:Button height="{keyHeight}" width="{keyWidth}"
+                            styleName="keyboardButton"
+                            label="{String(rp.currentItem)}"
+                            click="{this.clickNum(event)}"
+                            mouseDownEffect="{this.app.defaultSound}"
+                        />
+                    </mx:Repeater>   
+                </mx:HBox>
+
+                <mx:HBox horizontalAlign="center" horizontalGap="3">
+                    <mx:Repeater id="rp2" dataProvider="{['4','5','6']}">
+                        <mx:Button height="{keyHeight}" width="{keyWidth}"
+                            styleName="keyboardButton"
+                            label="{String(rp2.currentItem)}"
+                            click="{this.clickNum(event)}"
+                        />
+                    </mx:Repeater>   
+                </mx:HBox>
+
+                <mx:HBox horizontalAlign="center" horizontalGap="3">
+                    <mx:Repeater id="rp3" dataProvider="{['1','2','3']}">
+                        <mx:Button height="{keyHeight}" width="{keyWidth}"
+                            styleName="keyboardButton"
+                            label="{String(rp3.currentItem)}"
+                            click="{this.clickNum(event)}"
+                        />
+                    </mx:Repeater>
+                </mx:HBox>
+                </mx:Box>
+                <mx:HBox horizontalAlign="center" horizontalGap="3">
+                    <mx:Button height="{keyHeight}" width="{keyWidth}"
+                        styleName="keyboardButton"
+                        label=""
+                        click="{this.app.showHelp(_('$dashboard_createuser_help'));}"
+						icon="@Embed(source='assets/icons/images/help.png')"
+                    />
+                    <mx:Button height="{keyHeight}" width="{keyWidth}"
+                        id="zeroButton"
+                        styleName="keyboardButton"
+                        label="0"
+                        click="{this.clickNum(event)}"
+                    />        
+                    <mx:Button height="{keyHeight}" width="{keyWidth}"
+                        id="backspaceButton"
+                        styleName="keyboardButton"
+                        icon="@Embed(source='assets/icons/images/backspace.png')"
+                        click="{this.clickBackspace(event)}"
+                    />
+                </mx:HBox>
+            </mx:VBox>
+            <local:StretchButton 
+                id="loginButton"
+                label="{_('Create Profile')}"
+                click="{stats.track('create-profile', {'method':'manual'});app.createNewLogin(this.idLabel.text);}" 
+                icon="@Embed(source='assets/icons/images/createuser.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/createuser.png')"
+                enabled="false"
+            />
+        </mx:HBox>
+        <mx:Spacer height="100%" />
+    </mx:VBox>
+</mx:VBox>

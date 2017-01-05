@@ -1,0 +1,57 @@
+Windows Registry Editor Version 5.00
+
+;================================================================
+; System setup.
+;================================================================
+
+; Automatically log into this account on startup.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"DefaultUserName"="Curictus"
+"DefaultPassword"="Curictus"
+"AutoAdminLogon"="1"
+
+; Disable Windows error reporting.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHealth\ErrorReporting]
+"DoReport"=dword:00000000
+"ShowUI"=dword:00000000
+
+; Disable Windows automatic update service.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
+"NoAutoUpdate"=dword:00000001
+
+;================================================================
+; User interface.
+;================================================================
+
+; Disable generic ballon tooltips.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"EnableBalloonTips"=dword:00000000
+
+; Disable Windows security center popups.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Security Center]
+"AntiVirusDisableNotify"=dword:00000001
+"FirewallDisableNotify"=dword:00000001
+"UpdatesDisableNotify"=dword:00000001
+
+; Enable custom logon screen
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background]
+"OEMBackground"=dword:00000001
+
+;================================================================
+; Misc stuff
+;================================================================
+
+; Show file extensions in explorer.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"=dword:00000000
+
+; Show hidden files/folders in explorer.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+
+;================================================================
+; The end.
+;================================================================
+
+
+

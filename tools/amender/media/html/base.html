@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+  <title>Curictus Support</title>
+  <link rel="stylesheet" href="{{ static_url('default.css') }}" type="text/css" />
+</head> 
+<body> 
+  <div id="outer">
+
+    <div style="float:right;font-size:small">
+      {% if current_user %}
+        {{ current_user.email }}&nbsp;|&nbsp;<a href="/new">{{ _("Add new") }}</a>&nbsp;|&nbsp;<a href="/list">{{ _("List issues") }}</a>&nbsp;|&nbsp;<a href="/logout">{{ _("Log ut") }}</a>
+      {% end %}
+    </div>
+
+    <div id="header">
+      <a href="/"><img src="{{ static_url('images/header.png') }}" /></a>
+    </div>
+
+    <div id="main">
+      {% block main %}{% end %}
+    </div>
+
+    <div id="footer">
+      Amender {{ handler.config.SYSTEM_VERSION }} | Copyright &copy; 2010 Babar K. Zafar.  All rights reserved. Licensed to <a href="http://www.curictus.com">Curictus AB</a>.
+    </div>
+
+  </div>
+</body> 
+</html> 

@@ -1,0 +1,51 @@
+.roundedBox {
+    backgroundAlpha: 1.0;
+    background-color: #fff;
+    paddingTop: 30;
+    paddingLeft: 30;
+    paddingRight: 30;
+    paddingBottom: 30;
+    corner-radius: 10;
+    borderStyle: solid;
+}
+
+.message {
+    fontSize: 70;
+    color: #000;
+}
+
+.imageLabel {
+    font-size: 16;
+    text-align: center;
+    padding-top: 10;
+}
+  
+.activityImageBox {
+    paddingTop: 10;
+    paddingLeft: 10;
+    paddingRight: 10;
+    paddingBottom: 10;
+    borderStyle: solid;
+    borderColor: #999;
+}
+.activityTitle {
+    fontSize: 90;
+}
+
+.activityDescription {
+    fontSize: 24;
+}
+
+.activitySummary {
+    fontSize: 35;
+}
+
+.versionInfo {
+    color: #445555;
+    fontSize: 13;
+}
+
+.notification {
+    color: #445555;
+    fontSize: 18;
+}

@@ -1,0 +1,111 @@
+<!-- Saloon Interior -->
+<Transform scale="0.5 0.5 0.5">
+
+<!-- Floor -->
+<Transform translation="0 -0.5 0" rotation="0 1 0 1.570796">
+    <Shape>
+        <Appearance>
+            <Material />
+            <ImageTexture url="textures/floor.jpg" />
+            <TextureTransform scale="8 8"/>
+        </Appearance>
+        <Box size="2 0.001 2" />
+    </Shape>
+</Transform>
+
+<!-- Temporary Table -->
+<Transform scale="0.6 0.2 0.7" translation="0 -0.32 0.1">
+
+<Transform translation="0 0 0">
+    <Shape>
+        <Appearance>
+            <Material />
+            <ImageTexture url="textures/table.jpg" />
+            <TextureTransform scale="1 1"/>
+        </Appearance>
+        <Box size="1 1 1" />
+    </Shape>
+</Transform>
+
+<ToggleGroup graphicsOn="false" hapticsOn="true">
+<Transform translation="0 0.7 0" scale="0.5 0.5 0.5">
+    <Shape>
+        <Appearance>
+            <Material />
+            <SmoothSurface />
+        </Appearance>
+        <IndexedFaceSet coordIndex="3 2 1 0" solid="true">
+            <Coordinate point="1.0 0.0 1.0, -1.0 0.0 1.0, -1.0 0.0 -1.0, 1.0 0.0 -1.0, "/>
+        </IndexedFaceSet>
+    </Shape>
+</Transform>
+</ToggleGroup>
+
+</Transform>
+
+<!-- Back wall -->
+<Transform translation="0 0 0">
+    <Shape>
+        <Appearance>
+            <Material />
+            <ImageTexture url="textures/wall.png" />
+            <TextureTransform scale="4 2" />
+        </Appearance>
+        <Box size="2 1 0.001" />
+    </Shape>
+</Transform>
+
+<!-- Back wall board -->
+<Transform translation="0 -0.45 0.002">
+    <Shape>
+        <Appearance>
+            <Material />
+            <ImageTexture url="textures/wood2.jpg" />
+            <TextureTransform scale="6 2" />
+        </Appearance>
+        <Box size="2 0.5 0.001" />
+    </Shape>
+</Transform>
+
+<!-- Back wall horizontal planks -->
+<Transform translation="0 -0.495 0.003">
+    <Shape DEF="WALL_PLANK_SHAPE">
+        <Appearance DEF="WALL_PLANK_APP">
+            <Material />
+            <ImageTexture url="textures/wood1.jpg" />
+            <TextureTransform scale="1 1" />
+        </Appearance>
+        <Box size="2 0.03 0.001" />
+    </Shape>
+</Transform>
+
+<Transform translation="0 -0.2 0.003">
+    <Shape USE="WALL_PLANK_SHAPE" />
+</Transform>
+
+<!-- Back wall vertical planks -->
+<Transform translation="-0.43 0.25 0.001">
+    <Shape DEF="WALL_PLANK_SHAPE_VERTICAL">
+        <Appearance USE="WALL_PLANK_APP" />
+        <Box size="0.04 1 0.001" />
+    </Shape>
+</Transform>
+
+<Transform translation="0.43 0.25 0.001">
+    <Shape USE="WALL_PLANK_SHAPE_VERTICAL" />
+</Transform>
+
+<!-- Wanted poster --> 
+<Transform translation="-0.37 0 0.004" scale="1.4 1.4 1.4" rotation="0 0 1 0.1">
+    <Shape>
+        <Appearance>
+            <Material />
+            <ImageTexture url="textures/wanted.png" />
+            <TextureTransform scale="0.67 1" translation="0.29 0"/>
+        </Appearance>
+        <Box size="0.0876 0.1304 0.001" />
+    </Shape>
+</Transform>
+
+
+</Transform>

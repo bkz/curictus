@@ -1,0 +1,2514 @@
+# Swedish translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Curictus 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-03 13:35+0200\n"
+"PO-Revision-Date: 2011-08-03 13:39+0100\n"
+"Last-Translator: Daniel Goude <daniel.goude@curictus.com>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "$activity_archery2_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Vidrör pilkorgen med markören för att hämta en pil</li><li>Spänn bågen genom att dra pennan emot dig</li><li>Sikta och skjut sedan pilen genom att trycka på en av knapparna på den haptiska pennan.</li><li>Du har 20 pilar att skjuta.</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet</li><li>Precision</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_archery2_level_desc"
+msgstr ""
+"Måltavlorna står still.\n"
+"Måltavlorna rör sig långsamt upp och ner.\n"
+"Måltavlorna rör sig snabbt upp och ner."
+
+msgid "$activity_archery2_name"
+msgstr "Skjuta pilen"
+
+msgid "$activity_archery2_summary"
+msgstr "Skjut på måltavlorna med pilbågen."
+
+msgid "$activity_archery2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/archery2.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_archery_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Greppa strängen genom att hålla nere knappen på den haptiska pennan</li><li>Spänn strängen genom att dra pennan mot dig</li><li>Sikta och skjut pilen genom att släppa knappen</li>\n"
+"Det här tränar man:\n"
+"<li>Pekfinger</li><li>Uppmärksamhet</li><li>Precision</li><li>Flexion/Extension</li><li>Adduktion/Abduktion</li>"
+
+msgid "$activity_archery_level_desc"
+msgstr ""
+
+msgid "$activity_archery_name"
+msgstr "Pilbåge"
+
+msgid "$activity_archery_summary"
+msgstr "Skjut på måltavlorna med pilbågen."
+
+msgid "$activity_archery_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/archery.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Greppa pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/button_pressed.jpg\"  text=\"Tryck på knappen för att greppa strängen.\" />\n"
+"    <item image=\"static/screenshots/instructions/button_released.jpg\"  text=\"Släpp knappen för att skjuta iväg pilen.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bandit_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Du får poäng när du träffar banditerna</li><li>Banditer du missar blir röda</li><li>Försök träffa så många du kan under en minut</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet</li><li>Snabb reaktion</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_bandit_level_desc"
+msgstr ""
+"Bovarna är långsamma.\n"
+"Bovarna är lite snabbare.\n"
+"Bovarna är mycket snabba."
+
+msgid "$activity_bandit_name"
+msgstr "Klubba bovar"
+
+msgid "$activity_bandit_summary"
+msgstr "Klubba cylindrarna (banditerna) med hammaren."
+
+msgid "$activity_bandit_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bandit.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\"  text=\"Håll pennan med ett hammargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bingo2_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>En siffra visas till vänster</li><li>Hitta siffran på spelbrädet och tryck på den</li><li>Ju snabbare du hittar rätt siffra, desto mer poäng får du</li><li>Vinn genom att få bingo på alla rader</li><li>Speltid: 1-2 minuter</li>\n"
+"Det här tränar man:\n"
+"<li>Avsökning, lokalisering</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_bingo2_level_desc"
+msgstr ""
+"Spela på ett bräde med 3 x 3 nummer (1-9).\n"
+"Spela på ett bräde med 4 x 4 nummer (1-16).\n"
+"Spela på ett bräde med 5 x 5 nummer (1-99)."
+
+msgid "$activity_bingo2_name"
+msgstr "Bingo"
+
+msgid "$activity_bingo2_summary"
+msgstr "Hitta siffran som visas och tryck på den."
+
+msgid "$activity_bingo2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bingo2.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bingo_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Titta på siffan i rutan till höger</li><li>Tryck samma på nummer på spelplanen</li><li>När du markerat fem nummer i rad - bingo!</li>\n"
+"Det här tränar man:\n"
+"<li>Känna igen siffror/nummer</li><li>Avsökning</li><li>Lokalisering</li><li>Handledsrörelser</li>"
+
+msgid "$activity_bingo_level_desc"
+msgstr ""
+
+msgid "$activity_bingo_name"
+msgstr "Bingo"
+
+msgid "$activity_bingo_summary"
+msgstr "Spela en omgång Bingo."
+
+msgid "$activity_bingo_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bingo.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Håll pennan med ett transversellt volargrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Håll pennan med ett diagonalt volargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_codebreak_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Placera 3 koppar på en av hyllorna</li><li>Vit boll betyder rätt färg på rätt plats</li><li>Svart boll betyder rätt färg på fel plats</li><li>Fundera och prova dig fram tills du får 3 vita bollar</li><li>Du kan behöva använda flera koppar av samma färg</li>\n"
+"Det här tränar man:\n"
+"<li>Koncentration och problemlösning</li><li>Arbetsminne</li><li>Transport och precision</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_codebreak_level_desc"
+msgstr ""
+"Kopparna har 3 olika färger.\n"
+"Kopparna har 4 olika färger.\n"
+"Kopparna har 5 olika färger."
+
+msgid "$activity_codebreak_name"
+msgstr "Koppar"
+
+msgid "$activity_codebreak_summary"
+msgstr "Hitta den hemliga färgkombinationen genom att placera koppar på hyllorna."
+
+msgid "$activity_codebreak_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/codebreak.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_colors_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Tryck på en av de färgade knapparna</li><li>Den blinkande rutan kommer att skifta till din valda färg</li><li>Om det finns angränsande rutor med samma färg kommer fältet att expandera</li><li>Expandera fältet tills det täcker hela spelplanen</li>\n"
+"Det här tränar man:\n"
+"<li>Koncentration</li><li>Räkna, strategi, problemlösning</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_colors_level_desc"
+msgstr ""
+"Spela med 5 x 5 färgade rutor.\n"
+"Spela med 10 x 10 färgade rutor.\n"
+"Spela med 15 x 15 färgade rutor."
+
+msgid "$activity_colors_name"
+msgstr "Färgmönster"
+
+msgid "$activity_colors_summary"
+msgstr "Fyll spelplanen med en och samma färg med så få drag som möjligt."
+
+msgid "$activity_colors_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/colors.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"5.0\"  text=\"Tryck på de färgade knapparna under spelområdet.\"  />\n"
+"    <item time=\"15.0\"  text=\"Det blinkande  området kommer att ändras till din valda färg och inkludera närliggande rutor med samma färg.\"  />\n"
+"    <item time=\"25.0\"  text=\"Försök hitta en strategi som minimerar antal drag.\"  />\n"
+"    <item time=\"35.0\" text=\"Lycka Till!\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_fishtank2_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Fånga fiskarna med fiskespöet</li><li>Släpp fiskarna i den gröna hinken</li><li>Du får poäng för varje fisk du fångar</li><li>Du får minuspoäng om du kommer åt maneterna</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet</li><li>Arm- och underarmsrörelser</li><li>Transport, precision</li><li>Handledsrörelser</li>"
+
+msgid "$activity_fishtank2_level_desc"
+msgstr ""
+"Fiskarna rör sig långsamt. Du kan släppa dem i höger eller vänster spann.\n"
+"Fiskarna rör sig snabbare. Du kan släppa dem i höger eller vänster spann.\n"
+"Fiskarna rör sig snabbt. Du måste släppa dem i den gröna spannen."
+
+msgid "$activity_fishtank2_name"
+msgstr "Akvarium"
+
+msgid "$activity_fishtank2_summary"
+msgstr "Lyft fiskarna ut ur akvariet. Undvik maneterna."
+
+msgid "$activity_fishtank2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/fishtank2.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_fishtank_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Fånga fiskarna med fiskespöet</li><li>Släpp fiskarna i spännerna till vänster eller höger</li><li>Du får poäng för varje fisk du fångar</li><li>Du får minuspoäng om du kommer åt maneterna</li>\n"
+"Det här tränar man:\n"
+"<li>Transport & Precision</li><li>Flexion/Extension</li><li>Adduktion/Abduktion</li><li>Handledsrörelser</li>"
+
+msgid "$activity_fishtank_level_desc"
+msgstr ""
+
+msgid "$activity_fishtank_name"
+msgstr "Fiska"
+
+msgid "$activity_fishtank_summary"
+msgstr "Lyft fiskarna ut ur akvariet. Undvik maneterna."
+
+msgid "$activity_fishtank_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/fishtank.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_intro_desc"
+msgstr ""
+"Använd pennan för att interagera med föremålen i det virtuella rummet. Använd stora men varsamma rörelser för att föra pennan i alla riktningar.\n"
+"\n"
+"<li>Utforska rummet med den blåa markören och känn former, textur, vikt, motstånd</li><li>Känn på väggarna, akvariet, klotet, tallriken, bordet</li><li>Tänd ljuset i akvariet</li><li>Lyft frukterna genom att placera markören under dem</li><li>Lämna frukterna på tallriken</li><li>Lämna rummet genom att trycka på nödutgångsknappen</li>"
+
+msgid "$activity_intro_level_desc"
+msgstr ""
+
+msgid "$activity_intro_name"
+msgstr "Det tysta rummet"
+
+msgid "$activity_intro_summary"
+msgstr "Lär dig känna den virtuella miljön och haptiken."
+
+msgid "$activity_intro_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/intro.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_math2_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>En matteuppgift och ett antal svarsalternativ presenteras</li><li>Tryck på rätt svar</li><li>Spelet fortsätter tills alla 10 uppgifterna har besvarats</li><li>Speltid: 1-2 minuter</li>\n"
+"Det här tränar man:\n"
+"<li>Räkna, enkla matteuppgifter</li><li>Avsökning, lokalisering</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_math2_level_desc"
+msgstr ""
+"Lös additionstal.\n"
+"Lös additions- och subtraktionstal.\n"
+"Lös additions-, subtraktions- och multiplikationstal."
+
+msgid "$activity_math2_name"
+msgstr "Matte-läxa"
+
+msgid "$activity_math2_summary"
+msgstr "Svara rätt på 10 räknetal."
+
+msgid "$activity_math2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/math2.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"     <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_math_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Mata in ditt svar med hjälp av knapparna</li><li>Tryck på OK efter att du skrivit in ditt svar</li><li>Spelet forsätter tills du fått rätt svar på 20 uppgifter</li>\n"
+"Det här tränar man:\n"
+"<li>Räkna</li><li>Avsökning</li><li>Handledsrörelser</li>"
+
+msgid "$activity_math_level_desc"
+msgstr ""
+
+msgid "$activity_math_name"
+msgstr "Matematik"
+
+msgid "$activity_math_summary"
+msgstr "Svara rätt på 20 räknetal."
+
+msgid "$activity_math_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/math.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Håll pennan med ett transversellt volargrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Håll pennan med ett diagonalt volargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_memory_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Tryck på korten du vill vända</li><li>Försök komma ihåg dem</li><li>Hitta paren så fort som möjligt</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet och koncentration</li><li>Arbetsminnne</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_memory_level_desc"
+msgstr ""
+"Spela med 8 bildkort.\n"
+"Spela med 12 bildkort.\n"
+"Spela med 18 bildkort."
+
+msgid "$activity_memory_name"
+msgstr "Memory"
+
+msgid "$activity_memory_summary"
+msgstr "Hitta bildparen."
+
+msgid "$activity_memory_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/memory.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"     <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_mugmastermind_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Placera 3 muggar på hyllan längster ner till höger</li><li>Vit boll betyder rätt färg på rätt plats</li><li>Svart boll betyder rätt färg på fel plats</li><li>Fundera och prova dig fram tills du får 3 vita bollar</li>\n"
+"Det här tränar man:\n"
+"<li>Koncentration & Arbetsminnne</li><li>Problemlösning</li><li>Transport & Precision</li><li>Flexion/Extension</li><li>Adduktion/Abduktion</li>"
+
+msgid "$activity_mugmastermind_level_desc"
+msgstr ""
+
+msgid "$activity_mugmastermind_name"
+msgstr "Mastermind"
+
+msgid "$activity_mugmastermind_summary"
+msgstr "Hitta den hemliga färgkombinationen genom att placera muggar på hyllorna."
+
+msgid "$activity_mugmastermind_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/mugmastermind.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_neglecttest_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Dina mål är de gröna cirklarna markerade \"1\". Fokusera på dem, alla andra är oviktiga.</li><li>Tryck på alla mål som är märkta \"1\"</li><li>Dina mål blir gula när du trycker på dem, på så sätt vet du vilka du har tryckt på</li><li>När du är klar med alla dina mål, tryck på en av de röda knapparna markerade \"0\".</li>\n"
+"Det här testas:\n"
+"<li>Detekterar förekomst av unilateralt spatiellt neglekt (USN)</li>"
+
+msgid "$activity_neglecttest_level_desc"
+msgstr ""
+
+msgid "$activity_neglecttest_name"
+msgstr "VR Cancellation Task (9/9)"
+
+msgid "$activity_neglecttest_summary"
+msgstr "Tryck på alla cirklar märkta \"1\"."
+
+msgid "$activity_neglecttest_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/neglecttest.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_point_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Tryck på \"Start\"-knappen för att börja</li><li>Målet är att trycka på en sekvens av gröna prickar</li><li>Rör dig så snabbt du kan från prick till prick</li><li>Det finns totalt 32 prickar i testet</li>\n"
+"Det här testas:\n"
+"<li>Uppmärksamhet</li><li>Armrörelsens precision</li><li>Snabb motorik</li>"
+
+msgid "$activity_point_level_desc"
+msgstr ""
+
+msgid "$activity_point_name"
+msgstr "Point Test"
+
+msgid "$activity_point_summary"
+msgstr "Tryck på de gröna prickarna."
+
+msgid "$activity_point_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/point.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_pong_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Du styr racketen närmast dig</li><li>Datorn styr racketen på motsatt sida</li><li>Du kan även använda väggarna för att studsa bollen</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet och koncentration</li><li>Precision</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_pong_level_desc"
+msgstr ""
+"Spela mot en långsam motståndare.\n"
+"Spela mot en snabbare motståndare.\n"
+"Spela mot en mycket snabb motståndare."
+
+msgid "$activity_pong_name"
+msgstr "Tennis"
+
+msgid "$activity_pong_summary"
+msgstr ""
+"Slå bollen förbi motståndaren.\n"
+"Den som först får 5 poäng vinner matchen."
+
+msgid "$activity_pong_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/pong.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_precision_h_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Placera markören på det virtuella planet</li><li>Starta vid den gröna bubblan</li><li>Följ pilarna och flytta markören så rakt som du kan</li><li>Bubblorna blir gröna när du fortskrider och försvinner när du rör vid dem</li>\n"
+"Det här testas:\n"
+"<li>Rörelseprecision</li><li>Koncentration</li>"
+
+msgid "$activity_precision_h_level_desc"
+msgstr ""
+
+msgid "$activity_precision_h_name"
+msgstr "Precisionstest horisontellt"
+
+msgid "$activity_precision_h_summary"
+msgstr "Följ pilarna och tryck på de gröna bubblorna."
+
+msgid "$activity_precision_h_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/precision_h.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_precision_v_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Placera markören på det virtuella planet</li><li>Starta vid den gröna bubblan</li><li>Följ pilarna och flytta markören så rakt som du kan</li><li>Bubblorna blir gröna när du fortskrider och försvinner när du rör vid dem</li>\n"
+"Det här testas:\n"
+"<li>Rörelseprecision</li><li>Koncentration</li>"
+
+msgid "$activity_precision_v_level_desc"
+msgstr ""
+
+msgid "$activity_precision_v_name"
+msgstr "Precisionstest vertikalt"
+
+msgid "$activity_precision_v_summary"
+msgstr "Följ pilarna och tryck på de gröna bubblorna."
+
+msgid "$activity_precision_v_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/precision_v.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_racer_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Använd pennan för att styra bilen</li><li>Den gröna pilen visar vilken riktning bilen åker</li><li>För pennan framåt för att accelerera eller bakåt för att bromsa</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet och koncentration</li><li>Gradering/precision</li><li>Arm- och underarmsrörelser</li>"
+
+msgid "$activity_racer_level_desc"
+msgstr ""
+"Kör ett varv runt banan.\n"
+"Kör två varv runt banan.\n"
+"Kör tre varv runt banan."
+
+msgid "$activity_racer_name"
+msgstr "Racer"
+
+msgid "$activity_racer_summary"
+msgstr "Kör bilen runt banan på så kort tid som möjligt."
+
+msgid "$activity_racer_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/racer.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_simon2_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>En ton spelas när en knapp lyser</li><li>Notera i vilken ordning tonerna spelas</li><li>Tryck på knapparna i samma ordning när det är din tur</li><li>Spelet fortsätter med längre och längre sekvenser tills du spelar fel ton</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet och koncentration</li><li>Arbetsminne</li><li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_simon2_level_desc"
+msgstr ""
+"Spela med 4 knappar.\n"
+"Spela med 8 knappar.\n"
+"Spela med 12 knappar."
+
+msgid "$activity_simon2_name"
+msgstr "Spela toner"
+
+msgid "$activity_simon2_summary"
+msgstr "Lyssna på tonerna och upprepa melodin."
+
+msgid "$activity_simon2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/simon2.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"     <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_simon_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Notera i vilken ordning Simon trycker på knapparna (tonerna)</li><li>När det är din tur trycker du på knapparna i samma ordning</li><li>Spelet fortsätter genom att Simon spelar längre och längre sekvenser</li>\n"
+"Det här tränar man:\n"
+"<li>Uppmärksamhet</li><li>Koncentration</li><li>Arbetsminnne</li><li>Flexion/Extension</li><li>Adduktion/Abduktion</li>"
+
+msgid "$activity_simon_level_desc"
+msgstr ""
+
+msgid "$activity_simon_name"
+msgstr "Följ Simon"
+
+msgid "$activity_simon_summary"
+msgstr "Härma Simon och spela tonerna i rätt ordning."
+
+msgid "$activity_simon_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/simon.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Håll pennan med ett transversellt volargrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Håll pennan med ett diagonalt volargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_slotmachine_desc"
+msgstr ""
+"Så här spelar man:\n"
+"<li>Plocka mynt från toppen av traven till vänster</li><li>Lägg ett eller flera mynt i inkastet till höger</li><li>Satsa upp till tre mynt genom att trycka på 'SATSA'</li><li>Tryck på 'SPELA'</li><li>Fortsätt eller tryck på 'EXIT' när du vill avsluta</li><li>Du får en poäng för varje mynt du har kvar eller vunnit</li>\n"
+"Det här tränar man:\n"
+"<li>Arm- och underarmsrörelser</li><li>Handledsrörelser</li>"
+
+msgid "$activity_slotmachine_level_desc"
+msgstr ""
+
+msgid "$activity_slotmachine_name"
+msgstr "Enarmad bandit"
+
+msgid "$activity_slotmachine_summary"
+msgstr "Försök att vinna så mycket pengar du kan på den enarmade banditen."
+
+msgid "$activity_slotmachine_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/slotmachine.flv</filename>\n"
+"  <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_slots_desc"
+msgstr ""
+"Så här spelar man:\n"
+"Här gäller det att samla 'credits'. Antigen spelar man 1, 2 eller 3 credit i taget genom att trycka på 'Bet one Credit' en, två eller tre gånger och sedan på 'Spin Reels',  eller så spelar man 3 Credits varje gång genom att trycka ner knappen 'Play 3 Credits' längst till höger.\n"
+"\n"
+"Observera att man bara kan trycka på knappar som är gula (vita är inte aktiva). Vid vinst fylls antal Credits på. Man spelar så länge man vill eller tills man har slut på Credits. Spelet stängs av med knappen 'Change' längst till vänster."
+
+msgid "$activity_slots_level_desc"
+msgstr ""
+
+msgid "$activity_slots_name"
+msgstr "Vegas"
+
+msgid "$activity_slots_summary"
+msgstr "Försök att vinna så mycket pengar du kan på den enarmade banditen."
+
+msgid "$activity_slots_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/slots.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Håll pennan med ett transversellt volargrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Håll pennan med ett diagonalt volargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_a_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Tryck på siffrorna i stigande ordning: 1-2-3-4...</li><li>Trycker du rätt siffra blir den grön</li><li>Trycker du fel siffra blir den röd, men ändras tillbaks när du gör rätt</li><li>Försök att slutföra övningen så fort du kan</li>Det här testas:\n"
+"<li>Visuell avsökning</li><li>Scanning</li><li>Processhastighet</li><li>Mental flexibilitet</li><li>Exekutiva funktioner</li>"
+
+msgid "$activity_tmt_a_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_a_name"
+msgstr "Trail Making Test A"
+
+msgid "$activity_tmt_a_summary"
+msgstr "Tryck på de inringade siffrorna i ordningen 1-2-3 etc."
+
+msgid "$activity_tmt_a_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt_a.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_b_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Tryck på siffrorna och bokstäverna i stigande ordning: 1-A-2-B-3-C etc</li><li>Trycker du rätt siffra blir den grön</li><li>Trycker du fel siffra blir den röd, men ändras tillbaks när du gör rätt</li><li>Försök att slutföra övningen så fort du kan</li>Det här testas:\n"
+"<li>Visuell avsökning</li><li>Scanning</li><li>Processhastighet</li><li>Mental flexibilitet</li><li>Exekutiva funktioner</li>"
+
+msgid "$activity_tmt_b_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_b_name"
+msgstr "Trail Making Test B"
+
+msgid "$activity_tmt_b_summary"
+msgstr "Tryck på de inringade siffrorna och bokstäverna i ordningen 1-A-2-B-3-C etc."
+
+msgid "$activity_tmt_b_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt_b.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett penngrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"Du kan också använda ett cylindergrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_desc"
+msgstr ""
+"Det här är din uppgift:\n"
+"<li>Tryck på prickarna i följande ordning 1, A, 2, B, 3, C, ...</li><li>Rör dig så snabbt du kan från prick till prick</li>\n"
+"Det här testas:\n"
+"<li>Koncentration & Arbetsminnne</li><li>Avsökning & Lokalisering</li><li>Precision</li><li>Flexion/Extension</li><li>Adduktion/Abduktion</li>"
+
+msgid "$activity_tmt_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_name"
+msgstr "TMT"
+
+msgid "$activity_tmt_summary"
+msgstr "Tryck på prickarna i rätt ordning."
+
+msgid "$activity_tmt_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Håll pennan med ett chuckgrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Håll pennan med ett transversellt volargrepp.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Håll pennan med ett diagonalt volargrepp.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$dashboard_createuser_help"
+msgstr "Skriv in en ny 4-siffrig PIN-kod och tryck 'Skapa profil'."
+
+msgid "$dashboard_login_help"
+msgstr "Tryck på bilden med din PIN-kod för att börja träna."
+
+msgid "$dashboard_mainmenu_help"
+msgstr ""
+"Tryck 'Träna' för att visa dina träningsaktiviteter, eller 'Bedöm' för att utföra en bedömning.\n"
+"\n"
+"Tryck 'Avsluta' för att avsluta detta träningstillfälle.\n"
+"\n"
+"Om du lämnar stationen kommer träningstillfället att avslutas automatiskt efter fem minuter."
+
+msgid "$dashboard_selectactivity_help"
+msgstr ""
+"Tryck på aktiviteten som du vill utföra.\n"
+"\n"
+"Tryck på pilarna för att visa fler aktiviteter."
+
+msgid "$dashboard_selectassessment_help"
+msgstr "Tryck på bedömningen som du vill utföra."
+
+msgid "$dashboard_usercreated_help"
+msgstr "Tryck på 'Träna'-knappen för att logga in med den nya profilen."
+
+#, python-format
+msgid "%(count)d training activities / assessments"
+msgstr "%(count)d träningsaktiviteter / bedömningar"
+
+#, python-format
+msgid "%(hours)dh %(minutes)d min pause"
+msgstr "%(hours)dh %(minutes)d min uppehåll"
+
+#, python-format
+msgid "%(minutes)d min pause"
+msgstr "%(minutes)d min uppehåll"
+
+#, python-format
+msgid "%(minutes)d minutes ago"
+msgstr "%(minutes)d minuter sedan"
+
+#, python-format
+msgid "%(seconds)d seconds ago"
+msgstr "%(seconds)d sekunder sedan"
+
+#, python-format
+msgid "%(weekday)s %(day)d/%(month)d"
+msgstr "%(weekday)s %(day)d/%(month)d"
+
+#, python-format
+msgid "(Easy = %s, Medium = %s, Hard = %s)"
+msgstr "(Lätt = %s, Medel = %s, Svår = %s)"
+
+msgid "12 months"
+msgstr "12 månader"
+
+msgid "2 weeks"
+msgstr "2 veckor"
+
+msgid "6 months"
+msgstr "6 månader"
+
+msgid "Abort_H3D"
+msgstr "Abort_H3D"
+
+msgid "Acceleration"
+msgstr "Acceleration"
+
+msgid "Acceleration (m/s2)"
+msgstr "Acceleration (m/s2)"
+
+#, python-format
+msgid ""
+"Acceleration: %2.2f m/s2\n"
+"Time: %3.2fs"
+msgstr ""
+"Acceleration: %2.2f m/s2\n"
+"Tid: %3.2fs"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Activities"
+msgstr "Aktiviteter"
+
+msgid "Activity"
+msgstr "Aktivitet"
+
+msgid "Activity Report"
+msgstr "Aktivitetsrapport"
+
+msgid "Activity alias:"
+msgstr "Aktivitets-alias:"
+
+msgid "Admin Menu"
+msgstr "Administration"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "All Profiles"
+msgstr "Alla profiler"
+
+msgid ""
+"Analytics report can only be printed correctly in landscape mode.\n"
+"\n"
+"When the printing dialog is shown perform the following:\n"
+"<li>Select your printer by name</li><li>View printer properties</li><li>Switch from normal A4 to landscape layout</li>"
+msgstr ""
+"Analytics-rapporten kan bara skrivas ut korrekt i landskapsläge.\n"
+"\n"
+"Gör detta när skrivardialogen visas:\n"
+"<li>Välj rätt skrivare</li><li>Visa skrivarens egenskaper</li><li>Byt från normal A4 till landskapsläge</li>"
+
+msgid "Apr"
+msgstr "Apr"
+
+msgid "Arrows"
+msgstr "Pilar"
+
+msgid "Assess"
+msgstr "Bedöm"
+
+msgid "Assessment"
+msgstr "Bedömning"
+
+msgid "Assessments"
+msgstr "Bedömningar"
+
+msgid "Aug"
+msgstr "Aug"
+
+msgid "Available activities"
+msgstr "Tillgängliga aktiviteter"
+
+#, python-format
+msgid "Average = %2.2f m/s, Variance = %3.2f"
+msgstr "Medelvärde = %2.2f m/s, Varians = %3.2f"
+
+#, python-format
+msgid "Average HPR = %2.2f"
+msgstr "Medelvärde HPR = %2.2f"
+
+msgid "Avg HPR"
+msgstr "Medel HPR"
+
+msgid "Avg velocity"
+msgstr "Medelhastighet"
+
+msgid "BET"
+msgstr "SATSA"
+
+msgid "Back"
+msgstr "Tillbaka"
+
+msgid "Best result for each day shown (shortest duration)"
+msgstr "Visar resultat för varje dag (kortast tid)"
+
+msgid "Born"
+msgstr "Födelseår"
+
+msgid "Call Clock"
+msgstr "Anropa Clock"
+
+msgid "Call Echo"
+msgstr "Anropa Echo"
+
+msgid "Call RaiseException"
+msgstr "Anropa RaiseException"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Change PIN code"
+msgstr "Ändra PIN-kod"
+
+msgid "Change Profile"
+msgstr "Byt profil"
+
+msgid "Click here to log in after entering your password."
+msgstr "Klicka här för att logga in efter att ha matat in lösenordet."
+
+msgid "Click here to refresh activity report."
+msgstr "Klicka här för att uppdatera aktivitetsrapporten."
+
+msgid "Click here to refresh profile list."
+msgstr "Tryck här för att uppdatera profillistan."
+
+msgid "Click here to save your changes."
+msgstr "Klicka här för att spara din ändringar."
+
+msgid "Click on an activity to the left."
+msgstr "Klicka på en aktivitet till vänster."
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Configure Printer"
+msgstr "Konfigurera skrivare"
+
+msgid "Create Profile"
+msgstr "Skapa profil"
+
+msgid "Create a new profile with the following PIN code?"
+msgstr "Skapa en ny profil med följande PIN-kod?"
+
+msgid "Create new"
+msgstr "Skapa ny"
+
+msgid "Curictus PCMS"
+msgstr "Curictus PCMS"
+
+msgid "Curictus PCMS - Loading..."
+msgstr "Curictus PCMS - Laddar..."
+
+msgid "Curictus PCMS Test"
+msgstr "Curictus PCMS Test"
+
+msgid "Curictus RPC Demo"
+msgstr "Curictus RPC Demo"
+
+msgid "Dashboard Status"
+msgstr "Instrumentbräde-status (ha ha)"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Data Analysis"
+msgstr "Dataanalys"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Deactivate profile"
+msgstr "Deaktivera profil"
+
+msgid "Dec"
+msgstr "Dec"
+
+msgid "Decision support"
+msgstr "Beslutsstöd"
+
+msgid "Delete"
+msgstr "Radera"
+
+#, python-format
+msgid "Delete profile '%s'?"
+msgstr "Radera profilen '%s'?"
+
+msgid "Description and settings"
+msgstr "Beskrivning och inställningar"
+
+msgid "Diagnosis"
+msgstr "Diagnos"
+
+msgid "Difficulty Level"
+msgstr "Svårighetsgrad"
+
+msgid "Difficulty Settings"
+msgstr "Svårighetsgrad"
+
+msgid "Difficulty level:"
+msgstr "Svårighetsgrad:"
+
+msgid "Disease date"
+msgstr "Insjukningsdatum"
+
+msgid "Distance"
+msgstr "Avstånd"
+
+msgid "Distance (m)"
+msgstr "Avstånd (m)"
+
+#, python-format
+msgid ""
+"Distance: %2.2f m\n"
+"Time: %3.2fs\n"
+"Event: %s"
+msgstr ""
+"Avstånd: %2.2f m\n"
+"Tid: %3.2fs\n"
+"Händelse: %s"
+
+msgid "Do you really want to shut down?"
+msgstr "Vill du verkligen stänga av?"
+
+msgid "Domain"
+msgstr "Domän"
+
+msgid ""
+"Don't worry, we'll help you. Please contact Curictus Support (www.curictus.com/support).\n"
+"\n"
+"Write down or take a photo of this message:"
+msgstr ""
+"Oroa dig inte, vi ska ordna det här. Kontaka Curictus Support (www.curictus.se/support).\n"
+"\n"
+"Skriv ner eller ta ett foto av följande meddelande:"
+
+msgid "Don't worry, we'll help you. Please contact Curictus Support (www.curictus.com/support). Tell them the following message:"
+msgstr "Oroa dig inte. Vi fixar detta. Vänligen kontakta Curictus support (www.curictus.com/support). Skriv ner detta meddelande:"
+
+msgid "Download Excel"
+msgstr "Ladda ner Excel"
+
+msgid "Duration"
+msgstr "Tid"
+
+msgid "Duration (minutes)"
+msgstr "Tid (minuter)"
+
+msgid "Duration (seconds)"
+msgstr "Tid (sekunder)"
+
+#, python-format
+msgid ""
+"Duration: %(minutes)d min\n"
+"%(date)s"
+msgstr ""
+"Tid: %(minutes)d min\n"
+"%(date)s"
+
+#, python-format
+msgid ""
+"Duration: %(minutes)d min\n"
+"Week: %(week)s\n"
+"%(date)s"
+msgstr ""
+"Tid: %(minutes)d min\n"
+"Week: %(week)s\n"
+"%(date)s"
+
+#, python-format
+msgid ""
+"Duration: %(seconds)d sec\n"
+"%(date)s"
+msgstr ""
+"Tid: %(seconds)d sec\n"
+"%(date)s"
+
+#, python-format
+msgid ""
+"Duration: %(seconds)d sec\n"
+"Mistakes: %(count)d\n"
+"%(date)s"
+msgstr ""
+"Tid: %(seconds)d sec\n"
+"Misstag: %(count)d\n"
+"%(date)s"
+
+#, python-format
+msgid "EN Singular %(num)s formatting %(missing)s works!\n"
+msgid_plural "EN Plural %(num)s formatting %(missing)s works!\n"
+msgstr[0] "EN Singular %(num)s formattering %(missing)s fungerar!\n"
+msgstr[1] "EN Plural %(num)s formattering %(missing)s works!\n"
+
+msgid "EXIT"
+msgstr "EXIT"
+
+msgid "Easy"
+msgstr "Lätt"
+
+msgid "Effective Training Duration Per Day"
+msgstr "Effektiv träningstid per dag"
+
+msgid "Effective Training Duration Per Month"
+msgstr "Effektiv träningstid per månad"
+
+msgid "Effective Training Duration Per Week"
+msgstr "Effektiv träningstid per vecka"
+
+msgid "Email"
+msgstr "Epost"
+
+msgid "Enabled"
+msgstr "Tillgänglig"
+
+msgid "Errors"
+msgstr "Antal fel"
+
+msgid "Event"
+msgstr "Händelse"
+
+msgid "Excellent!"
+msgstr "Utmärkt!"
+
+msgid "Exit"
+msgstr "Avsluta"
+
+msgid "Exit VRS"
+msgstr "Exit VRS"
+
+msgid "FIND:"
+msgstr "HITTA:"
+
+msgid "Feb"
+msgstr "Feb"
+
+msgid "Female"
+msgstr "Kvinna"
+
+msgid "Final Score"
+msgstr "Slutlig poäng"
+
+msgid "First activity"
+msgstr "Första aktivitet"
+
+msgid "First, select a domain."
+msgstr "Välj först en domän."
+
+msgid "Flawless!"
+msgstr "Felfritt!"
+
+msgid "Follow the arrows."
+msgstr "Följ pilarna."
+
+msgid "Force"
+msgstr "Kraft"
+
+msgid "Force (N)"
+msgstr "Kraft (N)"
+
+#, python-format
+msgid ""
+"Force: %2.2f N\n"
+"Time: %3.2fs"
+msgstr ""
+"Kraft: %2.2f N\n"
+"Tid: %3.2fs"
+
+msgid "Fri"
+msgstr "Fre"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Game"
+msgstr "Spel"
+
+msgid "Gender"
+msgstr "Kön"
+
+msgid "General information"
+msgstr "Allmän information"
+
+msgid "Get current level"
+msgstr "Hämta nuvarande nivå"
+
+msgid "Get difficulty levels"
+msgstr "Hämta svårighetsgrader"
+
+msgid "Get scores"
+msgstr "Hämta resultat"
+
+msgid "Good job!"
+msgstr "Bra jobbat!"
+
+msgid "Great!"
+msgstr "Bra!"
+
+msgid "Guest"
+msgstr "Gäst"
+
+msgid "HOLD"
+msgstr "HÅLL"
+
+msgid "HPR"
+msgstr "HPR"
+
+#, python-format
+msgid ""
+"HPR: %2.2f\n"
+"Time: %3.2fs\n"
+"Event: %s"
+msgstr ""
+"HPR: %2.2f\n"
+"Tid: %3.2fs\n"
+"Händelse: %s"
+
+msgid "Hand-Path Ratio"
+msgstr "Hand-Path Ratio"
+
+msgid "Hard"
+msgstr "Svår"
+
+msgid "Has played before?"
+msgstr "Har spelat tidigare?"
+
+msgid "Help"
+msgstr "Hjälp"
+
+msgid "Hmm.. Wrong password."
+msgstr "Hmm.. Fel lösenord."
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Instructions"
+msgstr "Instruktioner"
+
+msgid "Internet connection not available, please inform the IT department."
+msgstr "Internet-uppkopling ej tillgänglig, vänligen kontakta IT-avdelningen."
+
+msgid "Intro"
+msgstr "Intro"
+
+msgid "Jan"
+msgstr "Jan"
+
+msgid "Jul"
+msgstr "Jul"
+
+msgid "Jun"
+msgstr "Jun"
+
+msgid "KM/H"
+msgstr "KM/H"
+
+msgid "Keep it up!"
+msgstr "Fortsätt så!"
+
+msgid "Keep working!"
+msgstr "Fortsätt jobba!"
+
+msgid "Kind"
+msgstr "Sort"
+
+msgid "LEVEL"
+msgstr "NIVÅ"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Lap"
+msgid_plural "Laps"
+msgstr[0] "Varv"
+msgstr[1] "Varv"
+
+msgid "Last 12 months"
+msgstr "Senaste 12 månaderna"
+
+msgid "Last 14 days"
+msgstr "Senaste 14 dagarna"
+
+msgid "Last 24 weeks"
+msgstr "Senaste 24 veckorna"
+
+msgid "Laterality index"
+msgstr "Lateralitetsindex"
+
+msgid "Latest"
+msgstr "Senaste"
+
+msgid "Latest activity"
+msgstr "Senaste aktivitet"
+
+msgid "Launch Game"
+msgstr "Starta spel"
+
+msgid "Launch Test"
+msgstr "Starta bedömning"
+
+msgid "Left score"
+msgstr "Vänster resultat"
+
+msgid "Level"
+msgstr "Nivå"
+
+msgid "List activities"
+msgstr "Lista aktiviteter"
+
+msgid "Listen"
+msgstr "Lyssna"
+
+msgid "Log in"
+msgstr "Logga in"
+
+msgid "Log out"
+msgstr "Logga ut"
+
+msgid "Login as guest"
+msgstr "Logga in gäst"
+
+msgid "Login as me"
+msgstr "Logga in mig"
+
+msgid "Login with pincode"
+msgstr "Logga in med pinkod"
+
+msgid "Logout"
+msgstr "Logga ut"
+
+msgid "MOVES"
+msgstr "DRAG"
+
+msgid "Male"
+msgstr "Man"
+
+msgid "Mar"
+msgstr "Mar"
+
+#, python-format
+msgid "Max = %2.2f N"
+msgstr "Max = %2.2f N"
+
+#, python-format
+msgid "Max = %2.2f m/s2, Min = %2.2f m/s2"
+msgstr "Max = %2.2f m/s2, Min = %2.2f m/s2"
+
+msgid "Max acceleration"
+msgstr "Max acceleration"
+
+msgid "Max force"
+msgstr "Max kraft"
+
+msgid "Max velocity"
+msgstr "Max hastighet"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "Medium"
+msgstr "Medel"
+
+msgid "Middle targets"
+msgstr "Mitt-mål"
+
+msgid "Min acceleration"
+msgstr "Min acceleration"
+
+msgid "Mon"
+msgstr "Mån"
+
+msgid "Monday"
+msgstr "Måndag"
+
+msgid "Moves"
+msgstr "Drag"
+
+msgid ""
+"Multi\n"
+"Line\n"
+"  With\n"
+"Spaces \n"
+msgstr ""
+"Multi\n"
+"Rad\n"
+"  Med\n"
+"Mellanslags\n"
+
+msgid "My Best Results"
+msgstr "Mina Bästa Resultat"
+
+msgid "My Results"
+msgstr "Mina Resultat"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Need help? Hold the mouse pointer over items for a short while. Try it out on this message!"
+msgstr "Behöver du hjälp? Vila muspekaren en kort stund över knappar för att få tips. Prova att vila markören på det här meddelandet!"
+
+msgid "Nice work!"
+msgstr "Bra kämpat!"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Notes"
+msgstr "Anteckningar"
+
+msgid "Nov"
+msgstr "Nov"
+
+msgid "Now, type the domain password and press enter."
+msgstr "Skriv nu lösenordet och tryck retur."
+
+msgid "Number of assessments"
+msgstr "Antal bedömningar"
+
+msgid "Number of training activities"
+msgstr "Antal träningsaktiviteter"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Oct"
+msgstr "Okt"
+
+msgid "Okt"
+msgstr "Okt"
+
+msgid "Oops! Something went wrong"
+msgstr "Hoppsan! Något gick fel."
+
+msgid "Oops! Something went wrong."
+msgstr "Hoppsan! Där gick något galet."
+
+msgid "Overview"
+msgstr "Översikt"
+
+msgid "PCMS"
+msgstr "PCMS"
+
+msgid "PIN code"
+msgstr "PIN-kod"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Patient"
+msgstr "Patient"
+
+msgid "Patient birthdate is missing or invalid"
+msgstr "Patientens födelseår saknas eller är felaktigt"
+
+msgid "Patient disease date is missing or invalid"
+msgstr "Patientens insjuknadsdatum saknas eller är felaktigt"
+
+msgid "Pincode"
+msgstr "Pinkod"
+
+msgid "Pincode:"
+msgstr "Pinkod:"
+
+msgid "Play"
+msgstr "Spela"
+
+msgid "Play!"
+msgstr "Spela!"
+
+msgid "Please insert haptic pen into inkwell..."
+msgstr "Sätt in pennan i hållaren..."
+
+msgid "Please try again!"
+msgstr "Försök igen!"
+
+msgid "Please turn off computer and verify that cables are plugged in properly."
+msgstr "Stäng av datorn och kontrollera att alla kablar är rätt inkopplade."
+
+msgid "Please turn on and connect the supplied USB flash drive."
+msgstr "Aktivera och anslut tillhandlahållen USB-sticka."
+
+msgid "Please wait..."
+msgstr "Var god dröj..."
+
+msgid "Point Test"
+msgstr "Point Test"
+
+msgid "Point Test - Summary"
+msgstr "Point Test - Sammanfattning"
+
+msgid "Press a red '0' when you are finished."
+msgstr "Tryck på en röd cirkel med siffran '0'  när du är klar."
+
+msgid "Press all green circles marked '1'."
+msgstr "Tryck på alla gröna cirklar med siffran '1'."
+
+msgid "Press exit sign when done."
+msgstr "Tryck på nödutgången när du är klar."
+
+msgid "Print"
+msgstr "Skriv ut"
+
+msgid "Problem"
+msgstr "Uppgift"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Profile Selection"
+msgstr "Profilval"
+
+msgid "Quit_H3D"
+msgstr "Quit_H3D"
+
+msgid "Refresh"
+msgstr "Uppdatera"
+
+msgid "Repeat"
+msgstr "Upprepa"
+
+msgid "Reset"
+msgstr "Återställ"
+
+msgid "Result"
+msgstr "Resultat"
+
+msgid "Results"
+msgstr "Resultat"
+
+msgid "Retry"
+msgstr "Försök igen"
+
+msgid "Right score"
+msgstr "Höger resultat"
+
+msgid "Rotate:"
+msgstr "Rotera:"
+
+msgid "SCORE"
+msgstr "POÄNG"
+
+msgid "SPIN"
+msgstr "SPELA"
+
+msgid "Sat"
+msgstr "Lör"
+
+msgid "Saturday"
+msgstr "Lördag"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Save Patient Record"
+msgstr "Spara Patient Data"
+
+msgid "Score"
+msgstr "Poäng"
+
+msgid "Search patient:"
+msgstr "Sök patient:"
+
+msgid "Select Language"
+msgstr "Välj språk"
+
+msgid "Select Your PIN code"
+msgstr "Tryck på din PIN-kod"
+
+msgid "Select language and domain, please."
+msgstr "Välj språk och domän."
+
+msgid "Selected activity"
+msgstr "Vald aktivitet"
+
+msgid "Sep"
+msgstr "Sep"
+
+msgid "Sessions"
+msgstr "Sessioner"
+
+msgid "Set current level"
+msgstr "Spara svårighetsgrad"
+
+msgid "Show profile"
+msgstr "Visa profil"
+
+msgid "Shutdown"
+msgstr "Stäng av"
+
+#, python-format
+msgid "Sorry, too many failed attempts, wait %d minute and try again."
+msgid_plural "Sorry, too many failed attempts, wait %d minutes and try again."
+msgstr[0] "Tyvärr, för många felaktiga försök, vänta i %d minut och försök igen."
+msgstr[1] "Tyvärr, för många felaktiga försök, vänta i %d minuter och försök igen."
+
+msgid "Sorry, wrong password. Please try again."
+msgstr "Tyvärr, fel lösenord. Vänligen försök igen."
+
+msgid "Start"
+msgstr "Börja"
+
+msgid "Sun"
+msgstr "Sön"
+
+msgid "Sunday"
+msgstr "Söndag"
+
+msgid "Symptoms"
+msgstr "Symptom"
+
+msgid "System Info"
+msgstr "Systeminformation"
+
+msgid "System info"
+msgstr "Systeminfo"
+
+msgid "Target represses"
+msgstr "Omtryck"
+
+msgid "Thanks!"
+msgstr "Tack!"
+
+msgid "Thanks."
+msgstr "Tack."
+
+msgid "Thanks. Now press 'Create Profile'."
+msgstr "Tack. Tryck nu på 'Skapa profil'."
+
+#, python-format
+msgid "The straight line is the normative mean value (%2.2f), the dotted lines represent a single standard deviation (%2.2f)."
+msgstr "Den horisontella linjen är det normative medelvärdet (%2.2f) och de streckade linjerna representerar en standard deviation (%2.2f)."
+
+msgid "Therapist instructions"
+msgstr "Detaljerade instruktioner"
+
+msgid "There are more tones to play..."
+msgstr "Det finns fler toner att spela..."
+
+msgid "This PIN code is already in use."
+msgstr "Denna PIN-kod är upptagen."
+
+msgid "Thu"
+msgstr "Tor"
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "Time (s)"
+msgstr "Tid (s)"
+
+#, python-format
+msgid ""
+"Time: %3.2fs\n"
+"Distance: %2.2f m\n"
+"Event: %s"
+msgstr ""
+"Tid: %3.2fs\n"
+"Avstånd: %2.2f m\n"
+"Händelse: %s"
+
+msgid "Timestamp"
+msgstr "Tidsstämpel"
+
+msgid "Today"
+msgstr "Idag"
+
+#, python-format
+msgid "Total distance = %2.2f m"
+msgstr "Total distans = %2.2f m"
+
+#, python-format
+msgid "Total time = %2.2f s"
+msgstr "Total tid = %2.2f s"
+
+msgid "Touch all targets in order (1-2-3 ...)"
+msgstr "Tryck på cirklarna i ordningen 1-2-3 ..."
+
+msgid "Touch all targets in order (1-A-2-B ...)"
+msgstr "Tryck på cirklarna i ordningen 1-A-2-B ..."
+
+msgid "Touch correct answer!"
+msgstr "Tryck på rätt svar!"
+
+msgid "Touch everything."
+msgstr "Känn på allt i rummet."
+
+msgid "Touch the green bubble."
+msgstr "Tryck på den gröna bubblan."
+
+msgid "Train"
+msgstr "Träna"
+
+msgid "Training Activities"
+msgstr "Träningsaktiviteter"
+
+msgid "Training log"
+msgstr "Träningslogg"
+
+msgid "Training report"
+msgstr "Träningsrapport"
+
+msgid "Tue"
+msgstr "Tis"
+
+msgid "Tuesday"
+msgstr "Tisdag"
+
+msgid "Turn on 3D glasses and lift pen from inkwell..."
+msgstr "Sätt på 3D-glasögonen och lyft pennan från hållaren..."
+
+msgid "Type a new 4-digit PIN code."
+msgstr "Mata in en 4-siffrig PIN-kod."
+
+msgid "Unspecified"
+msgstr "Ospecificerad"
+
+msgid "Update profile list"
+msgstr "Uppdatera profillista"
+
+msgid "Use the right and left arrows to browse through the instructions."
+msgstr "Använd höger- och vänsterpilarna för att bläddra igenom instruktionerna."
+
+msgid "VRS Analytics"
+msgstr "VRS Analytics"
+
+msgid "Variable"
+msgstr "Variabel"
+
+msgid "Velocity"
+msgstr "Hastighet"
+
+msgid "Velocity (m/s)"
+msgstr "Hastighet (m/s)"
+
+#, python-format
+msgid ""
+"Velocity: %2.2f m/s\n"
+"Time: %3.2fs"
+msgstr ""
+"Hastighet: %2.2f m/s\n"
+"Tid: %3.2fs"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Video tutorial"
+msgstr "Filmade instruktioner"
+
+msgid "View tutorial"
+msgstr "Visa instruktioner"
+
+msgid "Wed"
+msgstr "Ons"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Welcome!"
+msgstr "Välkommen!"
+
+msgid "Well done!"
+msgstr "Bra jobbat!"
+
+msgid "Well done, new record!"
+msgstr "Bra jobbat, nytt rekord!"
+
+msgid "Year"
+msgstr "År"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Yesterday"
+msgstr "Igår"
+
+msgid "You vs. Opponent"
+msgstr "Du - Motståndare"
+
+msgid "You won the gargantuan trophy!"
+msgstr "Du vann den största pokalen!"
+
+msgid "You won the gigantic trophy!"
+msgstr "Du vann den gigantiska pokalen!"
+
+msgid "You won the huge trophy!"
+msgstr "Du vann den enorma pokalen!"
+
+msgid "You won the large trophy!"
+msgstr "Du vann den stora pokalen!"
+
+msgid "You won the medium trophy!"
+msgstr "Du vann den mellanstora pokalen!"
+
+msgid "You won the small trophy!"
+msgstr "Du vann den lilla pokalen!"
+
+msgid "Zones"
+msgstr "Zoner"
+
+#, python-format
+msgid "about %(days)d days ago"
+msgstr "ungefär %(days)d dagar sedan"
+
+#, python-format
+msgid "about %(hours)d hours ago"
+msgstr "ungefär %(hours)d timmar sedan"
+
+msgid "about a day ago."
+msgstr "ungefär en dag sedan."
+
+msgid "about one minute ago."
+msgstr "ungefär en minut sedan."
+
+msgid "an hour ago."
+msgstr "en timma sedan."
+
+msgid "game lost"
+msgstr "förlust"
+
+msgid "game won"
+msgstr "vinst"
+
+msgid "in a row!"
+msgstr "på rad!"
+
+msgid "min"
+msgstr "min"
+
+msgid "mistakes"
+msgstr "misstag"
+
+msgid "moves"
+msgstr "drag"
+
+msgid "no training"
+msgstr "ingen träning"
+
+msgid "perfect game (no missed targets)"
+msgstr "perfekt omgång (inga missar)"
+
+msgid "points"
+msgstr "poäng"
+
+msgid "sec"
+msgstr "sek"
+
+msgid "v"
+msgstr "v"
+
+#~ msgid "$activity_follower_desc"
+#~ msgstr "Följ bollen."
+
+#~ msgid "$activity_follower_name"
+#~ msgstr "Följa"
+
+#~ msgid "$activity_follower_summary"
+#~ msgstr "Håll pennan inuti bollen."
+
+#~ msgid "$activity_parkinson2_desc"
+#~ msgstr "Tryck på knapparna i takt med musiken."
+
+#~ msgid "$activity_parkinson2_name"
+#~ msgstr "Parkinson"
+
+#~ msgid "$activity_parkinson2_summary"
+#~ msgstr "Tryck på prickarna i takt med musiken."
+
+#~ msgid "$dashboard_systemmenu_help"
+#~ msgstr "Tryck 'Stäng av' för att avsluta. Tryck 'Ny användare' för att lägga till ett nytt ID-nummer."
+
+#~ msgid "%(count)d sessions"
+#~ msgstr "%(count)d sessioner"
+
+#~ msgid "%(count)d training activities"
+#~ msgstr "%(count)d träningsaktiviteter"
+
+#~ msgid "%(count)d training sessions"
+#~ msgstr "%(count)d träningssessioner"
+
+#~ msgid "%(count)d training sessions."
+#~ msgstr "%(count)d träningssessioner"
+
+#~ msgid "About %(days)d days ago"
+#~ msgstr "Ungefär %(days)d dagar sedan"
+
+#~ msgid "About %(hours)d hours ago"
+#~ msgstr "Ungefär %(hours)d timmar sedan"
+
+#~ msgid "About a day ago."
+#~ msgstr "Ungefär en dag sedan."
+
+#~ msgid "About one minute ago."
+#~ msgstr "Ungefär en minut sedan."
+
+#~ msgid "Acceleration (m/s2"
+#~ msgstr "Acceleration (m/s2"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "All Patients"
+#~ msgstr "Patienter"
+
+#~ msgid "All games"
+#~ msgstr "Alla spel"
+
+#~ msgid "An hour ago."
+#~ msgstr "En timma sedan."
+
+#~ msgid "Begin"
+#~ msgstr "Börja"
+
+#~ msgid "Best Result"
+#~ msgstr "Bästa Resultat"
+
+#~ msgid "Best result for each day shown (shortest duration / fewest mistakes)."
+#~ msgstr "Bästa resultat för dagen (kortast tid / minst antal misstag)."
+
+#~ msgid "Best result for each day shown (shortest duration)."
+#~ msgstr "Bästa resultat för dagen (kortast tid)."
+
+#~ msgid "Birth date"
+#~ msgstr "Födelsedatum"
+
+#~ msgid "Birthday"
+#~ msgstr "Födelsedag"
+
+#~ msgid "Change Pincode"
+#~ msgstr "Ändra Pinkod"
+
+#~ msgid "Change User"
+#~ msgstr "Byt Användare"
+
+#~ msgid "Change pincode"
+#~ msgstr "Ändra pinkod"
+
+#~ msgid "Change user"
+#~ msgstr "Byt användare"
+
+#~ msgid "Click here to refresh patient list."
+#~ msgstr "Klicka här för att uppdatera patientlistan."
+
+#~ msgid "Click on a patient, then press 'Select this patient'."
+#~ msgstr "Klicka på en patient i listan och sedan på 'Välj denna patient'."
+
+#~ msgid "Click on an activity to the right."
+#~ msgstr "Klicka på en aktivitet till höger."
+
+#~ msgid "Create User"
+#~ msgstr "Ny Användare"
+
+#~ msgid "Create a new profile with following pincode?"
+#~ msgstr "Skapa en ny profil med följande pinkod?"
+
+#~ msgid "Create user"
+#~ msgstr "Ny användare"
+
+#~ msgid "Curictus Patient Care Management System"
+#~ msgstr "Curictus Patienthanteringssystem"
+
+#~ msgid "Days"
+#~ msgstr "Dagar"
+
+#~ msgid "Delete patient"
+#~ msgstr "Radera patient"
+
+#~ msgid "Delete patient '%s'?"
+#~ msgstr "Radera patient '%s'?"
+
+#~ msgid "Delete profile"
+#~ msgstr "Radera profil"
+
+#~ msgid "Do you really want to shutdown?"
+#~ msgstr "Vill du verkligen stänga av?"
+
+#~ msgid "Do you want to shutdown VRS?"
+#~ msgstr "Vill du avsluta VRS?"
+
+#~ msgid "Effective Training Duration"
+#~ msgstr "Effektiv träningstid"
+
+#~ msgid "Empty weekday"
+#~ msgstr "Tom veckodag"
+
+#~ msgid "English"
+#~ msgstr "Engelska"
+
+#~ msgid "Export"
+#~ msgstr "Exportera"
+
+#~ msgid "Guest mode."
+#~ msgstr "Gästläge."
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "Kinematics"
+#~ msgstr "Kinematik"
+
+#~ msgid "Logged in as"
+#~ msgstr "Inloggad som"
+
+#~ msgid "Main Menu"
+#~ msgstr "Huvudmeny"
+
+#~ msgid "Mid targets"
+#~ msgstr "Mitt-träffar"
+
+#~ msgid "Mistakes"
+#~ msgstr "Misstag"
+
+#~ msgid "Months"
+#~ msgstr "Månader"
+
+#~ msgid "My games"
+#~ msgstr "Mina spel"
+
+#~ msgid "Next"
+#~ msgstr "Nästa"
+
+#~ msgid "No such ID. Press 'C' to try again."
+#~ msgstr "ID-numret finns tyvärr inte. Tryck 'C' för att börja om."
+
+#~ msgid "No training."
+#~ msgstr "Ingen träning."
+
+#~ msgid "Now, type the domain password."
+#~ msgstr "Skriv in lösenordet."
+
+#~ msgid "Parameter"
+#~ msgstr "Parameter"
+
+#~ msgid "Patient Care Management System"
+#~ msgstr "Patient Care Management System"
+
+#~ msgid "Patient Information"
+#~ msgstr "Patientinformation"
+
+#~ msgid "Patient Instructions"
+#~ msgstr "Patientinstruktioner"
+
+#~ msgid "Patient Selection"
+#~ msgstr "Patientval"
+
+#~ msgid "Patient information"
+#~ msgstr "Patientinformation"
+
+#~ msgid "Pause:"
+#~ msgstr "Pause:"
+
+#~ msgid "Perfect game!"
+#~ msgstr "Perfekt omgång!"
+
+#~ msgid "Player vs. Opponent"
+#~ msgstr "Spelare - Motståndare"
+
+#~ msgid "Please turn off computer and verify that cabels are plugged in properly."
+#~ msgstr "Stäng av datorjäveln."
+
+#~ msgid "Please type your ID."
+#~ msgstr "Skriv in ditt ID-nummer."
+
+#~ msgid "Reload Patient List"
+#~ msgstr "Uppdatera patientlista"
+
+#~ msgid "Reload patient list"
+#~ msgstr "Uppdatera patientlista"
+
+#~ msgid "Reports"
+#~ msgstr "Rapporter"
+
+#~ msgid "Select Patient"
+#~ msgstr "Välj patient"
+
+#~ msgid "Select Your Pincode"
+#~ msgstr "Välj Din Pinkod"
+
+#~ msgid "Select this patient"
+#~ msgstr "Välj patient"
+
+#~ msgid "Select your domain, please."
+#~ msgstr "Välj domän, snälla."
+
+#~ msgid "Settings"
+#~ msgstr "Inställningar"
+
+#~ msgid "Show patient"
+#~ msgstr "Välj patient"
+
+#~ msgid "Shut down"
+#~ msgstr "Stäng av"
+
+#~ msgid "Sorry, you lost."
+#~ msgstr "Förlust, tyvärr."
+
+#~ msgid "Start date"
+#~ msgstr "Startdatum"
+
+#~ msgid "Svenska"
+#~ msgstr "Swedish"
+
+#~ msgid "TMT"
+#~ msgstr "TMT"
+
+#~ msgid "Terminate"
+#~ msgstr "Terminera"
+
+#~ msgid "Thanks. Now press 'Create User'."
+#~ msgstr "Tack. Tryck nu på 'Ny Användare'."
+
+#~ msgid "Thanks. Now press 'Create user'."
+#~ msgstr "Tack. Tryck nu på 'Ny användare'."
+
+#~ msgid "Thanks. Now press 'Log in' to begin."
+#~ msgstr "Tack. Tryck nu på 'Logga in' för att börja."
+
+#~ msgid "This ID is already in use."
+#~ msgstr "Detta ID-nummer används redan."
+
+#~ msgid "Timeline"
+#~ msgstr "Tidslinje"
+
+#~ msgid "Total = %2.2f m"
+#~ msgstr "Total = %2.2f m"
+
+#~ msgid "Touch all in order."
+#~ msgstr "Rör alla i ordning."
+
+#~ msgid "Trail Making Test - Summary"
+#~ msgstr "Trail Making Test - Sammanfattning"
+
+#~ msgid "Training Duration - last 14 days"
+#~ msgstr "Träningstid - senaste 14 dagar"
+
+#~ msgid "Training Duration - last 24 weeks"
+#~ msgstr "Träningstid - senaste 24 veckor"
+
+#~ msgid "Training Duration - last 6 months"
+#~ msgstr "Träningstid - senaste 6 månader"
+
+#~ msgid "Training sessions"
+#~ msgstr "Träningstillfällen"
+
+#~ msgid "Type a new PIN code."
+#~ msgstr "Mata in en ny PIN-kod."
+
+#~ msgid "Type a new user ID."
+#~ msgstr "Skriv in ett nytt användar-ID."
+
+#~ msgid "Use the left and right arrow buttons to turn pages."
+#~ msgstr "Använd höger- och vänsterknapparna för att växla sida."
+
+#~ msgid ""
+#~ "Use the left and right arrow buttons to turn pages.\n"
+#~ "\n"
+#~ "Start the tutorial by pressing the button with a right arrow."
+#~ msgstr ""
+#~ "Använd knapparna med höger- och vänsterpilar för att växla sida.\n"
+#~ "\n"
+#~ "Tryck på knappen med högerpilen för att börja."
+
+#~ msgid "Value"
+#~ msgstr "Värde"
+
+#~ msgid "Video instructions"
+#~ msgstr "Videoinstruktioner"
+
+#~ msgid "View tutorial movie"
+#~ msgstr "Visa instruktionsfilm"
+
+#~ msgid "Weekday"
+#~ msgstr "Veckodag"
+
+#~ msgid "Weekly report"
+#~ msgstr "Veckorapport"
+
+#~ msgid "Weeks"
+#~ msgstr "Veckor"
+
+#~ msgid "Well done, new highscore!"
+#~ msgstr "Bra jobbat, nytt highscore!"
+
+#~ msgid "You won!"
+#~ msgstr "Du vann!"
+
+#~ msgid "Your ID:"
+#~ msgstr "Ditt ID-nummer:"
+
+#~ msgid "Your Result"
+#~ msgstr "Ditt resultat"
+
+#~ msgid "banditDesc"
+#~ msgstr ""
+#~ "Slå dom i skallen. Slå dom i huvvet. Gör vad fan du vill med dem, din jävel.\n"
+#~ "\n"
+#~ "Alla banditer måste dö. Dö dö dö dö dö! Jag hatar banditer!\n"
+#~ "\n"
+#~ "Banditjävlar."
+
+#~ msgid "banditName"
+#~ msgstr "Bandit"
+
+#~ msgid "minutes"
+#~ msgstr "minuter"
+
+#~ msgid "n/a"
+#~ msgstr "n/a"
+
+#~ msgid "patient lost game"
+#~ msgstr "patienten förlorade"
+
+#~ msgid "patient won game"
+#~ msgstr "patienten vann"
+
+#~ msgid "pause"
+#~ msgstr "pause"

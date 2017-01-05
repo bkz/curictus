@@ -1,0 +1,3 @@
+Build on Win32 using Mingw 32 (library depends on GCC).
+
+python setup.py build -c mingw32

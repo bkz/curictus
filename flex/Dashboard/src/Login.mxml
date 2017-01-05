@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    creationComplete="init()"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+    
+    <mx:Script source="defs.as" />
+
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>
+    <![CDATA[
+        import mx.collections.ArrayCollection;
+        import mx.controls.Button;
+        import vrs.shared.Patient;
+             
+        private const LOGIN_BUTTON_WIDTH:int = 150;
+        private const LOGIN_BUTTON_HEIGHT:int = 100;
+        private const PATIENTS_PER_SCREEN:int = 6;
+        
+        private var currentPage:int = 0;
+        private var maxPages:int = 0;
+        private var patients:ArrayCollection;
+        
+        public function init():void {
+            refresh();
+        }
+
+        public function refresh():void {
+            app.dashboardService.listPatients(
+                function(result:ArrayCollection):void {
+                    patients = result;
+                    currentPage = 0;
+                    maxPages = Math.ceil(patients.length / Number(PATIENTS_PER_SCREEN));
+                    setActivePage(currentPage);
+                });
+        }
+                                                
+        private function bindButton(b:PincodeButton, p:Patient):void {
+            if (p) {
+                b.setPincode(p.pincode);
+            }
+            else {
+                b.clear();
+            }
+        }
+        
+        private function setActivePage(page:int):void {
+            prevButton.enabled = (page > 0);
+            nextButton.enabled = (page < (maxPages-1));
+            
+            var offset:int = page * PATIENTS_PER_SCREEN;
+            
+            bindButton(a0, (offset+0) < patients.length ? patients[offset+0] : null);
+            bindButton(a1, (offset+1) < patients.length ? patients[offset+1] : null);
+            bindButton(a2, (offset+2) < patients.length ? patients[offset+2] : null);
+            bindButton(a3, (offset+3) < patients.length ? patients[offset+3] : null);
+            bindButton(a4, (offset+4) < patients.length ? patients[offset+4] : null);
+            bindButton(a5, (offset+5) < patients.length ? patients[offset+5] : null);
+        }
+                           
+        private function prevPress():void {
+            if (currentPage > 0)
+                currentPage -= 1;
+            setActivePage(currentPage);
+        }
+        
+        private function nextPress():void {
+            if (currentPage < maxPages)
+                currentPage += 1;
+            setActivePage(currentPage);            
+        }        
+    ]]>
+    </mx:Script>
+    
+<mx:VBox width="100%" height="100%" styleName="roundedBox" horizontalAlign="middle" filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}">
+        <mx:Label id="welcomeLabel" textAlign="center" text="{_('Select Your PIN code')}" styleName="message" width="100%" />
+        <mx:Spacer height="100%" />
+        <mx:HBox width="100%" height="100%" verticalAlign="middle">
+            <local:StretchButton height="100%" width="125"
+                id="prevButton"
+                icon="@Embed(source='assets/icons/images/left.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/left.png')"
+                click="{prevPress()}"
+            />
+            
+            <mx:Spacer width="100%" />
+            <mx:VBox width="100%" height="100%" verticalGap="20">
+                <!-- Need to use mouseUp instead of click in order to get mouse events to be registered correctly -->
+                <mx:HBox width="100%" height="100%" horizontalGap="20">
+                    <local:PincodeButton id="a0" width="300" height="188" mouseUp="app.loginWithPincode(a0.getPincode())" />
+                    <local:PincodeButton id="a1" width="300" height="188" mouseUp="app.loginWithPincode(a1.getPincode())" />
+                    <local:PincodeButton id="a2" width="300" height="188" mouseUp="app.loginWithPincode(a2.getPincode())" />
+                </mx:HBox>
+                <mx:HBox width="100%" height="100%" horizontalGap="20">
+                    <local:PincodeButton id="a3" width="300" height="188" mouseUp="app.loginWithPincode(a3.getPincode())" />
+                    <local:PincodeButton id="a4" width="300" height="188" mouseUp="app.loginWithPincode(a4.getPincode())" />
+                    <local:PincodeButton id="a5" width="300" height="188" mouseUp="app.loginWithPincode(a5.getPincode())" />
+                </mx:HBox>
+            </mx:VBox>
+            
+            <mx:Spacer width="100%" />
+            
+            <local:StretchButton height="100%" width="125"
+                id="nextButton"
+                icon="@Embed(source='assets/icons/images/right.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/right.png')"
+                click="{nextPress()}"
+            />
+        </mx:HBox>
+        <mx:Spacer height="20" />
+        <mx:HBox width="100%" height="100%">
+            <local:StretchButton width="100%" height="200"
+                label="{_('Back')}" 
+                click="app.currentState='initMenuState'"
+                icon="@Embed(source='assets/icons/images/back.png')" 
+            />
+            
+			
+            <local:StretchButton width="100%" height="200"
+                label="{_('Help')}"
+                icon="@Embed(source='assets/icons/images/help.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/help.png')"
+                click="{app.showHelp(_('$dashboard_login_help'));}"
+            />            
+
+            <local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                enabled="false"
+            />
+
+            <local:StretchButton width="100%" height="200"
+                label="{_('Refresh')}"
+                icon="@Embed(source='assets/icons/images/again.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/again.png')"
+                click="{refresh();}"
+            />
+                        
+            <local:StretchButton width="100%" height="200"
+                label="{_('Guest')}"
+                icon="@Embed(source='assets/icons/images/guest.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/guest.png')"
+                click="app.loginAsGuest()"
+            />
+        </mx:HBox>
+    </mx:VBox>
+   
+</mx:VBox>

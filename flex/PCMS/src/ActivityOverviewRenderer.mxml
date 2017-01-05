@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+    paddingBottom="10"
+    paddingTop="10"
+    paddingRight="20"
+    borderStyle="solid"
+    borderSides="top"
+    borderColor="0xeeeeee"
+	backgroundColor="0xffffff"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	verticalAlign="middle"
+>
+    <mx:Script source="defs.as" />
+    
+    <mx:DateFormatter id="dateFormatter" formatString="YYYY-MM-DD HH:NN:SS" />
+	
+	<mx:Style>
+		.aLabel {
+			paddingTop: 0;
+			paddingBottom: 0;
+			fontFamily: "Droid Sans Embedded";
+			fontSize: 14;
+			fontWeight: bold;
+		}
+		.bLabel {
+			paddingTop: 0;
+			paddingBottom: 0;
+			fontSize: 12;
+			alpha: 0.9;
+		}
+	</mx:Style>
+	
+    <mx:Script>       
+        <![CDATA[
+            import mx.utils.ObjectProxy;
+            import vrs.shared.Session;
+
+            override public function set data( value:Object ) : void 
+            {
+                super.data = value;
+
+                image.source = "";
+                titleLabel.text = "";
+                timeLabel.text = "";
+                scoreLabel.text = "";
+				scoreSubLabel.text = "";
+                this.setStyle('backgroundColor', 0xffffff);
+				this.setStyle('borderColor', 0xeeeeee);
+				this.setStyle('paddingLeft', 0);
+				this.image.alpha = 1.0;
+				this.clockIcon.visible = false;
+				this.clockIcon.includeInLayout = false;
+				
+				var weekDayLabels:Array = new Array(
+					_("Sunday"),
+					_("Monday"),
+					_("Tuesday"),
+					_("Wednesday"),
+					_("Thursday"),
+					_("Friday"),
+					_("Saturday")
+				);
+				
+                if (data.kind == "session")
+                {
+                    var s:Session = data.session;
+                    
+                    image.source    = Application.application.getServerURL() + 'static/screenshots/' + s.activity.alias + '_square_48.jpg';
+                    titleLabel.text = getName(s.activity.alias);
+                    //timeLabel.text  = s.timestamp.toLocaleString();
+                    timeLabel.text  = sprintf("%02d:%02d:%02d", s.timestamp.hours, s.timestamp.minutes, s.timestamp.seconds);
+					this.clockIcon.visible = true;
+					this.clockIcon.includeInLayout = true;
+					
+					formatScore(s.activity.alias, s.score);
+					
+					this.setStyle('paddingLeft', 50);
+                }
+                else if (data.kind == "pause")
+                {                
+                    var hours:int = data.duration / 3600;
+                    var minutes:int = (data.duration - hours * 3600) / 60;
+                    
+                    if (hours > 0)
+                    {
+                        titleLabel.text = sprintf( _("%(hours)dh %(minutes)d min pause"), { hours:hours, minutes:minutes } );
+                        
+                    }
+                    else
+                    {
+                        titleLabel.text = sprintf( _("%(minutes)d min pause"), { minutes:minutes } );
+                    }
+                    
+					image.source    = Application.application.getServerURL() + 'static/pcms_icons/hourglass.png';
+					this.setStyle('paddingLeft', 50);
+                }
+                else if (data.kind == "weekday")
+                {                  
+
+					var d:Date = data.date;
+					
+					if (data.session_count > 0)
+                    {
+                     	titleLabel.text = sprintf( _("%(weekday)s %(day)d/%(month)d"), {weekday: weekDayLabels[d.getDay()], day:d.date, month:d.month+1});
+                        timeLabel.text = sprintf( _("%(count)d training activities / assessments"), { count: data.session_count } );
+                    }
+                    else
+                    {
+						this.image.alpha = 0.4;
+						titleLabel.text = sprintf( _("%(weekday)s %(day)d/%(month)d"), {weekday: weekDayLabels[d.getDay()], day:d.date, month:d.month+1});
+						timeLabel.text = _('no training');
+                    }
+
+                    image.source   = Application.application.getServerURL() + 'static/pcms_icons/calendar-blank_' + d.date.toString() + '.png';
+					this.setStyle('borderColor', 0xbbbbbb);
+				}
+             }
+             
+            /*
+            private function timeAgo(d:Date):String 
+            {
+                 var seconds:int = (new Date().getTime() - d.getTime()) / 1000;
+                 var minutes:int = seconds / 60;
+                 
+                if (seconds <= 50)
+                {
+                    return sprintf(_("%(seconds)d seconds ago"), {"seconds" : seconds});
+                }
+
+                if  (seconds > 50 && seconds <= 90)
+                {
+                    return _('about one minute ago.');
+                }
+
+                if  (minutes <= 50)
+                {
+                    return sprintf(_("%(minutes)d minutes ago"), {"minutes" : minutes});
+                }
+
+                if  (minutes > 50 && minutes <= 110)
+                {
+                    return _('an hour ago.');
+                }
+
+                if  (minutes > 110 && minutes <= 1440)
+                {
+                    return sprintf(_("about %(hours)d hours ago"), { "hours" : int(minutes/60)});
+                }
+                
+                if  (minutes > 1440 && minutes <= 2880)
+                {
+                    return _("about a day ago.");
+                }
+
+                if  (minutes > 2880) // && minutes <= 7200)
+                {
+                    return sprintf(_("about %(days)d days ago"), { "days" : int(minutes/60/24)});
+                }
+                
+                return dateFormatter.format(d);
+            }
+            */
+            
+            private function formatDuration(t:Number):String {
+                return sprintf("%01d:%02d", t / 60, t % 60);
+            }
+            
+            private function getName(alias:String):String {
+                return getActivityName(alias);
+            }
+            
+            private function formatScore(alias:String, score:ObjectProxy):void {
+                var result:String = new String;
+                
+                switch(alias) 
+                {            
+                    case "archery2":
+                    case "bingo2":
+                    case "fishtank2":
+                    case "math2":
+                    case "simon2":
+                    case "slotmachine":                    
+                    case "bandit":
+                    case "archery":
+                    case "fishtank":
+		    case "slots":
+                        result = score.score + ' ' + _('points');
+                        break;                
+                    case "pong":
+                        result = score.player_score + " - " + score.opponent_score;
+                        break;                    
+                    case "codebreak":
+                    case "bingo":
+                    case "math":
+                    case "memory":
+                    case "mugmastermind":
+                    case "point":
+                    case "precision_h":
+                    case "precision_v":
+                    case "racer":
+                    case "simon":
+                    case "tmt":
+                    case "tmt_a":
+                    case "tmt_b":
+                        result = formatDuration(parseFloat(score.duration)) + " min";
+                        break;                        
+                    case "colors":
+                        result = score.moves + ' ' + _('moves');    
+                        break;      
+                    case "neglecttest":
+                        result = score.left_score + " / " + score.right_score;
+                        break;                        
+                    default:
+                        break;
+                }
+
+                var details:String = new String;
+
+                if (alias == 'tmt' || alias == 'math') 
+                {
+                    details = score.mistakes + " " + _('mistakes') + ".";
+                }
+                
+                if (alias == 'pong' || alias == 'mugmastermind') 
+                {		
+                    if (score.win == true)
+                    {
+                        details = _('game won');
+                    } 
+                    else 
+                    {
+                        details = _('game lost');
+                    }
+                }
+                
+                if (alias == 'bandit') 
+                {		
+                    if (score.perfect) 
+                    {
+                        details = _('perfect game (no missed targets)');
+                    }
+                }
+                
+				scoreLabel.text = result;
+				scoreSubLabel.text = details;
+				/*
+                if (details.length)
+                {
+                    //return result + " " + details + "";
+                }
+                else
+                {
+                    scoreLabel.text = result;
+					//return result;
+                }
+				*/
+            }
+        ]]>
+    </mx:Script>
+        
+	<mx:Box paddingTop="5">
+		<mx:Image id="image" width="48" height="48" />
+	</mx:Box>
+    <mx:HBox width="100%">
+		<mx:VBox>
+			<mx:Label styleName="aLabel" id="titleLabel" />
+			<mx:HBox verticalAlign="middle" horizontalGap="2">
+				<mx:Image id="clockIcon" visible="false" includeInLayout="false" source="{Application.application.getServerURL() + 'static/pcms_icons/time.png'}" />
+				<mx:Label styleName="bLabel" id="timeLabel" />
+			</mx:HBox>
+		</mx:VBox>
+		<mx:Spacer width="100%" />
+		<mx:VBox horizontalAlign="right">
+			<mx:Label styleName="bLabel" id="scoreLabel" />
+			<mx:Label styleName="bLabel" id="scoreSubLabel"/>
+		</mx:VBox>
+	</mx:HBox>
+</mx:HBox>

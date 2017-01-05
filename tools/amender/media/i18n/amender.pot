@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Curictus 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-06 12:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "(empty)"
+msgstr ""
+
+#, python-format
+msgid "A new comment was added to support ticket by %s:"
+msgstr ""
+
+#, python-format
+msgid "A new support ticket has been created by %s:"
+msgstr ""
+
+msgid "Add new"
+msgstr ""
+
+msgid "Add new comment"
+msgstr ""
+
+msgid "Assigned to:"
+msgstr ""
+
+msgid "Bug"
+msgstr ""
+
+msgid "Click here to view details..."
+msgstr ""
+
+msgid "Close ticket"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+msgid "Closed issues"
+msgstr ""
+
+msgid "Comment:"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Contact us via support@curictus.com if you need help."
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Created:"
+msgstr ""
+
+msgid "Critical"
+msgstr ""
+
+#, python-format
+msgid "Curictus Support Ticket #%d (Updated)"
+msgstr ""
+
+msgid "Customer:"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Description:"
+msgstr ""
+
+msgid "Did the incident cause or could have caused severe patient injury or death?"
+msgstr ""
+
+msgid "Edit details"
+msgstr ""
+
+msgid "Edit ticket"
+msgstr ""
+
+msgid "Email:"
+msgstr ""
+
+msgid "Feature"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Issue overview"
+msgstr ""
+
+msgid "Labels:"
+msgstr ""
+
+msgid "List issues"
+msgstr ""
+
+msgid "Log in"
+msgstr ""
+
+msgid "Log ut"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+msgid "Modified:"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No matching issues found!"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Open issues"
+msgstr ""
+
+msgid "PCMS"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "Patient injury"
+msgstr ""
+
+msgid "Patient injury:"
+msgstr ""
+
+msgid "Please enter a valid email and a decription of the issue you want to report."
+msgstr ""
+
+msgid "Please enter a valid email and comment you wish to add to the ticket."
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Report issue"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Sorry, something went very wrong!"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Status:"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Support team:"
+msgstr ""
+
+msgid "The email or password you entered is incorrect!"
+msgstr ""
+
+msgid "The page you requested does not exist!"
+msgstr ""
+
+#, python-format
+msgid "Ticket has been edited by %s"
+msgstr ""
+
+msgid "To enter multiple customer emails use comma as a separator, ex: john@domain.com, anna@domain.com"
+msgstr ""
+
+msgid "VRS Hardware"
+msgstr ""
+
+msgid "VRS Software"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "unassigned"
+msgstr ""

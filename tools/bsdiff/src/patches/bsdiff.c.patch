@@ -1,0 +1,12 @@
+220c220
+< 	if(((fd=open(argv[1],O_RDONLY,0))<0) ||
+---
+> 	if(((fd=open(argv[1],O_RDONLY|O_BINARY,0))<0) ||
+236c236
+< 	if(((fd=open(argv[2],O_RDONLY,0))<0) ||
+---
+> 	if(((fd=open(argv[2],O_RDONLY|O_BINARY,0))<0) ||
+249c249
+< 	if ((pf = fopen(argv[3], "w")) == NULL)
+---
+> 	if ((pf = fopen(argv[3], "wb")) == NULL)

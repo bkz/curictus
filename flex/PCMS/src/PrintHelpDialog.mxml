@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    close="{closeAction()}"
+    creationComplete="init();"
+    visible="false"
+    styleName = "opaquePanel">
+
+    <mx:Script source="defs.as" />
+    
+    <mx:Script>
+        <![CDATA[
+        import mx.managers.PopUpManager;
+
+        [Bindable]
+        [Embed(source = "assets/print_landscape.jpg")]
+        public var helpImage:Class;
+
+        private function init():void {
+            this.title = _("Configure Printer");
+            this.helpText.htmlText = _("Analytics report can only be printed correctly in landscape mode.\n\nWhen the printing dialog is shown perform the following:\n<li>Select your printer by name</li><li>View printer properties</li><li>Switch from normal A4 to landscape layout</li>");
+            this.visible = true;
+        }
+        
+        private function okAction():void {
+            closeAction();
+            setTimeout(function():void {
+                app.printPage();
+            }
+            , 250);
+        }
+        
+        private function closeAction():void {
+            PopUpManager.removePopUp(this);
+        }
+       
+        ]]>
+    </mx:Script>
+
+    <mx:VBox horizontalAlign="center">
+        <mx:Spacer height="5" />
+        <mx:HBox width="100%" horizontalAlign="center">
+            <mx:Spacer width="10" />
+            <mx:Image id="image" source="{helpImage}" />
+            <mx:Spacer width="10" />
+        </mx:HBox>
+        <mx:Spacer height="15" />
+        <mx:Text id="helpText" selectable="false" height="100" />
+        <mx:Spacer height="10" />
+        <mx:HBox width="100%" horizontalAlign="center">
+            <mx:Button width="120" label="{_('Retry')}" click="okAction()" />
+            <mx:Button width="80" label="{_('Cancel')}" click="closeAction()" />
+        </mx:HBox>            
+        <mx:Spacer height="5" />
+    </mx:VBox>         
+
+</mx:TitleWindow>

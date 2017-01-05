@@ -1,0 +1,3 @@
+This is a small library consisting of a DLL and a small python module for interfacing directory with Phantom Omni haptic device. To use the library from a python environment you need both python/phantominfo.py as well as the two DLL's, bin/hd.dll and bin/phantominfo.dll. 
+
+NOTE: The project is completely self contained as it contains the all required .lib files and headers from the OpenHaptic SDK to build phantominfo.dll. We also perform static runtime linking on phantominfo.dll, the only dependency it has is hd.dll.

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<mx:Box 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    styleName="roundedBox" 
+    filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    >
+        
+    <mx:Script source="defs.as" />
+
+    
+    <mx:Script>
+        <![CDATA[
+            import mx.managers.PopUpManager;
+            
+            [Bindable] 
+            public var helpText:String = "";
+            
+            [Bindable]
+            public var callback:Function = null;
+            
+            public function okAction():void {
+                if (callback !== null)
+                    callback();
+                PopUpManager.removePopUp(this);
+            }
+        ]]>
+    </mx:Script>
+
+    <mx:VBox horizontalAlign="center">
+        <mx:Text width="500" height="100%"
+            textAlign="center"
+            text="{helpText}"
+            fontSize="30"
+            paddingBottom="20"
+			selectable="false"
+            />
+        <mx:Spacer height="15" />
+        <local:StretchButton
+            height="100"
+            label="{_('OK')}"
+            click="{okAction();}"
+        />
+    </mx:VBox> 
+</mx:Box>

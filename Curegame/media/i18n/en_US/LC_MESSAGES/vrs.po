@@ -1,0 +1,2132 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Curictus 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-03 13:35+0200\n"
+"PO-Revision-Date: 2011-06-21 15:20+0100\n"
+"Last-Translator: Babar K. Zafar <babar.zafar@curictus.com>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "$activity_archery2_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Touch the quiver with the blue marker to pickup an arrow.</li><li>Stretch the string by pulling backwards.</li><li>Aim and fire the arrow by pressing either button on the haptic pen.</li><li>You have 20 arrows to fire</li>\n"
+"This is what you train:\n"
+"<li>Attention</li><li>Precision</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_archery2_level_desc"
+msgstr ""
+"The targets do not move.\n"
+"The targets move slowly up and down.\n"
+"The targets move quickly up and down."
+
+msgid "$activity_archery2_name"
+msgstr "Shoot the arrow"
+
+msgid "$activity_archery2_summary"
+msgstr "Shoot the targets with your bow and arrow."
+
+msgid "$activity_archery2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/archery2.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_archery_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Grip the string by pushing the button on the haptic pen</li><li>Stretch the string by pulling backwards</li><li>Aim and fire the arrow by releasing the button</li>\n"
+"This is what you train:\n"
+"<li>Index finger</li><li>Attention & Precision</li><li>Flexion/Extension</li><li>Adduction/Abduction</li><li>Wrist movements</li>"
+
+msgid "$activity_archery_level_desc"
+msgstr ""
+
+msgid "$activity_archery_name"
+msgstr "Archery"
+
+msgid "$activity_archery_summary"
+msgstr "Shoot the targets with your bow and arrow."
+
+msgid "$activity_archery_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/archery.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/button_pressed.jpg\"  text=\"Press the button to grip the string.\" />\n"
+"    <item image=\"static/screenshots/instructions/button_released.jpg\"  text=\"Release the button to fire the arrow.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bandit_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>You get points for hitting the bandits</li><li>Missed bandits turn red</li><li>Hit as many as you can in one minute</li>\n"
+"This is what you train:\n"
+"<li>Attention</li><li>Rapid response</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_bandit_level_desc"
+msgstr ""
+"The bandits are slow.\n"
+"The bandits are a little quicker.\n"
+"The bandits are very quick."
+
+msgid "$activity_bandit_name"
+msgstr "Whack-A-Bandit"
+
+msgid "$activity_bandit_summary"
+msgstr "Tap the rising cylinders (bandits) with the hammer."
+
+msgid "$activity_bandit_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bandit.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\"  text=\"Hold the pen using a hammer grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bingo2_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>A number is shown to your left</li><li>Find the number on the board and touch it</li><li>The faster you touch the correct number, the more points you get</li><li>The game ends when you've found all numbers</li><li>Playing time: 1-2 minutes</li>\n"
+"This is what you train:\n"
+"<li>Search/localization</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_bingo2_level_desc"
+msgstr ""
+"Play on a 3 x 3 bingo board with the numbers 1-9.\n"
+"Play on a 4 x 4 bingo board with the numbers 1-16.\n"
+"Play on a 5 x 5 bingo board with the numbers 1-99."
+
+msgid "$activity_bingo2_name"
+msgstr "Bingo"
+
+msgid "$activity_bingo2_summary"
+msgstr "Find the number and press it."
+
+msgid "$activity_bingo2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bingo2.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_bingo_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Look at the number in the square to the right</li><li>Press the same number on the board</li><li>When you get five numbers in a row - bingo!</li>\n"
+"This is what you train:\n"
+"<li>Recognize numbers</li><li>Search & Localisation</li><li>Wrist movements</li>"
+
+msgid "$activity_bingo_level_desc"
+msgstr ""
+
+msgid "$activity_bingo_name"
+msgstr "Bingo"
+
+msgid "$activity_bingo_summary"
+msgstr "Play a game of Bingo."
+
+msgid "$activity_bingo_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/bingo.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_codebreak_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Place 3 cups on any shelf</li><li>A white ball means the right color in the right place</li><li>A black ball means the right color in the wrong place</li><li>Think and test until you get 3 white balls</li><li>You may need to use cups of the same color</li>\n"
+"This is what you train:\n"
+"<li>Concentration and problem solving</li><li>Working memory</li><li>Transport, precision</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_codebreak_level_desc"
+msgstr ""
+"The cups come in 3 different colors.\n"
+"The cups come in 4 different colors.\n"
+"The cups come in 5 different colors."
+
+msgid "$activity_codebreak_name"
+msgstr "Cups"
+
+msgid "$activity_codebreak_summary"
+msgstr "Figure out the color combination by placing cups on the shelves."
+
+msgid "$activity_codebreak_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/codebreak.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_colors_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Press one of the colored buttons</li><li>The blinking square will turn into that color</li><li>If there are adjacent squares with the same color the colored field will grow</li><li>Grow the field until the whole board is covered</li>\n"
+"This is what you train:\n"
+"<li>Concentration</li><li>Counting, strategy, problem solving</li><li>Arm and forearm movements</li><li>Wrist movementss</li>"
+
+msgid "$activity_colors_level_desc"
+msgstr ""
+"You play with 5 x 5 colored squares.\n"
+"You play with 10 x 10 colored squares.\n"
+"You play with 15 x 15 colored squares."
+
+msgid "$activity_colors_name"
+msgstr "Colors"
+
+msgid "$activity_colors_summary"
+msgstr "Fill the board with one color in as few moves as possible."
+
+msgid "$activity_colors_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/colors.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_fishtank2_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Catch the fishes using the magnetic fishing rod</li><li>Drop them in the green bucket</li><li>You get points for every fish removed</li><li>You lose points if you touch the jellyfishes</li>\n"
+"This is what you train:\n"
+"<li>Attention</li><li>Transport, precision</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_fishtank2_level_desc"
+msgstr ""
+"The fish move slowly. You can drop them in the left or right bucket.\n"
+"The fish move quicker. You can drop them in the left or right bucket.\n"
+"The fish move quickly. You must drop them in the green bucket. "
+
+msgid "$activity_fishtank2_name"
+msgstr "Aquarium"
+
+msgid "$activity_fishtank2_summary"
+msgstr "Move the fishes out of the aquarium, one by one. Avoid the jellyfishes."
+
+msgid "$activity_fishtank2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/fishtank2.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_fishtank_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Catch the fishes using the magnetic fishing rod</li><li>Drop them outside the tank to the left or right</li><li>You get points for every fish removed</li><li>You lose points if you touch the jellyfishes</li>\n"
+"This is what you train:\n"
+"<li>Transport/Precision</li><li>Flexion/Extension</li><li>Adduction/Abduction</li><li>Wrist movements</li>"
+
+msgid "$activity_fishtank_level_desc"
+msgstr ""
+
+msgid "$activity_fishtank_name"
+msgstr "Fish Tank"
+
+msgid "$activity_fishtank_summary"
+msgstr "Remove the fishes out of the tank, one by one. Avoid the jellyfishes."
+
+msgid "$activity_fishtank_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/fishtank.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_intro_desc"
+msgstr ""
+"Use the stylus to interact with the objects in the virtual room. Use large, but gentle movements to move the stylus in all axes.\n"
+"<li>Explore the room with the blue pointer and feel shapes, texture, weight, resistance</li><li>Feel the walls, the aquarium, the globe, the plate, the table</li><li>Turn the light on in the aquarium</li><li>Lift the fruits by placing the marker beneath them</li><li>Leave the fruits on the plate</li><li>Leave the room by pressing the emergency exit button</li>"
+
+msgid "$activity_intro_level_desc"
+msgstr ""
+
+msgid "$activity_intro_name"
+msgstr "The quiet room"
+
+msgid "$activity_intro_summary"
+msgstr "Get accustomed to virtual reality and haptics."
+
+msgid "$activity_intro_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/intro.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_math2_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>You are given a task and a number of alternative answers</li><li>Press the right answer</li><li>The game continues until you answer all 10 problems</li>\n"
+"This is what you train:\n"
+"<li>Counting, simple mathematical operations</li><li>Search/localisation</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_math2_level_desc"
+msgstr ""
+"Solve addition problems.\n"
+"Solve addition and subtraction problems.\n"
+"Solve addition, subtraction and multiplication problems."
+
+msgid "$activity_math2_name"
+msgstr "Simple maths"
+
+msgid "$activity_math2_summary"
+msgstr "Answer 10 problems correctly."
+
+msgid "$activity_math2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/math2.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_math_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Enter your answers by using the keypad</li><li>Press OK to submit your answer</li><li>The game continues until you reach 20 correct answers</li>\n"
+"This is what you train:\n"
+"<li>Counting</li><li>Search & Localisation</li><li>Wrist movements</li>"
+
+msgid "$activity_math_level_desc"
+msgstr ""
+
+msgid "$activity_math_name"
+msgstr "Mathematics"
+
+msgid "$activity_math_summary"
+msgstr "Answer 20 problems correctly."
+
+msgid "$activity_math_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/math.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_memory_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Press the cards you wish to turn</li><li>Try to remember them</li><li>Find the pairs as quickly as possible</li>\n"
+"This is what you train:\n"
+"<li>Attention and concentration</li><li>Working memory</li><li>Arm- and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_memory_level_desc"
+msgstr ""
+"You play with 8 picture cards.\n"
+"You play with 12 picture cards.\n"
+"You play with 18 picture cards."
+
+msgid "$activity_memory_name"
+msgstr "Memory"
+
+msgid "$activity_memory_summary"
+msgstr "Find the pairs."
+
+msgid "$activity_memory_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/memory.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_mugmastermind_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Place 3 cups on the lower right shelf</li><li>White ball means right color in the right place</li><li>Black ball means right color in the wrong place</li><li>Think and test until you get 3 white balls</li>\n"
+"This is what you train:\n"
+"<li>Concentration & Problem solving</li><li>Working memory</li><li>Transport & Precision</li><li>Flexion/Extension</li><li>Adduction/Abduction</li>"
+
+msgid "$activity_mugmastermind_level_desc"
+msgstr ""
+
+msgid "$activity_mugmastermind_name"
+msgstr "Mastermind"
+
+msgid "$activity_mugmastermind_summary"
+msgstr "Figure out the colour combination by placing mugs on the shelves."
+
+msgid "$activity_mugmastermind_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/mugmastermind.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_neglecttest_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Your targets are the green circles marked \"1\". Concentrate on them. All others are distractors.</li><li>Press all your targets marked \"1\"</li><li>The targets you pressed become yellow, so that you know which you have already pressed</li><li>When you are done with all your targets, press one of the red buttons marked \"0\"</li>\n"
+"This is what you test:\n"
+"<li>Detects presence of unilateral spatial neglect (USN) in the near extrapersonal space</li>"
+
+msgid "$activity_neglecttest_level_desc"
+msgstr ""
+
+msgid "$activity_neglecttest_name"
+msgstr "VR Cancellation Task (9/9)"
+
+msgid "$activity_neglecttest_summary"
+msgstr "Press all targets marked \"1\"."
+
+msgid "$activity_neglecttest_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/neglecttest.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_point_desc"
+msgstr ""
+"This is your task:\n"
+"\n"
+"<li>Press the \"Start\" button to begin</li><li>Your goal is to press a sequence of green dots</li><li>Move as quickly as you can from dot to dot</li><li>There are 32 dots in total</li>\n"
+"This is what you test:\n"
+"<li>Attention</li><li>Precision of arm movement</li><li>Rapid response</li>"
+
+msgid "$activity_point_level_desc"
+msgstr ""
+
+msgid "$activity_point_name"
+msgstr "Point Test"
+
+msgid "$activity_point_summary"
+msgstr "Press the green dots."
+
+msgid "$activity_point_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/point.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_pong_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>You control the racket nearest to you</li><li>The computer controls the opposite racket</li><li>You can also use the walls to bounce the ball</li>\n"
+"This what you train:\n"
+"<li>Attention and concentration</li><li>Precision and visuospatial perception</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_pong_level_desc"
+msgstr ""
+"Play against a slow opponent.\n"
+"Play against a quicker opponent.\n"
+"Play against a very quick opponent."
+
+msgid "$activity_pong_name"
+msgstr "Tennis"
+
+msgid "$activity_pong_summary"
+msgstr ""
+"Hit the ball past your opponent.\n"
+"First to score 5 points wins the match."
+
+msgid "$activity_pong_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/pong.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_precision_h_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Place the marker on the virtual plane</li><li>Start at the green bubble</li><li>Follow the arrows and move the marker as straight and as fast as you can</li><li>The bubbles become green as you progress and they disappear when you touch them</li>\n"
+"This is what you test:\n"
+"<li>Precision of movement</li><li>Concentration</li>"
+
+msgid "$activity_precision_h_level_desc"
+msgstr ""
+
+msgid "$activity_precision_h_name"
+msgstr "Precision Test Horizontal"
+
+msgid "$activity_precision_h_summary"
+msgstr "Follow the arrows and pop the green bubbles."
+
+msgid "$activity_precision_h_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/precision_h.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_precision_v_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Place the marker on the virtual plane</li><li>Start at the green bubble</li><li>Follow the arrows and move the marker as straight and as fast as you can</li><li>The bubbles become green as you progress and they disappear when you touch them</li>\n"
+"This is what you test:\n"
+"<li>Precision of movement</li><li>Concentration</li>"
+
+msgid "$activity_precision_v_level_desc"
+msgstr ""
+
+msgid "$activity_precision_v_name"
+msgstr "Precision Test Vertical"
+
+msgid "$activity_precision_v_summary"
+msgstr "Follow the arrows and pop the green bubbles."
+
+msgid "$activity_precision_v_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/precision_v.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_racer_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Use the pen to steer the car</li><li>The green arrow shows which direction you're headed</li><li>Push forward to accelerate, pull backwards to brake</li>\n"
+"This is what you train:\n"
+"<li>Attention and concentration</li><li>Grading/precision</li><li>Arm and forearm movements</li>"
+
+msgid "$activity_racer_level_desc"
+msgstr ""
+"Drive one lap around the track.\n"
+"Drive two laps around the track.\n"
+"Drive three laps around the track."
+
+msgid "$activity_racer_name"
+msgstr "Racer"
+
+msgid "$activity_racer_summary"
+msgstr "Drive the car around the track as fast as possible."
+
+msgid "$activity_racer_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/racer.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_simon2_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>A note is played when a button lights up</li><li>Observe the note sequence</li><li>Press the buttons in the same order when it is your turn</li><li>The game continues with longer sequences as you progress, until you play a wrong note</li>\n"
+"This is what you train:\n"
+"<li>Attention</li><li>Concentration</li><li>Working memory</li><li>Wrist movements</li>"
+
+msgid "$activity_simon2_level_desc"
+msgstr ""
+"Play using 4 buttons.\n"
+"Play using 8 buttons.\n"
+"Play using 12 buttons."
+
+msgid "$activity_simon2_name"
+msgstr "Play notes"
+
+msgid "$activity_simon2_summary"
+msgstr "Listen to a sequence of notes and repeat it."
+
+msgid "$activity_simon2_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/simon2.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_simon_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Observe the note sequence pressed by Simon</li><li>When prompted, press the buttons in the same order</li><li>Simon will play longer sequences as you progress</li>\n"
+"This is what you train:\n"
+"<li>Attention and concentration</li><li>Working memory</li><li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_simon_level_desc"
+msgstr ""
+
+msgid "$activity_simon_name"
+msgstr "Simon"
+
+msgid "$activity_simon_summary"
+msgstr "Follow Simon and play the same tune correctly."
+
+msgid "$activity_simon_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/simon.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_slotmachine_desc"
+msgstr ""
+"This is how you play:\n"
+"<li>Pick up coins from the top of the stack to the left</li><li>Insert one or more coins into the slot on the right</li><li>Bet up to three coins by pressing 'BET'</li><li>Press 'SPIN'</li><li>Keep playing or press 'EXIT' when you are finished</li><li>You get one point for each coin you win</li>\n"
+"This is what you train:\n"
+"<li>Arm and forearm movements</li><li>Wrist movements</li>"
+
+msgid "$activity_slotmachine_level_desc"
+msgstr ""
+
+msgid "$activity_slotmachine_name"
+msgstr "Slot Machine"
+
+msgid "$activity_slotmachine_summary"
+msgstr "Try to win as much money as you can on the slot machine."
+
+msgid "$activity_slotmachine_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/slotmachine.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_slots_desc"
+msgstr ""
+"In this game your goal is to collect 'credits'. Either you bet 1, 2 or 3 credit(s) at a time by pressing 'Bet one Credit' and then 'Spin Reels', or you can go 'all in' by pushing the button to the right.\n"
+"\n"
+"You can only push yellow buttons (a white button is inactive). You can play as long as you have credits left. You can leave the game at any time by pushing the 'Change' button."
+
+msgid "$activity_slots_level_desc"
+msgstr ""
+
+msgid "$activity_slots_name"
+msgstr "Vegas"
+
+msgid "$activity_slots_summary"
+msgstr "Try to win as much money as you can on the slot machine."
+
+msgid "$activity_slots_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/slots.flv</filename>\n"
+"   <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_a_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Press the numbers in ascending order: 1-2-3-4...</li><li>Correctly pressed numbers turn green</li><li>Incorrectly pressed numbers turn red, but change back when you correct yourself</li><li>Try to complete the exercise as fast as you can</li>This is what you test:\n"
+"<li>Visual search</li><li>Scanning</li><li>Speed of processing</li><li>Mental flexibility</li><li>Executive functions</li>"
+
+msgid "$activity_tmt_a_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_a_name"
+msgstr "Trail Making Test A"
+
+msgid "$activity_tmt_a_summary"
+msgstr "Press the circled numbers in order: 1-2-3 etc."
+
+msgid "$activity_tmt_a_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt_a.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_b_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Press the numbers and letters in ascending order: 1-A-2-B-3-C etc</li><li>Correctly pressed numbers/letters turn green</li><li>Incorrectly pressed numbers turn red, but change back when you correct yourself</li><li>Try to complete the exercise as fast as you can</li>This is what you test:\n"
+"<li>Visual search</li><li>Scanning</li><li>Speed of processing</li><li>Mental flexibility</li><li>Executive functions</li>"
+
+msgid "$activity_tmt_b_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_b_name"
+msgstr "Trail Making Test B"
+
+msgid "$activity_tmt_b_summary"
+msgstr "Press the circled numbers and letters in order: 1-A-2-B-3-C etc."
+
+msgid "$activity_tmt_b_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt_b.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a pen grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/two-grips.jpg\" text=\"You can also use a cylinder grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$activity_tmt_desc"
+msgstr ""
+"This is your task:\n"
+"<li>Press the dots in the order 1, A, 2, B, 3, C, ...</li><li>Move as quickly as you can from dot to dot</li>\n"
+"This is what you test:\n"
+"<li>Concentration & Working memory</li><li>Search & Localisation</li><li>Precision</li><li>Flexion/Extension</li><li>Adduction/Abduction</li>"
+
+msgid "$activity_tmt_level_desc"
+msgstr ""
+
+msgid "$activity_tmt_name"
+msgstr "TMT"
+
+msgid "$activity_tmt_summary"
+msgstr "Press the dots in the correct order."
+
+msgid "$activity_tmt_video_xml"
+msgstr ""
+"<video>\n"
+"  <filename>static/videos/tmt.flv</filename>\n"
+"    <offsets>\n"
+"    <start>2.0</start>\n"
+"    <stop>45.0</stop>\n"
+"  </offsets>\n"
+"  <slideshow>\n"
+"    <item image=\"static/screenshots/instructions/pen.jpg\"  text=\"Hold the pen using a precision grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/handle.jpg\" text=\"Hold the pen using a transverse volar grip.\" />\n"
+"    <item image=\"static/screenshots/instructions/stick.jpg\" text=\"Hold the pen using a diagonal volar grip.\" />\n"
+"  </slideshow>\n"
+"  <captions title=\"Demonstration\">\n"
+"    <item time=\"3.0\"  text=\"\"  />\n"
+"    <item time=\"15.0\"  text=\"\"  />\n"
+"    <item time=\"25.0\"  text=\"\"  />\n"
+"    <item time=\"35.0\" text=\"\"  />\n"
+"  </captions>\n"
+"</video>"
+
+msgid "$dashboard_createuser_help"
+msgstr "Type in an unused PIN code (4 digits), then press 'Create Profile'."
+
+msgid "$dashboard_login_help"
+msgstr "Press the picture with your PIN code to start training."
+
+msgid "$dashboard_mainmenu_help"
+msgstr ""
+"Press 'Train' to show your training activities, or 'Assess' to perform an assessment.\n"
+"\n"
+"Press 'Exit' to end your training session.\n"
+"\n"
+"If you leave the station, the session will end automatically after five minutes."
+
+msgid "$dashboard_selectactivity_help"
+msgstr ""
+"Press the activity you wish to perform.\n"
+"\n"
+"Press the arrow buttons to view more activities."
+
+msgid "$dashboard_selectassessment_help"
+msgstr "Press the assessment you wish to perform."
+
+msgid "$dashboard_usercreated_help"
+msgstr "Press the 'Train' button to login using this profile."
+
+#, python-format
+msgid "%(count)d training activities / assessments"
+msgstr ""
+
+#, python-format
+msgid "%(hours)dh %(minutes)d min pause"
+msgstr ""
+
+#, python-format
+msgid "%(minutes)d min pause"
+msgstr ""
+
+#, python-format
+msgid "%(minutes)d minutes ago"
+msgstr ""
+
+#, python-format
+msgid "%(seconds)d seconds ago"
+msgstr ""
+
+#, python-format
+msgid "%(weekday)s %(day)d/%(month)d"
+msgstr ""
+
+#, python-format
+msgid "(Easy = %s, Medium = %s, Hard = %s)"
+msgstr ""
+
+msgid "12 months"
+msgstr ""
+
+msgid "2 weeks"
+msgstr ""
+
+msgid "6 months"
+msgstr ""
+
+msgid "Abort_H3D"
+msgstr ""
+
+msgid "Acceleration"
+msgstr ""
+
+msgid "Acceleration (m/s2)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Acceleration: %2.2f m/s2\n"
+"Time: %3.2fs"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Activities"
+msgstr ""
+
+msgid "Activity"
+msgstr ""
+
+msgid "Activity Report"
+msgstr ""
+
+msgid "Activity alias:"
+msgstr ""
+
+msgid "Admin Menu"
+msgstr ""
+
+msgid "Alias"
+msgstr ""
+
+msgid "All Profiles"
+msgstr ""
+
+msgid ""
+"Analytics report can only be printed correctly in landscape mode.\n"
+"\n"
+"When the printing dialog is shown perform the following:\n"
+"<li>Select your printer by name</li><li>View printer properties</li><li>Switch from normal A4 to landscape layout</li>"
+msgstr ""
+
+msgid "Apr"
+msgstr ""
+
+msgid "Arrows"
+msgstr ""
+
+msgid "Assess"
+msgstr ""
+
+msgid "Assessment"
+msgstr ""
+
+msgid "Assessments"
+msgstr ""
+
+msgid "Aug"
+msgstr ""
+
+msgid "Available activities"
+msgstr ""
+
+#, python-format
+msgid "Average = %2.2f m/s, Variance = %3.2f"
+msgstr ""
+
+#, python-format
+msgid "Average HPR = %2.2f"
+msgstr ""
+
+msgid "Avg HPR"
+msgstr ""
+
+msgid "Avg velocity"
+msgstr ""
+
+msgid "BET"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Best result for each day shown (shortest duration)"
+msgstr ""
+
+msgid "Born"
+msgstr ""
+
+msgid "Call Clock"
+msgstr ""
+
+msgid "Call Echo"
+msgstr ""
+
+msgid "Call RaiseException"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Change PIN code"
+msgstr ""
+
+msgid "Change Profile"
+msgstr ""
+
+msgid "Click here to log in after entering your password."
+msgstr ""
+
+msgid "Click here to refresh activity report."
+msgstr ""
+
+msgid "Click here to refresh profile list."
+msgstr ""
+
+msgid "Click here to save your changes."
+msgstr ""
+
+msgid "Click on an activity to the left."
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Configure Printer"
+msgstr ""
+
+msgid "Create Profile"
+msgstr ""
+
+msgid "Create a new profile with the following PIN code?"
+msgstr ""
+
+msgid "Create new"
+msgstr ""
+
+msgid "Curictus PCMS"
+msgstr ""
+
+msgid "Curictus PCMS - Loading..."
+msgstr ""
+
+msgid "Curictus PCMS Test"
+msgstr ""
+
+msgid "Curictus RPC Demo"
+msgstr ""
+
+msgid "Dashboard Status"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Data Analysis"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Deactivate profile"
+msgstr ""
+
+msgid "Dec"
+msgstr ""
+
+msgid "Decision support"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+#, python-format
+msgid "Delete profile '%s'?"
+msgstr ""
+
+msgid "Description and settings"
+msgstr ""
+
+msgid "Diagnosis"
+msgstr ""
+
+msgid "Difficulty Level"
+msgstr ""
+
+msgid "Difficulty Settings"
+msgstr ""
+
+msgid "Difficulty level:"
+msgstr ""
+
+msgid "Disease date"
+msgstr ""
+
+msgid "Distance"
+msgstr ""
+
+msgid "Distance (m)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Distance: %2.2f m\n"
+"Time: %3.2fs\n"
+"Event: %s"
+msgstr ""
+
+msgid "Do you really want to shut down?"
+msgstr ""
+
+msgid "Domain"
+msgstr ""
+
+msgid ""
+"Don't worry, we'll help you. Please contact Curictus Support (www.curictus.com/support).\n"
+"\n"
+"Write down or take a photo of this message:"
+msgstr ""
+
+msgid "Don't worry, we'll help you. Please contact Curictus Support (www.curictus.com/support). Tell them the following message:"
+msgstr ""
+
+msgid "Download Excel"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Duration (minutes)"
+msgstr ""
+
+msgid "Duration (seconds)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Duration: %(minutes)d min\n"
+"%(date)s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Duration: %(minutes)d min\n"
+"Week: %(week)s\n"
+"%(date)s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Duration: %(seconds)d sec\n"
+"%(date)s"
+msgstr ""
+
+#, python-format
+msgid ""
+"Duration: %(seconds)d sec\n"
+"Mistakes: %(count)d\n"
+"%(date)s"
+msgstr ""
+
+#, python-format
+msgid "EN Singular %(num)s formatting %(missing)s works!\n"
+msgid_plural "EN Plural %(num)s formatting %(missing)s works!\n"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "EXIT"
+msgstr ""
+
+msgid "Easy"
+msgstr ""
+
+msgid "Effective Training Duration Per Day"
+msgstr ""
+
+msgid "Effective Training Duration Per Month"
+msgstr ""
+
+msgid "Effective Training Duration Per Week"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Errors"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Excellent!"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+msgid "Exit VRS"
+msgstr ""
+
+msgid "FIND:"
+msgstr ""
+
+msgid "Feb"
+msgstr ""
+
+msgid "Female"
+msgstr ""
+
+msgid "Final Score"
+msgstr ""
+
+msgid "First activity"
+msgstr ""
+
+msgid "First, select a domain."
+msgstr ""
+
+msgid "Flawless!"
+msgstr ""
+
+msgid "Follow the arrows."
+msgstr ""
+
+msgid "Force"
+msgstr ""
+
+msgid "Force (N)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Force: %2.2f N\n"
+"Time: %3.2fs"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Game"
+msgstr ""
+
+msgid "Gender"
+msgstr ""
+
+msgid "General information"
+msgstr ""
+
+msgid "Get current level"
+msgstr ""
+
+msgid "Get difficulty levels"
+msgstr ""
+
+msgid "Get scores"
+msgstr ""
+
+msgid "Good job!"
+msgstr ""
+
+msgid "Great!"
+msgstr ""
+
+msgid "Guest"
+msgstr ""
+
+msgid "HOLD"
+msgstr ""
+
+msgid "HPR"
+msgstr ""
+
+#, python-format
+msgid ""
+"HPR: %2.2f\n"
+"Time: %3.2fs\n"
+"Event: %s"
+msgstr ""
+
+msgid "Hand-Path Ratio"
+msgstr ""
+
+msgid "Hard"
+msgstr ""
+
+msgid "Has played before?"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Hmm.. Wrong password."
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Instructions"
+msgstr ""
+
+msgid "Internet connection not available, please inform the IT department."
+msgstr ""
+
+msgid "Intro"
+msgstr ""
+
+msgid "Jan"
+msgstr ""
+
+msgid "Jul"
+msgstr ""
+
+msgid "Jun"
+msgstr ""
+
+msgid "KM/H"
+msgstr ""
+
+msgid "Keep it up!"
+msgstr ""
+
+msgid "Keep working!"
+msgstr ""
+
+msgid "Kind"
+msgstr ""
+
+msgid "LEVEL"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Lap"
+msgid_plural "Laps"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Last 12 months"
+msgstr ""
+
+msgid "Last 14 days"
+msgstr ""
+
+msgid "Last 24 weeks"
+msgstr ""
+
+msgid "Laterality index"
+msgstr ""
+
+msgid "Latest"
+msgstr ""
+
+msgid "Latest activity"
+msgstr ""
+
+msgid "Launch Game"
+msgstr ""
+
+msgid "Launch Test"
+msgstr ""
+
+msgid "Left score"
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "List activities"
+msgstr ""
+
+msgid "Listen"
+msgstr ""
+
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Login as guest"
+msgstr ""
+
+msgid "Login as me"
+msgstr ""
+
+msgid "Login with pincode"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "MOVES"
+msgstr ""
+
+msgid "Male"
+msgstr ""
+
+msgid "Mar"
+msgstr ""
+
+#, python-format
+msgid "Max = %2.2f N"
+msgstr ""
+
+#, python-format
+msgid "Max = %2.2f m/s2, Min = %2.2f m/s2"
+msgstr ""
+
+msgid "Max acceleration"
+msgstr ""
+
+msgid "Max force"
+msgstr ""
+
+msgid "Max velocity"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Middle targets"
+msgstr ""
+
+msgid "Min acceleration"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Moves"
+msgstr ""
+
+msgid ""
+"Multi\n"
+"Line\n"
+"  With\n"
+"Spaces \n"
+msgstr ""
+
+msgid "My Best Results"
+msgstr ""
+
+msgid "My Results"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Need help? Hold the mouse pointer over items for a short while. Try it out on this message!"
+msgstr ""
+
+msgid "Nice work!"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Nov"
+msgstr ""
+
+msgid "Now, type the domain password and press enter."
+msgstr ""
+
+msgid "Number of assessments"
+msgstr ""
+
+msgid "Number of training activities"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Oct"
+msgstr ""
+
+msgid "Okt"
+msgstr ""
+
+msgid "Oops! Something went wrong"
+msgstr ""
+
+msgid "Oops! Something went wrong."
+msgstr ""
+
+msgid "Overview"
+msgstr ""
+
+msgid "PCMS"
+msgstr ""
+
+msgid "PIN code"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Patient"
+msgstr ""
+
+msgid "Patient birthdate is missing or invalid"
+msgstr ""
+
+msgid "Patient disease date is missing or invalid"
+msgstr ""
+
+msgid "Pincode"
+msgstr ""
+
+msgid "Pincode:"
+msgstr ""
+
+msgid "Play"
+msgstr ""
+
+msgid "Play!"
+msgstr ""
+
+msgid "Please insert haptic pen into inkwell..."
+msgstr ""
+
+msgid "Please try again!"
+msgstr ""
+
+msgid "Please turn off computer and verify that cables are plugged in properly."
+msgstr ""
+
+msgid "Please turn on and connect the supplied USB flash drive."
+msgstr ""
+
+msgid "Please wait..."
+msgstr ""
+
+msgid "Point Test"
+msgstr ""
+
+msgid "Point Test - Summary"
+msgstr ""
+
+msgid "Press a red '0' when you are finished."
+msgstr ""
+
+msgid "Press all green circles marked '1'."
+msgstr ""
+
+msgid "Press exit sign when done."
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "Problem"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Profile Selection"
+msgstr ""
+
+msgid "Quit_H3D"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Repeat"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Results"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+msgid "Right score"
+msgstr ""
+
+msgid "Rotate:"
+msgstr ""
+
+msgid "SCORE"
+msgstr ""
+
+msgid "SPIN"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save Patient Record"
+msgstr ""
+
+msgid "Score"
+msgstr ""
+
+msgid "Search patient:"
+msgstr ""
+
+msgid "Select Language"
+msgstr ""
+
+msgid "Select Your PIN code"
+msgstr ""
+
+msgid "Select language and domain, please."
+msgstr ""
+
+msgid "Selected activity"
+msgstr ""
+
+msgid "Sep"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Set current level"
+msgstr ""
+
+msgid "Show profile"
+msgstr ""
+
+msgid "Shutdown"
+msgstr ""
+
+#, python-format
+msgid "Sorry, too many failed attempts, wait %d minute and try again."
+msgid_plural "Sorry, too many failed attempts, wait %d minutes and try again."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Sorry, wrong password. Please try again."
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Sun"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Symptoms"
+msgstr ""
+
+msgid "System Info"
+msgstr ""
+
+msgid "System info"
+msgstr ""
+
+msgid "Target represses"
+msgstr ""
+
+msgid "Thanks!"
+msgstr ""
+
+msgid "Thanks."
+msgstr ""
+
+msgid "Thanks. Now press 'Create Profile'."
+msgstr ""
+
+#, python-format
+msgid "The straight line is the normative mean value (%2.2f), the dotted lines represent a single standard deviation (%2.2f)."
+msgstr ""
+
+msgid "Therapist instructions"
+msgstr ""
+
+msgid "There are more tones to play..."
+msgstr ""
+
+msgid "This PIN code is already in use."
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Time (s)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Time: %3.2fs\n"
+"Distance: %2.2f m\n"
+"Event: %s"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+#, python-format
+msgid "Total distance = %2.2f m"
+msgstr ""
+
+#, python-format
+msgid "Total time = %2.2f s"
+msgstr ""
+
+msgid "Touch all targets in order (1-2-3 ...)"
+msgstr ""
+
+msgid "Touch all targets in order (1-A-2-B ...)"
+msgstr ""
+
+msgid "Touch correct answer!"
+msgstr ""
+
+msgid "Touch everything."
+msgstr ""
+
+msgid "Touch the green bubble."
+msgstr ""
+
+msgid "Train"
+msgstr ""
+
+msgid "Training Activities"
+msgstr ""
+
+msgid "Training log"
+msgstr ""
+
+msgid "Training report"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Turn on 3D glasses and lift pen from inkwell..."
+msgstr ""
+
+msgid "Type a new 4-digit PIN code."
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Update profile list"
+msgstr ""
+
+msgid "Use the right and left arrows to browse through the instructions."
+msgstr ""
+
+msgid "VRS Analytics"
+msgstr ""
+
+msgid "Variable"
+msgstr ""
+
+msgid "Velocity"
+msgstr ""
+
+msgid "Velocity (m/s)"
+msgstr ""
+
+#, python-format
+msgid ""
+"Velocity: %2.2f m/s\n"
+"Time: %3.2fs"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Video tutorial"
+msgstr ""
+
+msgid "View tutorial"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Welcome!"
+msgstr ""
+
+msgid "Well done!"
+msgstr ""
+
+msgid "Well done, new record!"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "You vs. Opponent"
+msgstr ""
+
+msgid "You won the gargantuan trophy!"
+msgstr ""
+
+msgid "You won the gigantic trophy!"
+msgstr ""
+
+msgid "You won the huge trophy!"
+msgstr ""
+
+msgid "You won the large trophy!"
+msgstr ""
+
+msgid "You won the medium trophy!"
+msgstr ""
+
+msgid "You won the small trophy!"
+msgstr ""
+
+msgid "Zones"
+msgstr ""
+
+#, python-format
+msgid "about %(days)d days ago"
+msgstr ""
+
+#, python-format
+msgid "about %(hours)d hours ago"
+msgstr ""
+
+msgid "about a day ago."
+msgstr ""
+
+msgid "about one minute ago."
+msgstr ""
+
+msgid "an hour ago."
+msgstr ""
+
+msgid "game lost"
+msgstr ""
+
+msgid "game won"
+msgstr ""
+
+msgid "in a row!"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "mistakes"
+msgstr ""
+
+msgid "moves"
+msgstr ""
+
+msgid "no training"
+msgstr ""
+
+msgid "perfect game (no missed targets)"
+msgstr ""
+
+msgid "points"
+msgstr ""
+
+msgid "sec"
+msgstr ""
+
+msgid "v"
+msgstr ""
+
+#~ msgid "$activity_follower_desc"
+#~ msgstr "Follow the ball."
+
+#~ msgid "$activity_follower_name"
+#~ msgstr "Follower"
+
+#~ msgid "$activity_follower_summary"
+#~ msgstr "Keep the pen inside the moving ball."
+
+#~ msgid "$activity_parkinson2_desc"
+#~ msgstr "Touch the targets in time with the music."
+
+#~ msgid "$activity_parkinson2_name"
+#~ msgstr "Parkinson Assessment"
+
+#~ msgid "$activity_parkinson2_summary"
+#~ msgstr "Press the targets in time with the music."
+
+#~ msgid "$dashboard_systemmenu_help"
+#~ msgstr "Press 'Shut down' to exit. Press 'Create user' to add a new patient ID."

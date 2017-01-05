@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="{{ static_url('html/default.css') }}" type="text/css" />
+    <title>VRS</title>
+  </head>
+  <body>
+    <div style="margin-left:1em;margin-top:1em;">
+      <h2>Administrator login</h2>
+      <form action="/admin/login/" method="post" >
+        <input type="hidden" name="next" value="{{ next }}" />
+        Username:
+        <br/>
+        <input type="text" name="user" />
+        <br/>
+        Password:
+        <br/>
+        <input type="password" name="password">
+        <br/><br/>
+        <input type="submit" value="Sign in" />
+    </form>
+    </div>
+  </body>
+</html>

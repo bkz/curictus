@@ -1,0 +1,98 @@
+<Group DEF="G">
+  <NavigationInfo type='"NONE"'/>
+
+  <Viewpoint position="0 0 0.45" fieldOfView="0.643501" />
+  <StereoInfo focalDistance="0.45" />
+
+  <DeviceInfo>
+    <PhantomDevice
+       DEF="HDEV"
+       orientationCalibration="0.996218 0.0469509 -0.0731143 0.924281"
+       positionCalibration="1.08197 0.0143235 0.0486221 -0.00175221
+			    0.00554412 0.702152 -0.826205 -0.0232686
+			    -0.0309959 0.8325 0.448489 -0.00790408
+			    0 0 0 1">
+      <Group containerField="stylus">
+	<Shape>
+	  <Appearance>
+	    <Material />
+	  </Appearance>
+	  <Sphere radius="0.002"/>
+	</Shape>
+	<Transform translation="0 0 0.08" rotation="1 0 0 1.570796" >
+	  <Shape>
+	    <Appearance>
+	      <Material transparency="0.25"/>
+	    </Appearance>
+	    <Cylinder radius="0.005" height="0.1"/>
+	  </Shape>
+	</Transform>
+      </Group>
+      <GodObjectRenderer/>
+    </PhantomDevice>
+  </DeviceInfo>
+
+  <ToggleGroup DEF="HOLE" hapticsOn="true">
+  <Shape>
+    <Appearance>
+	<Material DEF="PLANE" transparency="0.0" emissiveColor="1 1 1" />
+	<FlashMovieTexture DEF="TEXTURE" 
+			   filename="flash.swf" 
+			   url="http://www.youtube.com/v/Q11-_it0VXU&amp;hl=en&amp;fs=1&amp;rel=0&amp;hd=1"
+			   width="1680" 
+			   height="1050" 
+			   pressForce="2.0"
+			   releaseForce="0.3" 
+			   pressSoundFilename="flash_click.wav" 
+			   releaseSoundFilename="" />
+	<TextureTransform scale = "1 1" />
+	<SmoothSurface stiffness="1.0" damping="1.0" />
+    </Appearance>
+    <Rectangle2D DEF="GEOM" size="0.48 0.3" solid="true" />
+  </Shape>
+  </ToggleGroup>
+
+  <PythonScript DEF="PS" url="flash.py">
+    <Group USE="G" containerField="references" />
+  </PythonScript>
+  
+  <ROUTE fromNode="GEOM" fromField="force" 
+	 toNode="PS" toField="force" />
+
+  <ROUTE_NO_EVENT fromNode="PS" fromField="force" 
+		  toNode="TEXTURE" toField="force" />
+
+  <ROUTE fromNode="GEOM" fromField="isTouched" 
+	 toNode="PS" toField="isTouched" />
+
+  <ROUTE_NO_EVENT fromNode="PS" fromField="isTouched" 
+		  toNode="TEXTURE" toField="isTouched" />
+
+  <ROUTE fromNode="GEOM" fromField="contactTexCoord" 
+	 toNode="PS" toField="contactTexCoord" />
+
+  <ROUTE_NO_EVENT fromNode="PS" fromField="contactTexCoord" 
+		  toNode="TEXTURE" toField="contactTexCoord" />
+
+  <ROUTE fromNode="HDEV" fromField="trackerPosition"
+         toNode="PS" toField="toggleHaptics"/>
+  
+  <ROUTE_NO_EVENT fromNode="PS" fromField="toggleHaptics" 
+		  toNode="HOLE" toField="hapticsOn" />
+
+  <ROUTE fromNode="HDEV" fromField="trackerPosition"
+         toNode="PS" toField="toggleTransparency"/>
+  
+  <ROUTE_NO_EVENT fromNode="PS" fromField="toggleTransparency" 
+		  toNode="PLANE" toField="transparency" />
+
+
+  <KeySensor DEF="KEYBOARD" />
+  <ROUTE fromNode="KEYBOARD" fromField="keyPress"
+         toNode="TEXTURE" toField="keyPress" />
+  <ROUTE fromNode="KEYBOARD" fromField="actionKeyPress"
+         toNode="TEXTURE" toField="actionKeyPress" />
+
+
+</Group>
+

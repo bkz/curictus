@@ -1,0 +1,19 @@
+<Transform translation="0 0.15 -0.20">
+<ParticleSystem> 
+    createParticles='true' enabled='true' particleLifetime='4'
+    lifetimeVariation='0.0' maxParticles='50' particleSize='0.05 0.05'
+    geometryType='SPRITE' colorKey='0 0.5 1'>
+    
+    <Appearance>
+        <Material transparency="0.001" emissiveColor="1 1 1" />
+        <ImageTexture url="textures/bubble_particle.png" />
+    </Appearance>
+    
+    <SurfaceEmitter 
+        speed='0.01' mass='0.0002' variation='0' 
+        surfaceArea="0.1">
+        <Disk2D outerRadius="0.17" containerField="surface" solid="false" />
+    </SurfaceEmitter> 
+</ParticleSystem>
+</Transform>
+

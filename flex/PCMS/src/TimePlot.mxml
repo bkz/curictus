@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    width="100%" height="100%" 
+    paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5"
+	horizontalScrollPolicy="off"
+    verticalAlign="middle"
+    horizontalAlign="center"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Script>
+        <![CDATA[
+            import mx.charts.HitData;
+            import mx.collections.ArrayCollection;
+            import mx.graphics.Stroke;
+            import mx.utils.ObjectProxy;
+            
+            private function complete():void {
+                clear();
+            }           
+            
+            public function dtFunc(hd:HitData):String {
+                return sprintf( _("Time: %3.2fs\nDistance: %2.2f m\nEvent: %s"), hd.item.timestamp, hd.item.distance, hd.item.description);
+            }
+            
+            public function clear(): void {
+                canvas.clear();
+                title.text = "";
+                normativeHelpText.text = ""
+                normativeHelp.height = 0;
+                visible = false;
+            }
+            
+            public function loadSession(data:ObjectProxy, eventId:String):void {
+                clear();
+                
+                title.text = sprintf( _("Total time = %2.2f s"), data["duration"]);
+
+                var chartData:Array = [];
+                var counter:int = 0;
+                for (var i:int = 0; i < data["events"].length; i++) {
+                    var row:Object = data["events"][i];
+                    if (row.id !== eventId)
+                        continue;
+                    row["n"] = counter;                    
+                    counter++;
+                    chartData.push(row);                    
+                }
+                                
+                if (data["duration"] > yAxis.maximum)
+                    yAxis.maximum = data["duration"] * 1.10; // Use 10% margin for spacing.
+                    
+                chart.dataProvider = new ArrayCollection(chartData);
+                                
+                visible = true;
+            }
+            
+            public function setupYAxis(min:Number = NaN, max:Number = NaN):void {
+                yAxis.minimum = min;
+                yAxis.maximum = max;
+            }
+            
+            public function setNormative(normativeMean:Number, normativeStdev:Number):void {
+                normativeHelpText.text = sprintf(_('The straight line is the normative mean value (%2.2f), the dotted lines represent a single standard deviation (%2.2f).'), normativeMean, normativeStdev);
+                normativeHelp.height = 25;
+
+                 if (chart.dataProvider.source.length > 0) {
+                    var numvalues:Number = chart.dataProvider[chart.dataProvider.source.length-1]["n"]
+                    connectTwoPoints(0, normativeMean, numvalues, normativeMean, false, 2);
+                    if (normativeStdev !== 0) {
+                        connectTwoPoints(0, normativeMean+normativeStdev, numvalues, normativeMean+normativeStdev, true, 2);
+                        connectTwoPoints(0, normativeMean-normativeStdev, numvalues, normativeMean-normativeStdev, true, 2);
+                    }                
+                 }
+            }
+            
+            private function connectTwoPoints(x1:Number, y1:Number, x2:Number, y2:Number, dotted:Boolean = false, thickness:Number = 3):void {                
+                canvas.lineStyle(thickness, 
+                    0x666666, 
+                    .5, 
+                    true, 
+                    LineScaleMode.NORMAL, 
+                    CapsStyle.ROUND, 
+                    JointStyle.MITER, 
+                    2
+                );
+                     
+                if (dotted) {
+                    for (var i:Number = x1; i < x2; i += 0.5) {
+                        canvas.moveTo(i,      y1);
+                        canvas.lineTo(i+0.25, y2);                                        
+                    }
+                } 
+                else {
+                    canvas.moveTo(x1, y1);
+                    canvas.lineTo(x2, y2);                
+                }
+             }                    
+		]]>
+    </mx:Script>
+ 
+    <mx:Stroke id="strokeColor" color="0x1B78D9" weight="0" alpha="1" />
+    <mx:SolidColor id="fillColor" color="0x1B78D9" alpha="1" />
+    
+    <mx:Spacer height="10" />
+    <mx:Label id="title" text="" textAlign="center" styleName="activityChartSubtitle" width="100%" />
+    <mx:PlotChart id="chart" showDataTips="true" dataTipFunction="dtFunc" width="100%" height="100%">
+        <mx:verticalAxis>
+            <mx:LinearAxis id="yAxis" title="{_('Time (s)')}" />
+        </mx:verticalAxis>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer axis="{yAxis}" verticalAxisTitleAlignment="vertical" />
+        </mx:verticalAxisRenderers>        
+        <mx:horizontalAxis>
+           <mx:LinearAxis title="{_('Event')}" />
+        </mx:horizontalAxis>
+        <mx:annotationElements>
+            <mx:CartesianDataCanvas id="canvas" includeInRanges="true"/>
+        </mx:annotationElements>         
+        <mx:series>
+           <mx:PlotSeries id="dataSeries" xField="n" yField="timestamp" fill="{fillColor}" stroke="{strokeColor}" />
+        </mx:series>
+     </mx:PlotChart>
+    <mx:Spacer height="5" />
+    <mx:HBox id="normativeHelp">
+        <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+        <mx:Label id="normativeHelpText" fontSize="10" text="" />
+    </mx:HBox>
+</mx:Box>

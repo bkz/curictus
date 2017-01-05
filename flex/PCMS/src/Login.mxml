@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" horizontalAlign="center" verticalAlign="middle"
+    paddingTop="20" initialize="init()"
+>
+    <mx:Script source="defs.as" />
+    
+    <mx:Style>
+    <![CDATA[
+        .loginBox {
+            backgroundColor: #fff;
+            borderStyle: solid;
+            cornerRadius: 10;
+            paddingTop: 10;
+            paddingRight: 10;
+            paddingBottom: 20;
+            paddingLeft: 10;
+            minWidth: 250;
+        }
+    ]]>
+    </mx:Style>
+    
+    <mx:Script>
+    <![CDATA[
+    import flash.net.SharedObject;
+    import mx.events.ItemClickEvent;
+    import flash.net.URLRequest;
+    import flash.events.KeyboardEvent;
+    import mx.controls.Alert;
+    
+    public function init():void{
+        this.loginForm.addEventListener(KeyboardEvent.KEY_DOWN, checkKey);
+    }
+    
+    public function refresh():void {
+        var so:SharedObject = SharedObject.getLocal("pcms");
+        
+        if (so.data.hasOwnProperty("login_zone_guid"))
+        {
+            for (var i:int = 0; i < zoneComboBox.dataProvider.source.length; i++) {
+                var item:Object = zoneComboBox.dataProvider.getItemAt(i);
+                if (item.guid == so.data.login_zone_guid) {
+                    zoneComboBox.selectedIndex = i
+                    changeZone();
+					this.password.setFocus();
+                    break;
+                }
+            }            
+        }
+    }
+    
+    public function wrongPassword():void {
+        this.password.setFocus();
+        this.password.text = '';
+        
+        // Make an obfuscated one-liner, did you, hrmm? With magic numbers, hrrrrmmmm...
+        // random.choice(), canz i pleez have? I eated your python snake.
+        this.msg.text = [_('Sorry, wrong password. Please try again.'), _('Hmm.. Wrong password.')][Math.floor(Math.random() * 2)];
+    }
+    
+    public function lockedOut(waitMin:int):void {
+        this.password.setFocus();
+        this.password.text = '';
+        this.msg.text = sprintf(
+            _("Sorry, too many failed attempts, wait %d minute and try again.",
+              "Sorry, too many failed attempts, wait %d minutes and try again.",
+              waitMin), waitMin);
+    }
+    
+    private function checkKey(event:KeyboardEvent):void {
+        if (event.charCode == 13) {
+               this.login();
+        }
+    }
+    
+    private function login():void {
+        // FIXME: clearing password.text in wrongPassword() doesn't work,
+        // but we can at least reselect all the text with this here setFocus, pardner.
+        this.loginButton.setFocus();
+        
+        var so:SharedObject = SharedObject.getLocal("pcms");
+        so.data.login_zone_guid = this.zoneComboBox.selectedItem.guid;
+        so.flush();
+
+        stats.track('login', { 'zone':this.zoneComboBox.selectedItem.alias } );        
+        
+        app.login(this.zoneComboBox.selectedItem, this.password.text);
+    }
+    
+    private function changeZone():void {
+        if (this.zoneComboBox.selectedItem.alias != "") {            
+            app.pcmsService.needZoneRedirect(zoneComboBox.selectedItem.guid,
+                function(yes:Boolean):void {
+                    if (yes) {
+                        app.pcmsService.getZoneRedirectURL(zoneComboBox.selectedItem.guid,
+                            function(url:String):void {
+                                navigateToURL(new URLRequest(url), '_self');
+                            });
+                    }
+                    else {
+                        password.enabled = true;
+                        loginButton.enabled = true;
+                        password.text = '';
+                        password.setFocus();
+                        msg.text = _('Now, type the domain password and press enter.');                         
+                    }
+                });                
+        } else {
+            this.password.enabled = false;
+            this.loginButton.enabled = false;
+            this.password.text = '';
+            this.msg.text = _('First, select a domain.');
+        }
+    }
+    
+    ]]>
+    </mx:Script>
+    
+    <mx:Spacer height="40%" />
+    
+    <mx:Image source="{Application.application.getServerURL() + 'static/logos/analytics_logo_small_transparent.png'}" />    
+    
+    <mx:Spacer height="20" />
+    
+    <mx:Box styleName="loginBox" horizontalAlign="center" verticalAlign="middle" width="600"
+		filters="{[new GlowFilter(0x000000, 0.1, 10, 10)]}"
+	>    
+        <mx:Form id="loginForm" verticalGap="20" label="Foop">
+            <mx:FormItem labelStyleName="formItemLabel" direction="horizontal" label="{_('Language')}:" toolTip="{_('Click here to switch to another language.')}">
+                <mx:LinkButton label="English" click="stats.track('select-language', {'code':'en_US'});app.setLangauge('en_US')" icon="@Embed('assets/icons/gb.png')" />
+                <mx:LinkButton label="Svenska" click="stats.track('select-language', {'code':'sv_SE'});app.setLangauge('sv_SE')" icon="@Embed('assets/icons/se.png')" />
+            </mx:FormItem>
+            <mx:FormItem labelStyleName="formItemLabel" label="{_('Domain')}:" toolTip="{_('Click here to select your domain.')}">
+                <mx:ComboBox id="zoneComboBox" change="changeZone()" labelField="alias" />
+            </mx:FormItem>
+            <mx:FormItem labelStyleName="formItemLabel" label="{_('Password')}:" toolTip="{_('Type your password here.')}">    
+                <mx:TextInput enabled="false" id="password" displayAsPassword="true" text="" maxChars="16" />
+            </mx:FormItem>
+            <mx:FormItem>   
+                <mx:Button enabled="false" id="loginButton" label="{_('Log in')}" icon="@Embed('assets/icons/door.png')" click="this.login();" width="90%" toolTip="{_('Click here to log in after entering your password.')}" />
+            </mx:FormItem>
+        </mx:Form>
+        
+        <mx:Spacer height="20" />
+        
+        <mx:HBox direction="horizontal">
+            <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+            <mx:Label id="msg" text="{_('Select language and domain, please.')}" />
+        </mx:HBox>
+        
+    </mx:Box>
+    
+    <mx:Spacer height="100%" />
+    
+    <mx:Text styleName="linkText">
+        <mx:htmlText><![CDATA[<a href="http://www.curictus.com">www.curictus.com</a>]]></mx:htmlText>
+    </mx:Text>
+       
+    <!--
+    <mx:HBox toolTip="{_('Excellent!')}">
+        <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+        <mx:Label text="{_('Need help? Hold the mouse pointer over items for a short while. Try it out on this message!')}" />
+    </mx:HBox>
+    -->
+</mx:VBox>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    width="100%" height="100%" 
+    paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5"
+	horizontalScrollPolicy="off"
+    verticalAlign="middle"
+    horizontalAlign="center"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Script>
+        <![CDATA[
+            import mx.charts.HitData;
+            import mx.graphics.Stroke;
+            import mx.utils.ObjectProxy;
+            
+            private function complete():void {
+                clear();
+            }           
+            
+            public function dtFunc(hd:HitData):String {
+                return sprintf( _("Velocity: %2.2f m/s\nTime: %3.2fs"), hd.item.v, hd.item.timestamp);
+            }
+            
+            public function clear(): void {
+                canvas.clear();
+                title.text = "";
+                normativeHelpText.text = ""
+                normativeHelp.height = 0;
+                visible = false;
+            }
+            
+            public function loadSession(data:ObjectProxy):void {
+                clear();
+                title.text = sprintf( _("Average = %2.2f m/s, Variance = %3.2f"), data["v_avg"], data["v_cof"]);                
+                
+                if (data["v_max"] > yAxis.maximum)
+                    yAxis.maximum = data["v_max"] * 1.10; // Use 10% margin for spacing.
+
+                chart.dataProvider = data["kinematics"];
+                dataSeries.setStyle('lineStroke', new Stroke(0x1B78D9, 2, 0.95));    
+                                
+                visible = true;
+            }
+            
+            public function setupYAxis(min:Number = NaN, max:Number = NaN):void {
+                yAxis.minimum = min;
+                yAxis.maximum = max;
+            }
+            
+            public function setNormative(normativeMean:Number, normativeStdev:Number):void {
+                normativeHelpText.text = sprintf(_('The straight line is the normative mean value (%2.2f), the dotted lines represent a single standard deviation (%2.2f).'), normativeMean, normativeStdev);
+                normativeHelp.height = 25;
+                
+                 if (chart.dataProvider.source.length > 0) {
+                    var numvalues:Number = chart.dataProvider[chart.dataProvider.source.length-1]["timestamp"]
+                    connectTwoPoints(0, normativeMean, numvalues, normativeMean, false, 2);
+                    if (normativeStdev !== 0) {
+                        connectTwoPoints(0, normativeMean+normativeStdev, numvalues, normativeMean+normativeStdev, true, 2);
+                        connectTwoPoints(0, normativeMean-normativeStdev, numvalues, normativeMean-normativeStdev, true, 2);
+                    }                
+                 }
+            }
+            
+            private function connectTwoPoints(x1:Number, y1:Number, x2:Number, y2:Number, dotted:Boolean = false, thickness:Number = 3):void {                
+                canvas.lineStyle(thickness, 
+                    0x666666, 
+                    .5, 
+                    true, 
+                    LineScaleMode.NORMAL, 
+                    CapsStyle.ROUND, 
+                    JointStyle.MITER, 
+                    2
+                );
+                     
+                if (dotted) {
+                    for (var i:Number = x1; i < x2; i += 1) {
+                        canvas.moveTo(i,     y1);
+                        canvas.lineTo(i+0.5, y2);                                        
+                    }
+                } 
+                else {
+                    canvas.moveTo(x1, y1);
+                    canvas.lineTo(x2, y2);                
+                }
+             }                         
+		]]>
+    </mx:Script>
+
+    <mx:Spacer height="10" />
+    <mx:Label id="title" text="" textAlign="center" styleName="activityChartSubtitle" width="100%" />
+    <mx:LineChart id="chart" showDataTips="true" dataTipFunction="dtFunc" width="100%" height="100%">
+        <mx:seriesFilters>
+           <mx:Array/>
+        </mx:seriesFilters>
+        <mx:verticalAxis>
+            <mx:LinearAxis id="yAxis" title="{_('Velocity (m/s)')}" />
+        </mx:verticalAxis>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer axis="{yAxis}" verticalAxisTitleAlignment="vertical" />
+        </mx:verticalAxisRenderers>                
+        <mx:horizontalAxis>
+           <mx:LinearAxis title="{_('Time (s)')}" />
+        </mx:horizontalAxis>
+        <mx:annotationElements>
+            <mx:CartesianDataCanvas id="canvas" includeInRanges="true"/>
+        </mx:annotationElements>        
+        <mx:series>
+           <mx:LineSeries id="dataSeries" xField="timestamp" yField="v" />
+        </mx:series>
+     </mx:LineChart>
+    <mx:Spacer height="5" />
+    <mx:HBox id="normativeHelp">
+        <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+        <mx:Label id="normativeHelpText" fontSize="10" text="" />
+    </mx:HBox>
+</mx:Box>

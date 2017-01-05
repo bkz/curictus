@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    width="100%" height="100%" 
+    paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5"
+	horizontalScrollPolicy="off"
+    verticalAlign="middle"
+    horizontalAlign="center"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Script>
+        <![CDATA[
+            import mx.charts.HitData;
+            import mx.collections.ArrayCollection;
+            import mx.graphics.Stroke;
+            import mx.utils.ObjectProxy;
+
+            [Bindable]
+            public var averageHPR:Number = 1;
+            
+            private function complete():void {
+                clear();
+            }           
+            
+            public function dtFunc(hd:HitData):String {
+                return sprintf( _("HPR: %2.2f\nTime: %3.2fs\nEvent: %s"), hd.item.hpr, hd.item.timestamp, hd.item.description);
+            }
+            
+            public function clear(): void {
+                canvas.clear();
+                title.text = "";
+                normativeHelpText.text = ""
+                normativeHelp.height = 0;
+                averageHPR = 1;
+                visible = false;
+            }
+            
+            public function loadSession(data:ObjectProxy, eventId:String):void {
+                clear();
+                
+                var maxHPR:Number = 1;
+                var hprSum:Number = 0;
+                var chartData:Array = [];
+                
+                var lastRow:Object = null;                
+                for (var i:int = 0; i < data["events"].length; i++) {
+                    var row:Object = data["events"][i];
+                    if (row.id !== eventId)
+                        continue;
+                    if (lastRow !== null) {
+                        row["hpr"] = row["hpr"] = ( row["distance"] - lastRow["distance"] ) / Math.sqrt(Math.pow(row["x"] - lastRow["x"], 2) + Math.pow(row["y"] - lastRow["y"], 2) + Math.pow(row["z"] - lastRow["z"], 2));
+                    }
+                    else {
+                        row["hpr"] = 1;
+                    }
+                    
+                    chartData.push(row);                    
+                    hprSum += row["hpr"];
+                    maxHPR = Math.max(maxHPR, row["hpr"]);
+                    lastRow = row;
+                }
+                
+                if (chartData.length > 0)
+                    averageHPR = hprSum / chartData.length;
+                else
+                    averageHPR = 0;
+                
+                title.text = sprintf( _("Average HPR = %2.2f"), averageHPR);
+                
+                if (maxHPR > yAxis.maximum)
+                    yAxis.maximum = maxHPR * 1.10; // Use 10% margin for spacing.
+                
+                chart.dataProvider = new ArrayCollection(chartData);      
+                                
+                visible = true;
+            }
+            
+            public function setupYAxis(min:Number = NaN, max:Number = NaN):void {
+                yAxis.minimum = min;
+                yAxis.maximum = max;
+            }            
+            
+            public function setNormative(normativeMean:Number, normativeStdev:Number):void {
+                normativeHelpText.text = sprintf(_('The straight line is the normative mean value (%2.2f), the dotted lines represent a single standard deviation (%2.2f).'), normativeMean, normativeStdev);
+                normativeHelp.height = 25;
+                
+                 if (chart.dataProvider.source.length > 0) {
+                    var lastRowTimestamp:Number = chart.dataProvider[chart.dataProvider.source.length-1]["timestamp"]
+                    connectTwoPoints(0, normativeMean, lastRowTimestamp, normativeMean, false, 2);
+                    if (normativeStdev !== 0) {
+                        connectTwoPoints(0, normativeMean+normativeStdev, lastRowTimestamp, normativeMean+normativeStdev, true, 2);
+                        connectTwoPoints(0, normativeMean-normativeStdev, lastRowTimestamp, normativeMean-normativeStdev, true, 2);
+                    }                 }
+            }
+            
+            private function connectTwoPoints(x1:Number, y1:Number, x2:Number, y2:Number, dotted:Boolean = false, thickness:Number = 3):void {                
+                canvas.lineStyle(thickness, 
+                    0x666666, 
+                    .5, 
+                    true, 
+                    LineScaleMode.NORMAL, 
+                    CapsStyle.ROUND, 
+                    JointStyle.MITER, 
+                    2
+                );
+                     
+                if (dotted) {
+                    for (var i:Number = x1; i < x2; i += 1) {
+                        canvas.moveTo(i,     y1);
+                        canvas.lineTo(i+0.5, y2);                                        
+                    }
+                } 
+                else {
+                    canvas.moveTo(x1, y1);
+                    canvas.lineTo(x2, y2);                
+                }
+             }                 
+		]]>
+    </mx:Script>
+
+    <mx:Stroke id="strokeColor" color="0x1B78D9" weight="0" alpha="1" />
+    <mx:SolidColor id="fillColor" color="0x1B78D9" alpha="1" />
+
+    <mx:Spacer height="10" />
+    <mx:Label id="title" text="" textAlign="center" styleName="activityChartSubtitle" width="100%" />
+    <mx:PlotChart id="chart" showDataTips="true" dataTipFunction="dtFunc" width="100%" height="100%">
+        <mx:verticalAxis>
+            <mx:LinearAxis id="yAxis" title="{_('HPR')}" />
+        </mx:verticalAxis>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer axis="{yAxis}" verticalAxisTitleAlignment="vertical" />
+        </mx:verticalAxisRenderers>                
+        <mx:horizontalAxis>
+           <mx:LinearAxis title="{_('Time (s)')}" />
+        </mx:horizontalAxis>
+        <mx:annotationElements>
+            <mx:CartesianDataCanvas id="canvas" includeInRanges="true"/>
+        </mx:annotationElements>        
+        <mx:series>
+           <mx:PlotSeries id="dataSeries" xField="timestamp" yField="hpr" fill="{fillColor}" stroke="{strokeColor}" />
+        </mx:series>
+     </mx:PlotChart>
+    <mx:Spacer height="5" />
+    <mx:HBox id="normativeHelp">
+        <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+        <mx:Label id="normativeHelpText" fontSize="10" text="" />
+    </mx:HBox>
+</mx:Box>

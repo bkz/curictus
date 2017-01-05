@@ -1,0 +1,1 @@
+This is a small library for wrapping operations which requires the use of Win32 COM API:s to provide a simple interface which can be used from Python using the ctypes module. The library (win32util.dll) is completely self contained, we perform static runtime linking to remove the msvcrt dependencies.

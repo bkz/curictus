@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h4>{{ _("Edit ticket") }}</h4> 
+
+<form action="/edit?guid={{ issue.guid }}" method="post">
+  <p>{{ _("To enter multiple customer emails use comma as a separator, ex: john@domain.com, anna@domain.com") }}</p>
+  <ol>     
+    <li>
+      <label>{{ _("Customer:") }}</label>
+      <input type="text" size="50" name="customer_emails" value="{{ ", ".join([c.email for c in customer_watchlist]) }}" />      
+    </li>
+    <li>
+      <label>{{ _("Support team:") }}</label>
+      <select style="width:200px;"  name="support_user_guids" multiple="multiple" size="5">
+      {% for user in handler.get_all_support_users() %}
+        {% if user in support_watchlist %}
+          <option value="{{ user.guid }}" selected="selected">{{ user.email }}</option>
+        {% else %}
+          <option value="{{ user.guid }}">{{ user.email }}</option>
+        {% end %}
+      {% end %}
+      </select>
+    </li>
+    <li>
+      <label>{{ _("Patient injury:") }}</label>
+      <select style="width:200px;" name="severity">
+	{% for severity_code in [IssueSeverity.INJURY, IssueSeverity.NO_INJURY] %}
+	  {% if issue.severity == severity_code %}
+            <option value="{{ severity_code }}" selected="selected">{{ handler.get_severity_name(severity_code) }}</option>
+	  {% else %}
+            <option value="{{ severity_code }}">{{ handler.get_severity_name(severity_code) }}</option>
+	  {% end %}
+	{% end %}
+      </select>
+    </li>   
+    <li>
+      <label>{{ _("Status:") }}</label>
+      <select style="width:200px;" name="status">
+	{% for status_code in [IssueStatus.OPEN, IssueStatus.CLOSED] %}
+	  {% if issue.status == status_code %}
+            <option value="{{ status_code }}" selected="selected">{{ handler.get_status_name(status_code) }}</option>
+	  {% else %}
+            <option value="{{ status_code }}">{{ handler.get_status_name(status_code) }}</option>
+	  {% end %}
+	{% end %}
+      </select>
+    </li>   
+    <li>
+      <label>{{ _("Labels:") }}</label>
+      <select style="width:200px;" name="label_guids" multiple="multiple" size="8">
+      {% for label in handler.get_all_labels() %}
+        {% if label in issue.labels %}
+          <option value="{{ label.guid }}" selected="selected">{{ label.title }}</option>
+        {% else %}
+          <option value="{{ label.guid }}">{{ label.title }}</option>
+        {% end %}
+      {% end %}
+      </select>
+    </li>
+
+    <li>
+      <label>&nbsp;</label>
+      <input type="submit" value="{{ _("Save") }}" name="submit" class="submit" /> 
+    </li>
+  </ol>
+
+  &laquo;&nbsp;<a href="/issue?guid={{ issue.guid }}">{{ _("Back") }}</a>
+</form>
+
+{% end %}

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<local:EnhancedButton xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:local="*" styleName="stretchButton" mouseDown="if (this.enabled) app.clickSoundAsset.play();">
+    <mx:Script source="defs.as" />
+    
+    <mx:Glow id="glowButtonEffect" effectEnd="{unglowButtonEffect.play()}"
+        alphaFrom="1.0" alphaTo="0.9" 
+        blurXFrom="0.0" blurXTo="40.0" 
+        blurYFrom="0.0" blurYTo="40.0" 
+        color="#6AADE4" duration="1000"/>
+    <mx:Glow id="unglowButtonEffect" duration="2500" effectEnd="{glowButtonEffect.play()}"
+        alphaFrom="0.9" alphaTo="1.0" 
+        blurXFrom="40.0" blurXTo="0.0" 
+        blurYFrom="40.0" blurYTo="0.0" 
+        color="#6AADE4" />
+        
+    <mx:Script>
+    <![CDATA[        
+        public function glow(): void {
+            unglow();
+            
+            glowButtonEffect.target = this;
+            unglowButtonEffect.target = this;
+            
+            glowButtonEffect.play();        
+        }
+        
+        public function unglow(): void {
+            glowButtonEffect.end();
+            glowButtonEffect.target = null;
+
+            unglowButtonEffect.end();
+            unglowButtonEffect.target = null;
+        }              
+    ]]>
+    </mx:Script>
+    
+</local:EnhancedButton>

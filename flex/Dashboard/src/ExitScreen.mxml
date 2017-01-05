@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+        
+    <mx:Script source="defs.as" />
+    <mx:Style source="assets/style/componentstyle.css" />
+
+    <mx:Label textAlign="center" text="Farewell, Auf Wiedersehen, Good-byyye!" styleName="message" width="100%" 
+        filters="{[new GlowFilter(0xffffff, 1.0)]}"
+    />
+    <mx:Spacer height="100%" />
+    
+</mx:VBox>

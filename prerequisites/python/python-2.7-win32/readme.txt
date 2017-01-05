@@ -1,0 +1,1 @@
+NOTE: You'll also need to install everything in ../libs which doesn't have a Win32 specific build in this folder.

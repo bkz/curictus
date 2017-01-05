@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Application  
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:pcms="*"
+    initialize="init()"
+    creationComplete="complete()"
+    usePreloader="true"
+    
+    horizontalAlign="center"
+    verticalAlign="middle"
+    width="100%"
+    height="100%"
+    paddingTop="0"
+    paddingRight="0"
+    paddingBottom="0"
+    paddingLeft="0"
+    visible="false"
+    modalTransparency="0.7"
+    modalTransparencyBlur="6"
+
+    showEffect="{fadeIn}"
+    hideEffect="{fadeOut}"
+	
+>   
+    
+    <mx:Script source="defs.as" />    
+    <mx:Script source="main.as" />
+    <mx:Style source="assets/style/style.css" />
+    
+    <mx:Fade id="fadeOut" duration="250" alphaFrom="1.0" alphaTo="0.0"/>
+    <mx:Fade id="fadeIn" duration="250" alphaFrom="0.0" alphaTo="1.0"/>
+    
+    <mx:states>
+        <mx:State name="loginState">
+            <mx:SetProperty target="{topViewStack}" name="selectedChild" value="{loginComponent}" />
+        </mx:State>
+        <mx:State name="mainState">
+            <mx:SetProperty target="{topViewStack}" name="selectedChild" value="{mainComponent}" />
+        </mx:State>
+    </mx:states>
+    
+    <mx:ViewStack id="topViewStack" width="100%" height="100%"
+        paddingTop="5"
+        paddingBottom="10"
+        paddingLeft="10"
+        paddingRight="10"
+		
+    >
+        
+        <pcms:Login width="100%" height="100%" id="loginComponent" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+        
+        <mx:VBox id="mainComponent" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}" horizontalScrollPolicy="off">
+            
+            <mx:Box direction="horizontal" 
+                width="100%"
+                horizontalAlign="center"
+                verticalAlign="middle"
+                paddingTop="0"
+                paddingBottom="0"
+                paddingLeft="0"
+                paddingRight="0"
+                >
+                
+                <mx:Box width="270" horizontalScrollPolicy="off" verticalScrollPolicy="off" paddingBottom="5">
+                    <!-- FIXME: (later) vertical alignment -->
+                    <mx:Image source="{Application.application.getServerURL() + 'static/logos/analytics_logo_tiny_transparent.png'}" />
+                </mx:Box>
+                
+                <mx:Spacer width="100%" />
+                <mx:ToggleButtonBar enabled="true" horizontalGap="5" id="toggleButtons" dataProvider="{mainViewStack}" />
+                <mx:Spacer width="100%" />
+                
+                <mx:HBox width="225" horizontalAlign="right">
+                    <mx:Button label="{_('Print')}" icon="@Embed('assets/icons/printer.png')" click="this.printPage()" />
+                    <mx:Button label="{_('Log out')}" icon="@Embed('assets/icons/door_in.png')" click="this.logout()" />
+                </mx:HBox>
+            </mx:Box>
+            
+            <mx:HBox width="100%" height="100%">
+                <mx:ViewStack id="mainViewStack" width="100%" height="100%">
+                        <pcms:SelectUser id="selectUserComponent" width="100%" height="100%" label="{_('Profile Selection')}" icon="@Embed('assets/icons/group.png')" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                        <pcms:ActivityReport enabled="false" id="activityReportComponent" width="100%" height="100%" label="{_('Activity Report')}" icon="@Embed('assets/icons/calendar.png')" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                        <pcms:DataAnalysis enabled="false" width="100%" height="100%" id="dataAnalysisComponent" label="{_('Data Analysis')}" icon="@Embed('assets/icons/chart_bar.png')" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                        <pcms:Activities enabled="false" id="activitiesComponent" width="100%" height="100%" label="{_('Activities')}" icon="@Embed('assets/icons/box.png')" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                </mx:ViewStack>
+            </mx:HBox>
+
+        </mx:VBox>
+        
+    </mx:ViewStack>
+    
+</mx:Application>

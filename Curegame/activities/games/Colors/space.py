@@ -1,0 +1,270 @@
+##############################################################################
+#
+# Copyright (c) 2006-2011 Curictus AB.
+#
+# This file part of Curictus VRS.
+#
+# Curictus VRS is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; either version 2 of the License, or (at your option) any later
+# version.
+#
+# Curictus VRS is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# Curictus VRS; if not, write to the Free Software Foundation, Inc., 59 Temple
+# Place, Suite 330, Boston, MA 02111-1307 USA
+#
+##############################################################################
+
+# This is an auto-generated file. Do not edit manually.
+import hgt
+from hgt.blenderhelpers import get_world_and_nodes
+hgt_filename = 'space.hgt'
+
+hgt_object_names = {}
+hgt_object_names['BoardPosition'] = None
+hgt_object_names['Cube'] = None
+hgt_object_names['Cube.001'] = None
+hgt_object_names['Curtain'] = None
+hgt_object_names['LabelPosition'] = None
+hgt_object_names['Lamp'] = None
+hgt_object_names['Lamp.001'] = None
+hgt_object_names['Lamp.002'] = None
+hgt_object_names['Lamp.003'] = None
+hgt_object_names['MainTransformThingy'] = None
+hgt_object_names['Plane'] = None
+hgt_object_names['bezel'] = None
+hgt_object_names['button0'] = None
+hgt_object_names['button1'] = None
+hgt_object_names['button2'] = None
+hgt_object_names['button3'] = None
+hgt_object_names['button4'] = None
+hgt_object_names['button5'] = None
+hgt_object_names['cp front'] = None
+hgt_object_names['cp trim'] = None
+hgt_object_names['keyboard front'] = None
+hgt_object_names['marquee bottom'] = None
+hgt_object_names['marquee glass'] = None
+hgt_object_names['marquee trim B'] = None
+hgt_object_names['marquee trim T'] = None
+hgt_object_names['sides enclosed'] = None
+hgt_object_names['sides enclosed.001'] = None
+hgt_object_names['trackball.000'] = None
+hgt_object_names['trackball.001'] = None
+hgt_object_names['trackball.002'] = None
+hgt_object_names['trackball.003'] = None
+hgt_object_names['trackball.004'] = None
+hgt_object_names['trackball.009'] = None
+hgt_object_names['trim top'] = None
+
+hgt_objects = {}
+hgt_objects['Appearance_Cube'] = None
+hgt_objects['Appearance_Cube.001'] = None
+hgt_objects['Appearance_Curtain'] = None
+hgt_objects['Appearance_Plane'] = None
+hgt_objects['Appearance_bezel'] = None
+hgt_objects['Appearance_button0'] = None
+hgt_objects['Appearance_button1'] = None
+hgt_objects['Appearance_button2'] = None
+hgt_objects['Appearance_button3'] = None
+hgt_objects['Appearance_button4'] = None
+hgt_objects['Appearance_button5'] = None
+hgt_objects['Appearance_cp front'] = None
+hgt_objects['Appearance_cp trim'] = None
+hgt_objects['Appearance_keyboard front'] = None
+hgt_objects['Appearance_marquee bottom'] = None
+hgt_objects['Appearance_marquee glass'] = None
+hgt_objects['Appearance_marquee trim B'] = None
+hgt_objects['Appearance_marquee trim T'] = None
+hgt_objects['Appearance_sides enclosed'] = None
+hgt_objects['Appearance_sides enclosed.001'] = None
+hgt_objects['Appearance_trackball.000'] = None
+hgt_objects['Appearance_trackball.001'] = None
+hgt_objects['Appearance_trackball.002'] = None
+hgt_objects['Appearance_trackball.003'] = None
+hgt_objects['Appearance_trackball.004'] = None
+hgt_objects['Appearance_trackball.009'] = None
+hgt_objects['Appearance_trim top'] = None
+hgt_objects['Coord_Cube'] = None
+hgt_objects['Coord_Cube.001'] = None
+hgt_objects['Coord_Mesh.147'] = None
+hgt_objects['Coord_Plane'] = None
+hgt_objects['Coord_bezel'] = None
+hgt_objects['Coord_button0'] = None
+hgt_objects['Coord_button1'] = None
+hgt_objects['Coord_button2'] = None
+hgt_objects['Coord_button3'] = None
+hgt_objects['Coord_button4'] = None
+hgt_objects['Coord_button5'] = None
+hgt_objects['Coord_cp front'] = None
+hgt_objects['Coord_cp trim'] = None
+hgt_objects['Coord_keyboard front'] = None
+hgt_objects['Coord_marquee bottom'] = None
+hgt_objects['Coord_marquee glass'] = None
+hgt_objects['Coord_marquee trim B'] = None
+hgt_objects['Coord_marquee trim T'] = None
+hgt_objects['Coord_sides enclosed'] = None
+hgt_objects['Coord_sides enclosed.001'] = None
+hgt_objects['Coord_trackball.000'] = None
+hgt_objects['Coord_trackball.002'] = None
+hgt_objects['Coord_trackball.003'] = None
+hgt_objects['Coord_trackball.006'] = None
+hgt_objects['Coord_trackball.007'] = None
+hgt_objects['Coord_trackball.009'] = None
+hgt_objects['Coord_trim top.001'] = None
+hgt_objects['FrictionalSurface_button0'] = None
+hgt_objects['FrictionalSurface_button1'] = None
+hgt_objects['FrictionalSurface_button2'] = None
+hgt_objects['FrictionalSurface_button3'] = None
+hgt_objects['FrictionalSurface_button4'] = None
+hgt_objects['FrictionalSurface_button5'] = None
+hgt_objects['Material_Black Screen'] = None
+hgt_objects['Material_Curtain'] = None
+hgt_objects['Material_KL black.002'] = None
+hgt_objects['Material_PLASTIC black dul.001'] = None
+hgt_objects['Material_TheStuff'] = None
+hgt_objects['Material_button0'] = None
+hgt_objects['Material_button1'] = None
+hgt_objects['Material_button2'] = None
+hgt_objects['Material_button3'] = None
+hgt_objects['Material_button4'] = None
+hgt_objects['Material_button5'] = None
+hgt_objects['Material_redchristmas'] = None
+hgt_objects['Mesh_Cube'] = None
+hgt_objects['Mesh_Cube.001'] = None
+hgt_objects['Mesh_Mesh.147'] = None
+hgt_objects['Mesh_Plane'] = None
+hgt_objects['Mesh_bezel'] = None
+hgt_objects['Mesh_button0'] = None
+hgt_objects['Mesh_button1'] = None
+hgt_objects['Mesh_button2'] = None
+hgt_objects['Mesh_button3'] = None
+hgt_objects['Mesh_button4'] = None
+hgt_objects['Mesh_button5'] = None
+hgt_objects['Mesh_cp front'] = None
+hgt_objects['Mesh_cp trim'] = None
+hgt_objects['Mesh_keyboard front'] = None
+hgt_objects['Mesh_marquee bottom'] = None
+hgt_objects['Mesh_marquee glass'] = None
+hgt_objects['Mesh_marquee trim B'] = None
+hgt_objects['Mesh_marquee trim T'] = None
+hgt_objects['Mesh_sides enclosed'] = None
+hgt_objects['Mesh_sides enclosed.001'] = None
+hgt_objects['Mesh_trackball.000'] = None
+hgt_objects['Mesh_trackball.002'] = None
+hgt_objects['Mesh_trackball.003'] = None
+hgt_objects['Mesh_trackball.006'] = None
+hgt_objects['Mesh_trackball.007'] = None
+hgt_objects['Mesh_trackball.009'] = None
+hgt_objects['Mesh_trim top.001'] = None
+hgt_objects['PointLight_Lamp'] = None
+hgt_objects['PointLight_Lamp.001'] = None
+hgt_objects['PointLight_Lamp.002'] = None
+hgt_objects['PointLight_Lamp.003'] = None
+hgt_objects['SmoothSurface_Cube'] = None
+hgt_objects['SmoothSurface_Cube.001'] = None
+hgt_objects['SmoothSurface_Plane'] = None
+hgt_objects['SmoothSurface_bezel'] = None
+hgt_objects['SmoothSurface_cp front'] = None
+hgt_objects['SmoothSurface_sides enclosed'] = None
+hgt_objects['SmoothSurface_sides enclosed.001'] = None
+hgt_objects['SmoothSurface_trackball.000'] = None
+hgt_objects['SmoothSurface_trackball.001'] = None
+hgt_objects['SmoothSurface_trackball.002'] = None
+hgt_objects['SmoothSurface_trackball.003'] = None
+hgt_objects['SmoothSurface_trackball.004'] = None
+hgt_objects['SmoothSurface_trackball.009'] = None
+hgt_objects['ToggleGroup_BoardPosition'] = None
+hgt_objects['ToggleGroup_Cube'] = None
+hgt_objects['ToggleGroup_Cube.001'] = None
+hgt_objects['ToggleGroup_Curtain'] = None
+hgt_objects['ToggleGroup_LabelPosition'] = None
+hgt_objects['ToggleGroup_MainTransformThingy'] = None
+hgt_objects['ToggleGroup_Plane'] = None
+hgt_objects['ToggleGroup_bezel'] = None
+hgt_objects['ToggleGroup_button0'] = None
+hgt_objects['ToggleGroup_button1'] = None
+hgt_objects['ToggleGroup_button2'] = None
+hgt_objects['ToggleGroup_button3'] = None
+hgt_objects['ToggleGroup_button4'] = None
+hgt_objects['ToggleGroup_button5'] = None
+hgt_objects['ToggleGroup_cp front'] = None
+hgt_objects['ToggleGroup_cp trim'] = None
+hgt_objects['ToggleGroup_keyboard front'] = None
+hgt_objects['ToggleGroup_marquee bottom'] = None
+hgt_objects['ToggleGroup_marquee glass'] = None
+hgt_objects['ToggleGroup_marquee trim B'] = None
+hgt_objects['ToggleGroup_marquee trim T'] = None
+hgt_objects['ToggleGroup_sides enclosed'] = None
+hgt_objects['ToggleGroup_sides enclosed.001'] = None
+hgt_objects['ToggleGroup_trackball.000'] = None
+hgt_objects['ToggleGroup_trackball.001'] = None
+hgt_objects['ToggleGroup_trackball.002'] = None
+hgt_objects['ToggleGroup_trackball.003'] = None
+hgt_objects['ToggleGroup_trackball.004'] = None
+hgt_objects['ToggleGroup_trackball.009'] = None
+hgt_objects['ToggleGroup_trim top'] = None
+hgt_objects['TransformInfo_BoardPosition'] = None
+hgt_objects['TransformInfo_Cube'] = None
+hgt_objects['TransformInfo_Cube.001'] = None
+hgt_objects['TransformInfo_Curtain'] = None
+hgt_objects['TransformInfo_LabelPosition'] = None
+hgt_objects['TransformInfo_MainTransformThingy'] = None
+hgt_objects['TransformInfo_Plane'] = None
+hgt_objects['TransformInfo_bezel'] = None
+hgt_objects['TransformInfo_button0'] = None
+hgt_objects['TransformInfo_button1'] = None
+hgt_objects['TransformInfo_button2'] = None
+hgt_objects['TransformInfo_button3'] = None
+hgt_objects['TransformInfo_button4'] = None
+hgt_objects['TransformInfo_button5'] = None
+hgt_objects['TransformInfo_cp front'] = None
+hgt_objects['TransformInfo_cp trim'] = None
+hgt_objects['TransformInfo_keyboard front'] = None
+hgt_objects['TransformInfo_marquee bottom'] = None
+hgt_objects['TransformInfo_marquee glass'] = None
+hgt_objects['TransformInfo_marquee trim B'] = None
+hgt_objects['TransformInfo_marquee trim T'] = None
+hgt_objects['TransformInfo_sides enclosed'] = None
+hgt_objects['TransformInfo_sides enclosed.001'] = None
+hgt_objects['TransformInfo_trackball.000'] = None
+hgt_objects['TransformInfo_trackball.001'] = None
+hgt_objects['TransformInfo_trackball.002'] = None
+hgt_objects['TransformInfo_trackball.003'] = None
+hgt_objects['TransformInfo_trackball.004'] = None
+hgt_objects['TransformInfo_trackball.009'] = None
+hgt_objects['TransformInfo_trim top'] = None
+hgt_objects['Transform_BoardPosition'] = None
+hgt_objects['Transform_Cube'] = None
+hgt_objects['Transform_Cube.001'] = None
+hgt_objects['Transform_Curtain'] = None
+hgt_objects['Transform_LabelPosition'] = None
+hgt_objects['Transform_MainTransformThingy'] = None
+hgt_objects['Transform_Plane'] = None
+hgt_objects['Transform_bezel'] = None
+hgt_objects['Transform_button0'] = None
+hgt_objects['Transform_button1'] = None
+hgt_objects['Transform_button2'] = None
+hgt_objects['Transform_button3'] = None
+hgt_objects['Transform_button4'] = None
+hgt_objects['Transform_button5'] = None
+hgt_objects['Transform_cp front'] = None
+hgt_objects['Transform_cp trim'] = None
+hgt_objects['Transform_keyboard front'] = None
+hgt_objects['Transform_marquee bottom'] = None
+hgt_objects['Transform_marquee glass'] = None
+hgt_objects['Transform_marquee trim B'] = None
+hgt_objects['Transform_marquee trim T'] = None
+hgt_objects['Transform_sides enclosed'] = None
+hgt_objects['Transform_sides enclosed.001'] = None
+hgt_objects['Transform_trackball.000'] = None
+hgt_objects['Transform_trackball.001'] = None
+hgt_objects['Transform_trackball.002'] = None
+hgt_objects['Transform_trackball.003'] = None
+hgt_objects['Transform_trackball.004'] = None
+hgt_objects['Transform_trackball.009'] = None
+hgt_objects['Transform_trim top'] = None
+(world, nodes) = get_world_and_nodes(hgt_filename, hgt_objects)

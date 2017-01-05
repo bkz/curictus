@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+        
+    <mx:Script source="defs.as" />
+
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:VBox width="100%" height="100%" styleName="roundedBox" 
+        filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    > 
+		<!--
+        <mx:Canvas>
+            <mx:Image source="{DASHBOARD_ADDRESS + 'static/wallpapers/dashboard/mainmenu.jpg'}" />
+            <mx:Box width="100%" height="100%" paddingTop="20" paddingLeft="20" paddingRight="20" paddingBottom="20">
+                <mx:Text selectable="false" width="100%" id="welcomeLabel" textAlign="center" text="{_('Admin Menu')}" styleName="message" color="0xffffff"
+                    filters="{[new GlowFilter(0x000000, 1.0, 5, 5)]}"
+                    />
+                <mx:Spacer height="100%" />
+                <mx:HBox width="100%">
+                    <mx:Text selectable="false" width="100%" id="systemInfo" textAlign="center" styleName="message" color="0xffffff" fontSize="30"
+                        filters="{[new GlowFilter(0x000000, 1.0, 5, 5)]}"
+                    />
+                </mx:HBox>
+            </mx:Box>
+        </mx:Canvas>
+		-->
+		
+		<mx:Canvas width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+            <mx:VBox width="100%" height="100%"
+				paddingTop="0"
+				paddingBottom="0"
+				paddingLeft="0"
+				paddingRight="0"
+			>
+				<mx:Image source="{DASHBOARD_ADDRESS + 'static/wallpapers/dashboard/mainmenu.jpg'}" />
+			</mx:VBox>
+            <mx:VBox width="100%" height="100%" horizontalAlign="center" paddingTop="20" paddingLeft="20" paddingRight="20" paddingBottom="20">				
+                <mx:Text selectable="false" width="100%" id="welcomeLabel" textAlign="center" text="{_('Admin Menu')}" styleName="message" color="0xffffff"
+                    filters="{[new GlowFilter(0x000000, 1.0, 5, 5)]}"
+                    />
+				<mx:HBox width="100%" height="100%">
+                    <mx:Text selectable="false" width="100%" id="systemInfo" textAlign="center" styleName="message" color="0xffffff" fontSize="30"
+                        filters="{[new GlowFilter(0x000000, 1.0, 5, 5)]}"
+                    />
+                </mx:HBox>
+            </mx:VBox>
+        </mx:Canvas>
+           
+        <mx:HBox width="100%">
+        
+            <local:StretchButton width="100%" height="200"
+                label="{_('Back')}" 
+                click="app.currentState='loginState'" 
+                icon="@Embed(source='assets/icons/images/back.png')" 
+            />
+            
+			<local:StretchButton width="100%" height="200"
+                enabled="false"
+            />
+              
+             <local:StretchButton width="100%" height="200"
+                label="{_('System info')}"
+                icon="@Embed(source='assets/icons/images/info.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/info.png')"
+                click="{app.updateSystemInfo();}"
+            />
+
+			<local:StretchButton width="100%" height="200"
+                enabled="false"
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                label="{_('Exit VRS')}"
+                click="{app.terminate()}"
+                icon="@Embed(source='assets/icons/images/quit.png')"
+            />
+        
+            
+        </mx:HBox>
+    </mx:VBox>
+</mx:VBox>

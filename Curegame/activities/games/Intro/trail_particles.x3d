@@ -1,0 +1,19 @@
+<Transform>
+<ParticleSystem 
+    createParticles='true' enabled='true' particleLifetime='0.2'
+    lifetimeVariation='0.0' maxParticles='50' particleSize='0.01 0.01'
+    geometryType='SPRITE' colorKey='0 0.5 1'>
+    
+    <Appearance>
+        <Material transparency="0.75" emissiveColor="1 1 1" />
+        <ImageTexture url="textures/trail_particle.png" />
+    </Appearance>
+    
+    <PointEmitter DEF="EMITTER" 
+        speed='0' mass='0.0002' variation='0' 
+        surfaceArea="0.0001" direction="0 0 0" />
+    
+    <GravityPhysicsModel gravity="0 0 -0.005"/>
+</ParticleSystem>
+</Transform>
+

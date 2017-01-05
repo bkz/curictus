@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h4>{{ _("Report issue") }}</h4>
+<form action="/new" method="post">
+  <ol>
+
+    {% if invalid_email or invalid_description %}
+    <li>
+      <label>&nbsp;</label>
+      <p><em>{{ _("Please enter a valid email and a decription of the issue you want to report.") }}</em></p>
+    </li>
+    {% end %}
+
+    <li>
+      <label>{{ _("Email:") }}</label> 
+      <input size="30" type="text" name="email" value="{{ email }}" />
+    </li>
+
+    <li>
+      <label>{{ _("Description:") }}</label> 
+      <textarea name="description" cols="50" rows="10">{{ description }}</textarea>
+    </li>
+
+    <li>
+      <label>&nbsp;</label>
+      <p>{{ _("Did the incident cause or could have caused severe patient injury or death?") }}</p>
+    </li>
+
+    <li>
+      <label>{{ _("Patient injury:") }}</label>
+      <select style="width:200px;" name="severity">
+	{% for severity_code in [IssueSeverity.INJURY, IssueSeverity.NO_INJURY] %}
+	  {% if severity_code == default_severity_code %}
+            <option value="{{ severity_code }}" selected="selected">{{ get_severity_name(severity_code) }}</option>
+	  {% else %}
+            <option value="{{ severity_code }}">{{ get_severity_name(severity_code) }}</option>
+	  {% end %}
+	{% end %}
+      </select>
+    </li>
+
+    <li>
+      <label>&nbsp;</label> 
+      <input type="submit" value="{{ _("Submit") }}" name="submit" class="submit" /> 
+    </li>
+  </ol>
+</form>
+
+{% end %}

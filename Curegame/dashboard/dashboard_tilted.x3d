@@ -1,0 +1,122 @@
+<Group DEF="G">
+    <Background groundColor="1 1 1, 1 1 1" skyColor="1 1 1, 1 1 1" />
+
+    <!-- Disable keyboard camera control -->
+    <NavigationInfo type='"NONE"'/>
+
+    <!-- Inlined viewpoint -->
+    <Inline url="../h3d/H3DAPI/settings/display/Curictus VRS Tilted/viewpoint/1to1" />
+
+    <!-- Device calibration (copied from H3D calibration settings) -->
+    <DeviceInfo>
+        <PhantomDevice
+            DEF="HDEV"
+                orientationCalibration="0.999104 -0.0385465 -0.0174935 0.766848"
+                positionCalibration="1.02581 -0.0363969 -0.000233425 -0.00176426
+                    -0.00788204 0.858688 -0.571175 -0.0804438
+                    0.0010657 0.499979 1.3878 0.0332148
+                    0 0 0 1
+                ">
+
+        <!-- Custom stylus -->
+        <Group containerField="stylus">
+        <Inline url="../activities/stylus/ball/stylus.hgt" />
+        </Group>
+
+        <!-- IMPORTANT! Override default renderer with GodRenderer to get proper
+            texture coords when haptic touces shapes -->
+        <GodObjectRenderer/>
+
+        </PhantomDevice>
+    </DeviceInfo>
+
+    <Transform DEF="SHADOW_TRANSFORM" translation="0 0 0.05">
+        <Shape>
+            <Appearance>
+                    <Material DEF="SHADOW_MATERIAL" transparency="0.75" diffuseColor="0 0 0" />
+            </Appearance>
+            <Disk2D DEF="SHADOW_DISK" outerRadius="0.01" solid="true" />
+        </Shape>
+    </Transform>
+
+    <ToggleGroup DEF="HOLE" hapticsOn="true">
+        <Shape>
+            <Appearance>
+                    <Material DEF="PLANE" transparency="0.0" emissiveColor="1 1 1" />
+                    <FlashMovieTexture DEF="TEXTURE"
+                                filename="dashboard.swf"
+                                width="1680"
+                                height="1050"
+                                pressForce="2.0"
+                                releaseForce="0.3"
+                                pressSoundFilename=""
+                                releaseSoundFilename="" />
+                    <TextureTransform scale = "1 1" />
+                    <SmoothSurface />
+            </Appearance>
+            <Rectangle2D DEF="GEOM" size="0.48 0.3" solid="true">
+                <!-- Important: increase maxDistance to protect against
+                haptic fall-through -->
+                <HapticsOptions maxDistance="0.1" />
+            </Rectangle2D>
+        </Shape>
+    </ToggleGroup>
+
+    <PythonScript DEF="PS" url="dashboard_tilted.py">
+        <Group USE="G" containerField="references" />
+    </PythonScript>
+
+    <!-- Filter and route various haptics events to FlashMovieTexture -->
+    <ROUTE fromNode="GEOM" fromField="force"
+        toNode="PS" toField="force" />
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="force"
+                toNode="TEXTURE" toField="force" />
+
+    <ROUTE fromNode="GEOM" fromField="isTouched"
+            toNode="PS" toField="isTouched" />
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="isTouched"
+                toNode="TEXTURE" toField="isTouched" />
+
+    <ROUTE fromNode="GEOM" fromField="contactTexCoord"
+            toNode="PS" toField="contactTexCoord" />
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="contactTexCoord"
+            toNode="TEXTURE" toField="contactTexCoord" />
+
+    <ROUTE fromNode="HDEV" fromField="proxyPosition"
+        toNode="PS" toField="toggleTransparency"/>
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="toggleTransparency"
+                toNode="PLANE" toField="transparency" />
+
+    <!-- Shadow routes -->
+    <ROUTE fromNode="HDEV" fromField="trackerPosition"
+        toNode="PS" toField="shadowTranslation"/>
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="shadowTranslation"
+                toNode="SHADOW_TRANSFORM" toField="translation" />
+
+    <ROUTE fromNode="HDEV" fromField="trackerPosition"
+        toNode="PS" toField="shadowRadius"/>
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="shadowRadius"
+                toNode="SHADOW_DISK" toField="outerRadius" />
+
+    <ROUTE fromNode="HDEV" fromField="trackerPosition"
+        toNode="PS" toField="shadowTransparency" />
+
+    <ROUTE_NO_EVENT fromNode="PS" fromField="shadowTransparency"
+                toNode="SHADOW_MATERIAL" toField="transparency" />
+
+    <!-- Route keyboard messages to FlashMovieTexture -->
+    <KeySensor DEF="KEYBOARD" />
+
+    <ROUTE fromNode="KEYBOARD" fromField="keyPress"
+        toNode="TEXTURE" toField="keyPress" />
+
+    <ROUTE fromNode="KEYBOARD" fromField="actionKeyPress"
+        toNode="TEXTURE" toField="actionKeyPress" />
+
+</Group>

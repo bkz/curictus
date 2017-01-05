@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    styleName="roundedBox" 
+    filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    creationComplete="init();">
+
+    <mx:Script source="defs.as" />
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>
+        <![CDATA[
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+
+        private function init():void {
+            createButton.glow();
+            
+            app.dashboardService.getNextUnusedPincode(
+                function(pincode:String):void {
+                    pincodeLabel.text = pincode;
+                    pincodeImage.source = DASHBOARD_ADDRESS + "static/avatars/" + (1 + int(pincode) % NUM_AVATAR_IMAGES) + ".jpg";
+                    createButton.enabled = true;
+                });
+        }
+
+        private function create():void {
+            close();            
+            
+            stats.track('create-profile', { 'method':'auto' } );
+            
+            app.createNewLogin(pincodeLabel.text);
+        }
+
+        private function choosePincode():void {
+            close();
+                                    
+            app.currentState = 'createUserState';
+        }      
+
+        private function close():void {
+            PopUpManager.removePopUp(this);
+        }      
+        ]]>
+    </mx:Script>
+
+    <mx:VBox horizontalAlign="center">
+        <mx:Spacer height="10" />
+        <mx:Label id="titleLabel" fontSize="42" text="{_('Create a new profile with the following PIN code?')}" />
+        <mx:Spacer height="10" />
+        <mx:VBox horizontalAlign="center">
+            <mx:Image id="pincodeImage" width="128" height="128" />
+            <mx:Label id="pincodeLabel" fontSize="48" text="" />
+        </mx:VBox>        
+        <mx:Spacer height="20" />
+        <mx:HBox width="100%" horizontalAlign="center">
+            <mx:Spacer width="100%" />
+            <local:StretchButton
+                id="createButton"
+                width="350"
+                height="100"
+                label="{_('OK')}"
+                click="create()"
+                enabled="false"
+                />
+            <mx:Spacer width="20" />
+            <local:StretchButton
+                width="350"
+                height="100"
+                label="{_('Change PIN code')}"
+                click="choosePincode()"
+                />
+            <mx:Spacer width="20" />
+            <local:StretchButton
+                width="350"
+                height="100"
+                label="{_('Cancel')}"
+                click="close()"
+                />
+            <mx:Spacer width="100%" />
+        </mx:HBox>    
+        <mx:Spacer height="20" />
+    </mx:VBox>         
+</mx:Box>

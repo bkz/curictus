@@ -1,0 +1,357 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Curictus 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-06 12:52+0200\n"
+"PO-Revision-Date: 2010-08-26 15:38+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "(empty)"
+msgstr "(empty)"
+
+#, python-format
+msgid "A new comment was added to support ticket by %s:"
+msgstr ""
+
+#, python-format
+msgid "A new support ticket has been created by %s:"
+msgstr ""
+
+msgid "Add new"
+msgstr "Add new"
+
+msgid "Add new comment"
+msgstr "Add new comment"
+
+msgid "Assigned to:"
+msgstr "Assigned to:"
+
+msgid "Bug"
+msgstr "Bug"
+
+msgid "Click here to view details..."
+msgstr ""
+
+msgid "Close ticket"
+msgstr "Close ticket"
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Closed issues"
+msgstr "Closed issues"
+
+msgid "Comment:"
+msgstr "Comment:"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Contact us via support@curictus.com if you need help."
+msgstr ""
+
+msgid "Created"
+msgstr "Created"
+
+msgid "Created:"
+msgstr "Created:"
+
+msgid "Critical"
+msgstr "Critical"
+
+#, python-format
+msgid "Curictus Support Ticket #%d (Updated)"
+msgstr ""
+
+msgid "Customer:"
+msgstr "Customer:"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Description:"
+msgstr "Description:"
+
+msgid "Did the incident cause or could have caused severe patient injury or death?"
+msgstr ""
+
+msgid "Edit details"
+msgstr ""
+
+msgid "Edit ticket"
+msgstr "Edit ticket"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Feature"
+msgstr "Feature"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Issue overview"
+msgstr "Issue overview"
+
+msgid "Labels:"
+msgstr "Labels:"
+
+msgid "List issues"
+msgstr "List issues"
+
+msgid "Log in"
+msgstr "Log in"
+
+msgid "Log ut"
+msgstr "Log ut"
+
+msgid "Modified"
+msgstr "Modified"
+
+msgid "Modified:"
+msgstr "Modified:"
+
+msgid "No"
+msgstr ""
+
+msgid "No matching issues found!"
+msgstr "No matching issues found!"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Open issues"
+msgstr "Open issues"
+
+msgid "PCMS"
+msgstr "PCMS"
+
+msgid "Password:"
+msgstr "Password:"
+
+msgid "Patient injury"
+msgstr ""
+
+msgid "Patient injury:"
+msgstr ""
+
+msgid "Please enter a valid email and a decription of the issue you want to report."
+msgstr "Please enter a valid email and a decription of the issue you want to report."
+
+msgid "Please enter a valid email and comment you wish to add to the ticket."
+msgstr "Please enter a valid email and comment you wish to add to the ticket."
+
+msgid "Reply"
+msgstr "Reply"
+
+msgid "Report issue"
+msgstr "Report issue"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Sorry, something went very wrong!"
+msgstr "Sorry, something went very wrong!"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Support team:"
+msgstr "Support team:"
+
+msgid "The email or password you entered is incorrect!"
+msgstr "The email or password you entered is incorrect!"
+
+msgid "The page you requested does not exist!"
+msgstr "The page you requested does not exist!"
+
+#, python-format
+msgid "Ticket has been edited by %s"
+msgstr ""
+
+msgid "To enter multiple customer emails use comma as a separator, ex: john@domain.com, anna@domain.com"
+msgstr "To enter multiple customer emails use comma as a separator, ex: john@domain.com, anna@domain.com"
+
+msgid "VRS Hardware"
+msgstr "VRS Hardware"
+
+msgid "VRS Software"
+msgstr "VRS Software"
+
+msgid "Yes"
+msgstr ""
+
+msgid "unassigned"
+msgstr "unassigned"
+
+#~ msgid "%(commas)s and %(last)s"
+#~ msgstr "%(commas)s and %(last)s"
+
+#~ msgid "%(month_name)s %(day)s"
+#~ msgstr "%(month_name)s %(day)s"
+
+#~ msgid "%(month_name)s %(day)s at %(time)s"
+#~ msgstr "%(month_name)s %(day)s at %(time)s"
+
+#~ msgid "%(month_name)s %(day)s, %(year)s"
+#~ msgstr "%(month_name)s %(day)s, %(year)s"
+
+#~ msgid "%(month_name)s %(day)s, %(year)s at %(time)s"
+#~ msgstr "%(month_name)s %(day)s, %(year)s at %(time)s"
+
+#~ msgid "%(time)s"
+#~ msgstr "%(time)s"
+
+#~ msgid "%(weekday)s"
+#~ msgstr "%(weekday)s"
+
+#~ msgid "%(weekday)s at %(time)s"
+#~ msgstr "%(weekday)s at %(time)s"
+
+#~ msgid "%(weekday)s, %(month_name)s %(day)s"
+#~ msgstr "%(weekday)s, %(month_name)s %(day)s"
+
+#~ msgid "1 hour ago"
+#~ msgid_plural "%(hours)d hours ago"
+#~ msgstr[0] "1 hour ago"
+#~ msgstr[1] "%(hours)d hours ago"
+
+#~ msgid "1 minute ago"
+#~ msgid_plural "%(minutes)d minutes ago"
+#~ msgstr[0] "1 minute ago"
+#~ msgstr[1] "%(minutes)d minutes ago"
+
+#~ msgid "1 second ago"
+#~ msgid_plural "%(seconds)d seconds ago"
+#~ msgstr[0] "1 second ago"
+#~ msgstr[1] "%(seconds)d seconds ago"
+
+#~ msgid "<a href=\"%(url)s\">Sign in</a> to compose/edit"
+#~ msgstr "<a href=\"%(url)s\">Sign in</a> to compose/edit"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "Archive"
+#~ msgstr "Archive"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel"
+
+#~ msgid "December"
+#~ msgstr "December"
+
+#~ msgid "February"
+#~ msgstr "February"
+
+#~ msgid "Friday"
+#~ msgstr "Friday"
+
+#~ msgid "GUID"
+#~ msgstr "GUID"
+
+#~ msgid "Injured"
+#~ msgstr "Injured"
+
+#~ msgid "January"
+#~ msgstr "January"
+
+#~ msgid "July"
+#~ msgstr "July"
+
+#~ msgid "June"
+#~ msgstr "June"
+
+#~ msgid "March"
+#~ msgstr "March"
+
+#~ msgid "May"
+#~ msgstr "May"
+
+#~ msgid "Monday"
+#~ msgstr "Monday"
+
+#~ msgid "New post"
+#~ msgstr "New post"
+
+#~ msgid "No injury"
+#~ msgstr "No injury"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "October"
+#~ msgstr "October"
+
+#~ msgid "Post"
+#~ msgstr "Post"
+
+#~ msgid "Potential injury"
+#~ msgstr "Potential injury"
+
+#~ msgid "Publish post"
+#~ msgstr "Publish post"
+
+#~ msgid "Refresh stream"
+#~ msgstr "Refresh stream"
+
+#~ msgid "Saturday"
+#~ msgstr "Saturday"
+
+#~ msgid "Save changes"
+#~ msgstr "Save changes"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "Severity"
+#~ msgstr "Severity"
+
+#~ msgid "Severity:"
+#~ msgstr "Severity:"
+
+#~ msgid "Sign out"
+#~ msgstr "Sign out"
+
+#~ msgid "Sunday"
+#~ msgstr "Sunday"
+
+#~ msgid "Syntax documentation"
+#~ msgstr "Syntax documentation"
+
+#~ msgid "Thursday"
+#~ msgstr "Thursday"
+
+#~ msgid "Tuesday"
+#~ msgstr "Tuesday"
+
+#~ msgid "Wednesday"
+#~ msgstr "Wednesday"
+
+#~ msgid "yesterday"
+#~ msgstr "yesterday"
+
+#~ msgid "yesterday at %(time)s"
+#~ msgstr "yesterday at %(time)s"

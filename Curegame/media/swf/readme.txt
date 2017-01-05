@@ -1,0 +1,1 @@
+Note: Files in this folder are generated/copied here during a FlashDevelop build!

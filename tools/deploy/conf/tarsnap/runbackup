@@ -1,0 +1,23 @@
+#!/bin/sh
+
+echo Tarsnap snapshot for $(hostname -s)-$(date -u +%Y%m%d-%H%M%S)
+
+# We use a special `backup` folder to store any additional data which is
+# intended to backed up along the session logs in ~/upload. This would normally
+# include data such as DB dumps and shared configuration files.
+if [ ! -d ~/backup ]
+then
+    mkdir ~/backup
+fi
+
+# Export data from Postgres using the compressed archive format.
+ionice -c 3 pg_dump -U python -Fc vrs > ~/backup/pg-$(hostname -s)-$(date -u +%Y%m%d-%H%M%S).db
+
+# Backup/snapshot data to an archive  using Tarsnap.
+ionice -c 3 tarsnap -c -f backup-$(hostname -s)-$(date -u +%Y%m%d-%H%M%S) ~/backup ~/upload
+
+# Dump some statistics allowing us to verify that data is being snapshot and
+# not re-uploaded on every run.
+tarsnap --print-stats
+
+exit 0

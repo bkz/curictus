@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox initialize="init()"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+        
+    <mx:Script source="defs.as" />
+
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>
+        <![CDATA[
+        private function init():void {
+            this.prevPress();
+        }
+            
+        private function prevPress():void {
+            this.prevButton.enabled = false;
+            this.nextButton.enabled = false;
+            this.a0.setActivityId('point');
+            this.a1.setActivityId('precision_h');
+            this.a2.setActivityId('precision_v');
+            this.a3.setActivityId('neglecttest');
+            this.a4.setActivityId('tmt_a');
+            this.a5.setActivityId('tmt_b');
+        }
+        
+        private function nextPress():void {
+        }
+        
+        ]]>
+    </mx:Script>
+    
+    <mx:VBox width="100%" height="100%" styleName="roundedBox" horizontalAlign="middle" filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}">
+        <mx:Label id="welcomeLabel" textAlign="center" text="{_('Assessments')}" styleName="message" width="100%" />
+        <mx:Spacer height="100%" />
+        <mx:HBox width="100%" height="100%" verticalAlign="middle">
+            <local:StretchButton height="100%" width="125"
+                id="prevButton"
+                icon="@Embed(source='assets/icons/images/left.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/left.png')"
+                click="{this.prevPress()}"
+                enabled="false"
+            />
+            
+            <mx:Spacer width="100%" />
+            <mx:VBox width="100%" height="100%" verticalGap="20">
+                <mx:HBox width="100%" height="100%" horizontalGap="20">
+                    <local:ActivityButton id="a0" width="100%" height="100%" />
+                    <local:ActivityButton id="a1" width="100%" height="100%" />
+                    <local:ActivityButton id="a2" width="100%" height="100%" />
+                </mx:HBox>
+                <mx:HBox width="100%" height="100%" horizontalGap="20">
+                    <local:ActivityButton id="a3" width="100%" height="100%" />
+                    <local:ActivityButton id="a4" width="100%" height="100%" />
+                    <local:ActivityButton id="a5" width="100%" height="100%" />
+                </mx:HBox>
+            </mx:VBox>
+            
+            <mx:Spacer width="100%" />
+            
+            <local:StretchButton height="100%" width="125"
+                id="nextButton"
+                icon="@Embed(source='assets/icons/images/right.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/right.png')"
+                click="{this.nextPress()}"
+                enabled="false"
+            />
+        </mx:HBox>
+        <mx:Spacer height="25" />
+        <mx:HBox width="100%" height="100%">
+            <local:StretchButton width="100%" height="200"
+                label="{_('Back')}" 
+                click="app.currentState='mainMenuState'" 
+                icon="@Embed(source='assets/icons/images/back.png')" 
+            />
+            
+            <local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                enabled="false"
+            />
+            <local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                enabled="false"
+            />
+            <local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                enabled="false"
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                label="{_('Help')}"
+                icon="@Embed(source='assets/icons/images/help.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/help.png')"
+                click="{this.app.showHelp(_('$dashboard_selectassessment_help'));}"
+            />
+        </mx:HBox>
+    </mx:VBox>
+    
+</mx:VBox>

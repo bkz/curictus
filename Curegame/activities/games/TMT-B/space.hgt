@@ -1,0 +1,174 @@
+<Transform DEF="HGT_BASE_TRANSFORM">
+	<Transform rotation="1 0 0 1.570796">
+		<Background groundColor="0.486660 0.486660 0.486660" skyColor="0.486660 0.486660 0.486660"/>
+	</Transform>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.006">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.006"/>
+		<Transform DEF="Transform_CircleEmpty.006" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.030597 0.028266 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.007">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.007"/>
+		<Transform DEF="Transform_CircleEmpty.007" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.053327 0.025644 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.004">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.004"/>
+		<Transform DEF="Transform_CircleEmpty.004" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.011365 -0.004662 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.005">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.005"/>
+		<Transform DEF="Transform_CircleEmpty.005" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.030889 -0.047499 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.002">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.002"/>
+		<Transform DEF="Transform_CircleEmpty.002" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.021273 -0.088004 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.003">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.003"/>
+		<Transform DEF="Transform_CircleEmpty.003" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.006411 0.019816 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.000">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.000"/>
+		<Transform DEF="Transform_CircleEmpty.000" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.001166 -0.032055 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.001">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.001"/>
+		<Transform DEF="Transform_CircleEmpty.001" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.030889 -0.094124 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.024">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.024"/>
+		<Transform DEF="Transform_CircleEmpty.024" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.078083 0.051799 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.020">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.020"/>
+		<Transform DEF="Transform_CircleEmpty.020" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.065566 -0.127927 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.021">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.021"/>
+		<Transform DEF="Transform_CircleEmpty.021" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.064692 -0.133172 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.008">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.008"/>
+		<Transform DEF="Transform_CircleEmpty.008" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.053036 -0.061486 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.009">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.009"/>
+		<Transform DEF="Transform_CircleEmpty.009" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.043128 -0.109860 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_Plane.001">
+		<TransformInfo DEF="TransformInfo_Plane.001"/>
+		<Transform DEF="Transform_Plane.001" rotation="1.000000 0.000000 0.000000 0.000000" scale="0.020910 0.020910 0.020910" translation="-0.282595 0.320784 0.000000">
+			<Shape>
+				<Appearance DEF="Appearance_Plane.001">
+					<Material DEF="Material_CorrectTarget" ambientIntensity="1.0" diffuseColor="0.000000 1.000000 0.303815" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.000000 0.000000 0.000000"/>
+				</Appearance>
+				<IndexedFaceSet DEF="Mesh_Plane.003" coordIndex="0 3 2 1 -1" solid="false">
+					<Coordinate DEF="Coord_Plane.003" point="1.000000 1.000000 0.000000, 1.000000 -1.000000 0.000000, -1.000000 -1.000000 0.000000, -1.000000 1.000000 0.000000"/>
+				</IndexedFaceSet>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_Plane.002">
+		<TransformInfo DEF="TransformInfo_Plane.002"/>
+		<Transform DEF="Transform_Plane.002" rotation="1.000000 0.000000 0.000000 0.000000" scale="0.020910 0.020910 0.020910" translation="-0.224767 0.320784 0.000000">
+			<Shape>
+				<Appearance DEF="Appearance_Plane.002">
+					<Material DEF="Material_WrongTarget" ambientIntensity="1.0" diffuseColor="1.000000 0.000000 0.102274" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.000000 0.000000 0.000000"/>
+				</Appearance>
+				<IndexedFaceSet DEF="Mesh_Plane.004" coordIndex="0 3 2 1 -1" solid="false">
+					<Coordinate DEF="Coord_Plane.004" point="1.000000 1.000000 0.000000, 1.000000 -1.000000 0.000000, -1.000000 -1.000000 0.000000, -1.000000 1.000000 0.000000"/>
+				</IndexedFaceSet>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_Plane">
+		<TransformInfo DEF="TransformInfo_Plane"/>
+		<Transform DEF="Transform_Plane" rotation="1.000000 0.000000 0.000000 0.000000" scale="0.020910 0.020910 0.020910" translation="-0.339333 0.320784 0.000000">
+			<Shape>
+				<Appearance DEF="Appearance_Plane">
+					<Material DEF="Material_DefaultTarget" ambientIntensity="1.0" diffuseColor="0.000000 0.000000 0.000000" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.000000 0.000000 0.000000"/>
+				</Appearance>
+				<IndexedFaceSet DEF="Mesh_Plane.002" coordIndex="0 3 2 1 -1" solid="false">
+					<Coordinate DEF="Coord_Plane.002" point="1.000000 1.000000 0.000000, 1.000000 -1.000000 0.000000, -1.000000 -1.000000 0.000000, -1.000000 1.000000 0.000000"/>
+				</IndexedFaceSet>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_BackgroundPlane">
+		<TransformInfo DEF="TransformInfo_BackgroundPlane"/>
+		<Transform DEF="Transform_BackgroundPlane" rotation="1.000000 0.000000 0.000000 0.000000" scale="0.361701 0.279760 0.409245" translation="0.000000 0.000000 -0.000519">
+			<Shape>
+				<Appearance DEF="Appearance_BackgroundPlane">
+					<Material DEF="Material_BackgroundPlane" ambientIntensity="1.0" diffuseColor="0.906332 0.906332 0.906332" emissiveColor="0.573057 0.573057 0.573057" shininess="0.09765625" specularColor="0.000000 0.000000 0.000000"/>
+					<SmoothSurface/>
+				</Appearance>
+				<IndexedFaceSet DEF="Mesh_Plane.001" coordIndex="0 3 2 1 -1">
+					<Coordinate DEF="Coord_Plane.001" point="1.000000 1.000000 0.000000, 1.000000 -1.000000 0.000000, -1.000000 -1.000000 0.000000, -1.000000 1.000000 0.000000"/>
+					<HapticsOptions maxDistance="0.1"/>
+				</IndexedFaceSet>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.019">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.019"/>
+		<Transform DEF="Transform_CircleEmpty.019" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.058281 -0.080428 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.018">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.018"/>
+		<Transform DEF="Transform_CircleEmpty.018" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.065566 0.044294 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.011">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.011"/>
+		<Transform DEF="Transform_CircleEmpty.011" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.030889 -0.122099 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.010">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.010"/>
+		<Transform DEF="Transform_CircleEmpty.010" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.006994 -0.104323 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.013">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.013"/>
+		<Transform DEF="Transform_CircleEmpty.013" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.052744 -0.057698 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.012">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.012"/>
+		<Transform DEF="Transform_CircleEmpty.012" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.040505 -0.033220 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.015">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.015"/>
+		<Transform DEF="Transform_CircleEmpty.015" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.036134 0.001457 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.014">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.014"/>
+		<Transform DEF="Transform_CircleEmpty.014" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.057407 0.044294 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.017">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.017"/>
+		<Transform DEF="Transform_CircleEmpty.017" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.018650 0.047499 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.016">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.016"/>
+		<Transform DEF="Transform_CircleEmpty.016" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.035260 0.031472 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.022">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.022"/>
+		<Transform DEF="Transform_CircleEmpty.022" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.067606 -0.042836 0.000000"/>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_CircleEmpty.023">
+		<TransformInfo DEF="TransformInfo_CircleEmpty.023"/>
+		<Transform DEF="Transform_CircleEmpty.023" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="-0.050704 -0.093541 0.000000"/>
+	</ToggleGroup>
+	<PointLight DEF="PointLight_Point.001" attenuation="1 0 0" color="1.000000 1.000000 1.000000" intensity="0.360000014305" location="0.278600 -0.214954 0.310489"/>
+	<PointLight DEF="PointLight_Point" attenuation="1 0 0" color="1.000000 1.000000 1.000000" intensity="1.0" location="-0.210679 0.217702 0.309232"/>
+	<ToggleGroup DEF="ToggleGroup_Message">
+		<TransformInfo DEF="TransformInfo_Message"/>
+		<Transform DEF="Transform_Message" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.000000 0.103461 0.000000">
+			<Shape>
+				<Appearance DEF="Appearance_Message">
+					<Material DEF="Material_MessageLabel" ambientIntensity="1.0" diffuseColor="0.000000 0.000000 0.000000" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.000000 0.000000 0.000000"/>
+				</Appearance>
+				<Text DEF="Text_Message" string="Message">
+					<FontStyle family="Droid Sans" justify="MIDDLE" renderType="POLYGON" size="0.0200000181794"/>
+				</Text>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+</Transform>

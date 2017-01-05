@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    styleName="roundedBox" 
+    filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}"
+    creationComplete="init();">
+
+    <mx:Script source="defs.as" />
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>
+        <![CDATA[
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+        import mx.events.CuePointEvent;
+        import mx.events.VideoEvent;
+        import mx.managers.PopUpManager;
+
+        private const PREVENT_BLOCKED_THREAD_TIMEOUT_MS:int = 250;
+
+        private const SLIDESHOW_INIT_INDEX:int  = -1;
+        private const VIDEO_FADE_DURATION_MS:int = 1000;
+
+        private var slideshowIndex:int = SLIDESHOW_INIT_INDEX;
+        private var slideshow:Array = new Array();
+        
+        private var videoTitle:String;
+        private var videoPlayOffset:Number = 0;
+        private var videoIntervalId:int;
+        private var videoCaptions:Object = new Object();              
+        
+
+        [Bindable]
+        public var activityAlias:String;
+        
+        [Bindable]
+        public var closeHook:Function = null
+
+        private function init():void {
+            PopUpManager.centerPopUp(this);
+            setTimeout(
+                function():void {
+                    initVideoPlayer();
+                    loadXML();
+                }
+                , PREVENT_BLOCKED_THREAD_TIMEOUT_MS);
+        }
+
+        private function close():void {
+            stopVideo();
+            PopUpManager.removePopUp(this);
+            if (closeHook !== null) {
+                closeHook();
+            }
+        }
+        
+        private function initVideoPlayer(): void {		
+            videoPlayer.addEventListener(CuePointEvent.CUE_POINT, 
+                function(e:CuePointEvent):void {
+                    if (e.cuePointName == "stop") {
+                        setSlideshowIndex(SLIDESHOW_INIT_INDEX);
+                    } 
+                    else {
+                        captionLabel.text = videoCaptions[e.cuePointName];
+                    }
+                });            
+        }
+                
+        private function stopVideo(): void {
+                clearInterval(videoIntervalId);                
+                videoPlayer.visible = false;
+                if (videoPlayer.source)
+                    videoPlayer.stop();
+        }              
+        
+        private function setSlideshowIndex(i:int): void {
+            var prevSlideshowIndex:int = slideshowIndex;
+            
+            slideshowIndex = i;       
+
+            // (1) Initialize or reset slideshow with preview image of activity.
+            if (slideshowIndex === SLIDESHOW_INIT_INDEX) {
+                stopVideo();
+                videoImage.source = DASHBOARD_ADDRESS + "static/screenshots/" + activityAlias + "_medium.jpg"; 
+                captionLabel.text = _("Use the right and left arrows to browse through the instructions.");
+            } 
+            
+            // (2) Display slide images and text.
+            if (slideshowIndex >= 0 && slideshowIndex < slideshow.length) {
+                if (prevSlideshowIndex === slideshow.length) {
+                    stopVideo();
+                }
+                videoImage.source = DASHBOARD_ADDRESS + slideshow[slideshowIndex].image;
+                captionLabel.text = slideshow[slideshowIndex].text;
+            } 
+            
+            // (3) Slideshow eneded, play tutorial video.
+            if (slideshowIndex === slideshow.length) {                
+                captionLabel.text = videoTitle;
+                videoIntervalId = setInterval(function() : void {				
+                    if (videoPlayer.state == VideoEvent.STOPPED) {
+                        clearInterval(videoIntervalId);
+                        videoPlayer.playheadTime = videoPlayOffset;
+                        videoPlayer.play();
+                        videoPlayer.visible = true;
+                    }
+                }, 
+                10);					
+            }
+                   
+            if (slideshowIndex == SLIDESHOW_INIT_INDEX) {
+                glowButton(nextButton);
+            } else { 
+                unglowButton();
+            }
+                
+            prevButton.enabled = (slideshowIndex > SLIDESHOW_INIT_INDEX);
+            nextButton.enabled = (slideshowIndex < slideshow.length);
+                        
+            titleLabel.text = _('Instructions') + " (" + (slideshowIndex + 2) + "/" + (slideshow.length + 2) + ")";
+        }
+        
+        private function prevSlide(): void {
+            setSlideshowIndex(slideshowIndex - 1);
+        }
+
+        private function nextSlide(): void {
+            setSlideshowIndex(slideshowIndex + 1);
+        }
+        
+        private function loadXML(): void {		    
+            var xml:XML = new XML(getActivityVideoXML(activityAlias));		
+            var cp:Array = new Array();			
+            
+            var k:int = 1;
+            for each (var node:XML in xml.captions.children()) {
+                cp.push( { name:k, time:Number(node.@time) } );
+                videoCaptions[k] = node.@text;
+                k += 1;
+            }						
+            
+            for each (var s:XML in xml.slideshow.children())
+                slideshow.push( { image:s.@image, duration:s.@duration, text:s.@text } );                            
+
+            cp.push( { name:"stop", time:Number(xml.offsets.stop) } );
+                                 
+            videoPlayOffset = Number(xml.offsets.start);
+            videoTitle = xml.captions.@title;
+            videoPlayer.cuePointManager.removeAllCuePoints();
+            videoPlayer.cuePointManager.setCuePoints(cp);								            
+            videoPlayer.source = DASHBOARD_ADDRESS + xml.filename;
+            videoPlayer.load();
+            
+            setSlideshowIndex(SLIDESHOW_INIT_INDEX);
+        }  
+        
+        private function glowButton(b:Object): void {
+            unglowButton();
+            
+            glowButtonEffect.target = b;
+            unglowButtonEffect.target = b;
+            
+            glowButtonEffect.play();        
+        }
+        
+        private function unglowButton(): void {
+            glowButtonEffect.end();
+            glowButtonEffect.target = null;
+
+            unglowButtonEffect.end();
+            unglowButtonEffect.target = null;
+        }        
+        ]]>
+    </mx:Script>
+
+    <mx:Glow id="glowButtonEffect" effectEnd="{unglowButtonEffect.play()}"
+        alphaFrom="1.0" alphaTo="0.3" 
+        blurXFrom="0.0" blurXTo="40.0" 
+        blurYFrom="0.0" blurYTo="40.0" 
+        color="#0026FF" duration="1000"/>
+    <mx:Glow id="unglowButtonEffect" duration="2500" effectEnd="{glowButtonEffect.play()}"
+        alphaFrom="0.3" alphaTo="1.0" 
+        blurXFrom="40.0" blurXTo="0.0" 
+        blurYFrom="40.0" blurYTo="0.0" 
+        color="#0026FF" />
+        
+    <mx:Fade id="videoFadeOut" duration="{VIDEO_FADE_DURATION_MS}" alphaFrom="1.0" alphaTo="0.0"/>
+    <mx:Fade id="videoFadeIn"  duration="{VIDEO_FADE_DURATION_MS}" alphaFrom="0.0" alphaTo="1.0"/>
+
+    <mx:VBox horizontalAlign="center">
+        <mx:Label id="titleLabel" styleName="activitySummary" text="" />
+        <mx:Spacer height="10" />
+        <mx:Canvas width="480" height="320">
+            <mx:Image id="videoImage" width="480" height="320" x="0" y="0" completeEffect="Fade" maintainAspectRatio="false" />
+            <mx:VideoDisplay id="videoPlayer"			
+                playheadUpdateInterval="100"				
+                autoPlay="false"
+                maintainAspectRatio="true"
+                 width="480" height="320" x="0" y="0"
+                cuePointManagerClass="mx.controls.videoClasses.CuePointManager"
+                hideEffect="{videoFadeOut}" showEffect="{videoFadeIn}"
+                visible="false"
+                volume="150"
+                />				                    
+        </mx:Canvas>    
+        <mx:Spacer height="20" />
+        <mx:Text styleName="activityDescription" id="captionLabel" selectable="false" width="500" height="100" textAlign="center"  />
+        <mx:Spacer height="10" />
+        <mx:HBox width="100%" horizontalAlign="center">
+            <mx:Spacer width="100%" />
+            <local:StretchButton id="prevButton" width="150" height="100" click="prevSlide()" icon="@Embed(source='assets/icons/images/left.png')" disabledIcon="@Embed(source='assets/icons/images_disabled/left.png')" enabled="false" />
+            <mx:Spacer width="10" />
+            <local:StretchButton width="250" height="100" label="{_('Close')}" click="close()" />
+            <mx:Spacer width="10" />
+            <local:StretchButton id="nextButton" width="150" height="100" click="nextSlide()" icon="@Embed(source='assets/icons/images/right.png')" disabledIcon="@Embed(source='assets/icons/images_disabled/right.png')" />
+            <mx:Spacer width="100%" />
+        </mx:HBox>            
+    </mx:VBox>         
+
+</mx:Box>

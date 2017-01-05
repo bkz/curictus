@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Todo:
+    - Show "Loading" message after 2-3 second delay (when dashboardSevice is taking long to respond
+
+-->
+
+<mx:Application backgroundColor="0xffffff"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:reflector="com.rictus.reflector.*"
+	xmlns:filters="flash.filters.*"
+    xmlns:local="*"
+    
+    layout="absolute"
+    horizontalGap="0" verticalGap="0" 
+    paddingTop="0" paddingLeft="0" paddingBottom="0" paddingRight="0"
+    verticalScrollPolicy="off"
+    horizontalScrollPolicy="off"
+    width="100%" height="100%"
+    visible="false"
+    usePreloader="false"
+    modalTransparency="0.7"
+    modalTransparencyBlur="6"
+    initialize="init()"
+    creationComplete="complete()"
+    
+    showEffect="{fadeIn}"
+    hideEffect="{fadeOut}"    
+>
+    
+    <mx:Script source="defs.as" />
+    <mx:Script source="main.as" />
+    <mx:Style source="assets/style/componentstyle.css" />
+    <mx:Style source="assets/style/style.css" />
+
+    <mx:Fade id="fadeOut" duration="250" alphaFrom="1.0" alphaTo="0.0"/>
+    <mx:Fade id="fadeIn" duration="250" alphaFrom="0.0" alphaTo="1.0"/>
+    
+    <!-- Easter Egg 
+    <mx:SoundEffect id="soundscape" source="{DASHBOARD_ADDRESS + 'static/sounds/dashboard_soundscape.mp3'}" />
+    -->
+    
+    <!-- View states -->
+    <mx:states>
+        <mx:State name="systemMenuState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{systemMenuComp}" />
+        </mx:State>
+        <mx:State name="createUserState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{createUserComp}" />
+        </mx:State>
+        <mx:State name="loginState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{loginComp}" />
+        </mx:State>
+        <mx:State name="initMenuState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{initMenuComp}" />
+        </mx:State>
+        <mx:State name="mainMenuState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{mainMenuComp}" />
+        </mx:State>
+        <mx:State name="selectActivityState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{selectActivityComp}" />
+        </mx:State>
+        <mx:State name="selectAssessmentState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{selectAssessmentComp}" />
+        </mx:State>
+        <mx:State name="preActivityState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{preActivityComp}" />
+        </mx:State>
+        <mx:State name="preAssessmentState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{preAssessmentComp}" />
+        </mx:State>
+        <mx:State name="exitScreenState" enterState="this.stateEntered(event)">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{exitScreenComp}" />
+        </mx:State>
+       
+        <mx:State name="emptyState">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{emptyComp}" />
+        </mx:State>
+        
+        <mx:State name="exitState">
+            <mx:SetProperty target="{viewStack}" name="selectedChild" value="{emptyComp}" />
+            <!--<mx:SetProperty target="{this}" name="visible" value="false" />-->
+        </mx:State>
+    </mx:states>
+    
+    <!-- Layout -->
+    
+    <mx:Canvas id="wallpaper">
+        <mx:Image source="{DASHBOARD_ADDRESS + 'static/wallpapers/dashboard/background.jpg'}" />        
+        <mx:HBox horizontalAlign="center" verticalAlign="middle" width="100%" height="90">
+            <mx:Label id="notificationLabel" styleName="notification" visible="false" text="" showEffect="{fadeIn}" hideEffect="{fadeOut}" />    
+        </mx:HBox>        
+        <mx:Label id="versionLabel" styleName="versionInfo" bottom="5" right="5" text="" />
+    </mx:Canvas>
+    
+    <mx:VBox
+        width="100%" height="100%" 
+        horizontalAlign="center"
+        verticalAlign="top"
+        horizontalGap="0" verticalGap="0" 
+        paddingTop="0" paddingLeft="0" paddingBottom="0" paddingRight="0"  
+    >
+        <mx:Spacer width="100%" height="50" />
+        
+        <mx:HBox
+            id="dashboardContainer"
+            width="100%" height="100%" 
+            horizontalAlign="center"
+            verticalAlign="top"
+            horizontalGap="0" verticalGap="0" 
+            paddingTop="0" paddingLeft="0" paddingBottom="0" paddingRight="0"  
+        >
+            <mx:Spacer width="100%" height="100%" />
+            
+            <!-- Main area -->
+            <mx:Box
+                verticalAlign="top" 
+                horizontalAlign="center" 
+                width="1344"
+                paddingTop="20" paddingLeft="0" paddingBottom="30" paddingRight="0"
+                height="100%"
+            >
+                <mx:ViewStack id="viewStack" width="100%" height="100%" resizeToContent="true" creationPolicy="all"
+                    
+                >
+                    <mx:Box id="emptyComp" />
+                    
+                    <local:InitMenu id="initMenuComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    
+                    <local:SystemMenu id="systemMenuComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    <local:Login id="loginComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    <local:CreateUser id="createUserComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    
+                    <local:MainMenu id="mainMenuComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    <local:SelectActivity id="selectActivityComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                    <local:SelectAssessment id="selectAssessmentComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}" />
+                    <local:PreActivity id="preActivityComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    <local:PreActivity id="preAssessmentComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                    
+                    <local:ExitScreen id="exitScreenComp" width="100%" height="100%" hideEffect="{fadeOut}" showEffect="{fadeIn}"/>
+                </mx:ViewStack>    
+            </mx:Box>
+            
+            <mx:Spacer width="100%" height="100%" />
+            
+        </mx:HBox>
+    </mx:VBox>    
+</mx:Application>

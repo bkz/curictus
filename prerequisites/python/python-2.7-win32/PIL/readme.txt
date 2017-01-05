@@ -1,0 +1,1 @@
+Fix: patched PIL 1.1.7 DLL using hex-editor to not depend on DebugCRT.

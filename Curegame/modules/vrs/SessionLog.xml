@@ -1,0 +1,108 @@
+<session duration="9.28900003433" guid="026748f0-de8a-11de-a765-002186a2bf30" timestamp="1259679510.2" version="1.0 BETA">
+  <!-- Generated: Tue Dec 01 15:58:39 2009 -->
+  <zone alias="default" guid="142f40f0-ddaf-11de-a779-002186a2bf30" />
+  <station alias="default" guid="1d0621cf-ddaf-11de-aebc-002186a2bf30" />
+  <patient alias="RT" guid="ec9a4030-ddb3-11de-a32e-002186a2bf30" />
+  <hardware>
+    <phantom>
+      <hdapi>3.00.66</hdapi>
+      <vendor>SensAble Technologies, Inc.</vendor>
+      <model>PHANTOM Omni</model>
+      <driver>4.2.122</driver>
+      <firmware>192</firmware>
+      <serial>51201300002</serial>
+    </phantom>
+  </hardware>
+  <activity alias="point" kind="test" version="1.0" guid="511ab7c0-ddb8-14de-91e5-002186a2bf45" >
+    <event id="init" description="Pointtest Initialized" distance="0.00000000" timestamp="0.22628546">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420"/>
+      <value id="numpoints">32</value>
+    </event>
+    <info id="finish" description="Player finished round 1">
+      <value id="time">32</value>
+    </info>
+    <event id="show_start" description="Show Start Button" distance="0.00000000" timestamp="0.31755590">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420"/>
+    </event>
+    <score id='' description=''>
+      <value key="time">42.5</value>
+    </score>
+  </activity>
+  <kinematics>
+    <deviceinfo>
+      <calibration>
+	<position>1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,0.60958201,0.79272300,0.00000000,0.00000000,-0.79272300,0.60958201,0.00000000,0.00000000,-0.04850000,-0.01650000,1.00000000</position>
+	<orientation x="1.00000000" y="0.00000000" z="0.00000000" a="0.91526300" />
+      </calibration>
+    </deviceinfo>
+    <event timestamp="0.01681685">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420" />
+      <orientation x="-0.85014823" y="0.11652737" z="0.51348745" a="0.49688348" />
+      <force x="0.00000000" y="0.00000000" z="0.00000000" />
+      <velocity x="0.00000000" y="0.00000000" z="0.00000000" />
+    </event>
+    <event timestamp="0.03438997">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420" />
+      <orientation x="-0.84945034" y="0.11645460" z="0.51465760" a="0.49579494" />
+      <force x="0.00000000" y="0.00000000" z="0.00000000" />
+      <velocity x="0.00000000" y="0.00000000" z="0.00000000" />
+    </event>
+    <event timestamp="0.05190659">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420" />
+      <orientation x="-0.84805969" y="0.11897881" z="0.51637081" a="0.49792060" />
+      <force x="0.00000000" y="0.00000000" z="0.00000000" />
+      <velocity x="0.00000000" y="0.00000000" z="0.00000000" />
+    </event>
+    <event timestamp="0.06877995">
+      <position x="0.00000000" y="-0.06551071" z="-0.08811420" />
+      <orientation x="-0.85014823" y="0.11652737" z="0.51348745" a="0.49688348" />
+      <force x="0.00000000" y="0.00000000" z="0.00000000" />
+      <velocity x="0.00000000" y="0.00000000" z="0.00000000" />
+    </event>
+  </kinematics>
+  <analysis>
+    <module alias="default" version="1.0" guid="411ab7c0-eef90-11de-91e5-119186a2bf32">
+      <value id="avg_speed">0.323</value>
+    </module>
+    <module alias="jerkiness" version="1.0" guid="411ab7c0-ddb8-11de-91e5-119186a2bf32">
+      <group name="velocity_octants">
+	<value id="left_lower_back"     >...</value>
+	<value id="right_lower_back"    >...</value>
+	<value id="right_upper_back"    >...</value>
+	<value id="left_upper_back"     >...</value>
+	<value id="left_lower_front"    >...</value>
+	<value id="right_lower_front"   >...</value>
+	<value id="right_upper_front"   >...</value>
+	<value id="left_upper_front"    >...</value>
+	<value id="total_mean_velocity" >...</value>
+      </group>
+      <group name="jerkiness_octants">
+	<value id="left_lower_back"   >...</value>
+	<value id="right_lower_back"  >...</value>
+	<value id="right_upper_back"  >...</value>
+	<value id="left_upper_back"   >...</value>
+	<value id="left_lower_front"  >...</value>
+	<value id="right_lower_front" >...</value>
+	<value id="right_upper_front" >...</value>
+	<value id="left_upper_front"  >...</value>
+	<value id="total_jerkiness"   >...</value>
+      </group>
+      <group name="velocity_direction">
+	<value id="right"  >...</value>
+	<value id="left"   >...</value>
+	<value id="up"     >...</value>
+	<value id="down"   >...</value>
+	<value id="away"   >...</value>
+	<value id="towards">...</value>
+      </group>
+      <group name="jerkiness_direction">
+	<value id="right"  >...</value>
+	<value id="left"   >...</value>
+	<value id="up"     >...</value>
+	<value id="down"   >...</value>
+	<value id="away"   >...</value>
+	<value id="towards">...</value>
+      </group>
+    </module>
+  </analysis>
+</session>

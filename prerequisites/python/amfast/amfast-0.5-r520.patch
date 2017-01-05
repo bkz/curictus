@@ -1,0 +1,15 @@
+Index: sa_class_def.py
+===================================================================
+--- sa_class_def.py	(revision 519)
++++ sa_class_def.py	(working copy)
+@@ -50,8 +50,8 @@
+         self.unmapped_attrs = static_attrs
+ 
+         self.mapped_attrs = []
+-        for prop in self.mapper.iterate_properties:
+-            self.mapped_attrs.append(prop.key)
++        #for prop in self.mapper.iterate_properties:
++        #    self.mapped_attrs.append(prop.key)
+ 
+         # Check for duplicates
+         for attr in self.mapped_attrs:

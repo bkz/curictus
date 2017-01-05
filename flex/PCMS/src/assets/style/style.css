@@ -1,0 +1,84 @@
+/* Embedding DroidSans as otf solves problem with swedish umlauts running off to the right. */
+@font-face {
+	src: url('../fonts/DroidSans.otf');
+	fontFamily: 'Droid Sans Embedded';
+    fontWeight: normal;
+}
+
+@font-face {
+	src: url('../fonts/DroidSans-Bold.otf');
+	fontFamily: 'Droid Sans Embedded';
+    fontWeight: bold;
+}
+
+global {
+    fontSize: 12;
+}
+
+Application {
+    backgroundColor: #fff;
+    backgroundGradientAlphas: 1.0, 1.0;
+    backgroundGradientColors: #fff, #d9d9d9;
+}
+
+
+.droid {
+	fontFamily: 'Droid Sans Embedded';
+}
+
+.padded {
+    paddingLeft: 10;
+    paddingTop: 10;
+    paddingRight: 10;
+    paddingBottom: 10;
+}
+
+
+.formItemLabel {
+    fontWeight: bold;
+}
+
+.linkText {
+    textDecoration: underline;
+}
+
+.overviewDataGridStyle {
+    borderStyle: none;
+}
+
+.activityChart {
+	paddingTop: 5;
+	paddingLeft: 10;
+	paddingRight:  10;
+	paddingBottom: 5;
+	fontSize: 12;
+}
+
+.activityChartTitle {
+	textAlign: center;
+	fontWeight: bold;
+	fontSize: 16;
+	paddingTop: 5;
+    paddingBottom: 0;
+	fontFamily: "Droid Sans Embedded";
+}
+
+.activityChartSubtitle {
+	textAlign: center;
+	fontSize: 14;
+	paddingTop: 0;
+	fontFamily: "Droid Sans Embedded";
+}
+
+.axisTitles {
+    fontWeight:bold;
+    fontSize:11;
+}
+
+PlotChart {
+    axisTitleStyleName:axisTitles;
+}
+
+LineChart {
+    axisTitleStyleName:axisTitles;
+}

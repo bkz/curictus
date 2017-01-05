@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<p style="margin-top:20px" />
+<b>{{ _("Sorry, something went very wrong!") }}</b>
+<p/>
+<code>HTTP Error: {{ status_code }}</code>
+<p/>
+<small>
+  {{ _("Contact us via support@curictus.com if you need help.") }}
+</small>
+
+{% end %}

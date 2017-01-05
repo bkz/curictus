@@ -1,0 +1,43 @@
+<Transform translation="0 0 0">
+
+<Group DEF="TARGET_GROUP">
+    
+    <!-- "Mole" model -->
+    <Transform translation="0 0 0" rotation="0 1 0 1.570796">
+        <Shape>
+            <Appearance DEF="MOLE_APP">
+                <Material DEF="MOLE_MAT" diffuseColor="0 1 1" specularColor="1 1 1" shininess="1.0"/>
+                <!--<ImageTexture url="textures/water.png" />
+                <TextureTransform scale="1 1" translation="0 0" />-->
+            </Appearance>
+            <Cylinder radius="0.035" height="0.07" />
+            </Shape>
+    </Transform>
+
+    <Transform translation="0 0.035 0" scale="1 0.3 1">
+        <Shape>
+            <Appearance USE="MOLE_APP" />
+            <Sphere radius="0.035" />
+        </Shape>
+    </Transform>
+    
+    <!-- Decal -->
+    <Transform translation="0 0.01 0.036" scale="0.025 0.025 0.025">
+        <Shape>
+            <Appearance>
+                <ImageTexture DEF="DECAL" repeatT="FALSE"
+                repeatS="FALSE" url="textures/bandit1.png" />
+                <TextureTransform scale="1 1" translation="0 0" />
+            </Appearance>
+            <!--
+            <Box solid="FALSE" size="0.05 0.05 0.0001" />
+            -->
+            <IndexedFaceSet coordIndex=" 0 1 2 3" solid="false">
+                <Coordinate point="1.0 1.0 0.0, -1.0 1.0 0.0, -1.0 -1.0 0.0, 1.0 -1.0 0.0, "/>
+            </IndexedFaceSet>
+
+            </Shape>
+    </Transform>
+</Group>
+</Transform>
+

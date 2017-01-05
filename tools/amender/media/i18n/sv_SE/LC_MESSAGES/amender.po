@@ -1,0 +1,276 @@
+# Swedish translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Curictus 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-06 12:52+0200\n"
+"PO-Revision-Date: 2010-10-05 11:44+0100\n"
+"Last-Translator: Babar Zafar <babar.zafar@curictus.com>\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "(empty)"
+msgstr "(tom)"
+
+#, python-format
+msgid "A new comment was added to support ticket by %s:"
+msgstr "En ny kommentar har lagts till av %s:"
+
+#, python-format
+msgid "A new support ticket has been created by %s:"
+msgstr "Ett nytt supportärende har skapats av %s:"
+
+msgid "Add new"
+msgstr "Skapa nytt"
+
+msgid "Add new comment"
+msgstr "Lägg till kommentar"
+
+msgid "Assigned to:"
+msgstr "Tilldelad:"
+
+msgid "Bug"
+msgstr "Bug"
+
+msgid "Click here to view details..."
+msgstr "Klicka här för att se detaljer..."
+
+msgid "Close ticket"
+msgstr "Avsluta ärende"
+
+msgid "Closed"
+msgstr "Avslutad"
+
+msgid "Closed issues"
+msgstr "Avslutade ärenden."
+
+msgid "Comment:"
+msgstr "Kommentar:"
+
+msgid "Comments"
+msgstr "Kommentarer"
+
+msgid "Contact us via support@curictus.com if you need help."
+msgstr "Kontakta oss via support@curictus.com om du behöver hjälp."
+
+msgid "Created"
+msgstr "Skapad"
+
+msgid "Created:"
+msgstr "Skapad:"
+
+msgid "Critical"
+msgstr "Kritisk"
+
+#, python-format
+msgid "Curictus Support Ticket #%d (Updated)"
+msgstr "Curictus Supportärende #%d (Uppdatering)"
+
+msgid "Customer:"
+msgstr "Kund:"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Description:"
+msgstr "Beskrivning:"
+
+msgid "Did the incident cause or could have caused severe patient injury or death?"
+msgstr "Har incidenten orsakat eller kunde ha orsakat en allvarlig patientskada eller död?"
+
+msgid "Edit details"
+msgstr "Editera ärende"
+
+msgid "Edit ticket"
+msgstr "Editera ärende:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Feature"
+msgstr "Feature"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Issue overview"
+msgstr "Ärende översikt"
+
+msgid "Labels:"
+msgstr "Etiketter:"
+
+msgid "List issues"
+msgstr "Lista ärenden"
+
+msgid "Log in"
+msgstr "Logga in"
+
+msgid "Log ut"
+msgstr "Logga ut"
+
+msgid "Modified"
+msgstr "Modifierad"
+
+msgid "Modified:"
+msgstr "Modifierad:"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "No matching issues found!"
+msgstr "Inga matchande ärenden funna!"
+
+msgid "Open"
+msgstr "Öppen"
+
+msgid "Open issues"
+msgstr "Öppna ärenden"
+
+msgid "PCMS"
+msgstr "PCMS"
+
+msgid "Password:"
+msgstr "Lösenord:"
+
+msgid "Patient injury"
+msgstr "Patientskada"
+
+msgid "Patient injury:"
+msgstr "Patient skada:"
+
+msgid "Please enter a valid email and a decription of the issue you want to report."
+msgstr "Vänligen mata in en giltlig email samt en beskrivning av ärendet du vill rapportera."
+
+msgid "Please enter a valid email and comment you wish to add to the ticket."
+msgstr "Vänligen mata in en giltlig email samt en kommentarstext."
+
+msgid "Reply"
+msgstr "Svara"
+
+msgid "Report issue"
+msgstr "Rapportera ärende"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Sorry, something went very wrong!"
+msgstr "Ledsen, någonting gick fel!"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Submit"
+msgstr "Skicka"
+
+msgid "Support team:"
+msgstr "Support team:"
+
+msgid "The email or password you entered is incorrect!"
+msgstr "Email addressen eller lösenordet du angivit är inte korrekt!"
+
+msgid "The page you requested does not exist!"
+msgstr "Den efterfrågade sidan existerar ej!"
+
+#, python-format
+msgid "Ticket has been edited by %s"
+msgstr "Ärendet har editerats av %s"
+
+msgid "To enter multiple customer emails use comma as a separator, ex: john@domain.com, anna@domain.com"
+msgstr "Använd kommatecken för att separa email om du vill mata in mer än en address, ex: john@domain.com, anna@domain.com"
+
+msgid "VRS Hardware"
+msgstr "VRS Hårdvara"
+
+msgid "VRS Software"
+msgstr "VRS Mjukvara"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "unassigned"
+msgstr "ej tilldelad"
+
+#~ msgid "1 hour ago"
+#~ msgid_plural "%(hours)d hours ago"
+#~ msgstr[0] "1 timma sedan"
+#~ msgstr[1] "%(hours)d timmar sedan"
+
+#~ msgid "1 minute ago"
+#~ msgid_plural "%(minutes)d minutes ago"
+#~ msgstr[0] "1 minut sedan"
+#~ msgstr[1] "%(minutes)d minuter sedan"
+
+#~ msgid "1 second ago"
+#~ msgid_plural "%(seconds)d seconds ago"
+#~ msgstr[0] "1 sekund sedan"
+#~ msgstr[1] "%(seconds)d sekunder sedan"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "Archive"
+#~ msgstr "Arkiv"
+
+#~ msgid "August"
+#~ msgstr "Augusti"
+
+#~ msgid "Cancel"
+#~ msgstr "Avbryt"
+
+#~ msgid "December"
+#~ msgstr "December"
+
+#~ msgid "February"
+#~ msgstr "Februari"
+
+#~ msgid "Friday"
+#~ msgstr "Fredag"
+
+#~ msgid "GUID"
+#~ msgstr "GUID"
+
+#~ msgid "Injured"
+#~ msgstr "Skadad"
+
+#~ msgid "January"
+#~ msgstr "Januari"
+
+#~ msgid "July"
+#~ msgstr "Juli"
+
+#~ msgid "June"
+#~ msgstr "Juni"
+
+#~ msgid "March"
+#~ msgstr "Mars"
+
+#~ msgid "May"
+#~ msgstr "Maj"
+
+#~ msgid "Monday"
+#~ msgstr "Måndag"
+
+#~ msgid "New post"
+#~ msgstr "Ny post"
+
+#~ msgid "No injury"
+#~ msgstr "Ingen skada"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "Potential injury"
+#~ msgstr "Potentiell skada"

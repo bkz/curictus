@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:controls="nl.flexcoders.controls.*"
+    xmlns:display="com.visualempathy.display.*"
+    xmlns:local="*"
+    width="100%" height="100%" 
+    horizontalScrollPolicy="off"
+    verticalScrollPolicy="off"
+    creationComplete="init()">
+            
+    <mx:Script source="defs.as" />
+    
+    <mx:Script>
+        <![CDATA[           
+            import com.adobe.utils.DateUtil;
+            import flash.events.Event;
+            import mx.collections.ArrayCollection;
+            import mx.utils.ObjectProxy;
+			import mx.controls.Alert;
+            import vrs.shared.Session;
+            import vrs.util.Format;
+			           
+            private var initComplete:Boolean = false;
+            
+            private function init():void {
+                app.pcmsService.listAssessments(
+                    function(activities:ArrayCollection):void {
+                        var aliases:Array = new Array;
+                        
+                        for (var i:int = 0; i < activities.length; i++) {
+                            aliases.push(activities[i].alias);
+                        }
+
+                        aliases.sort(function(a:String, b:String):int {
+                                return getActivityName(a).localeCompare(getActivityName(b));
+                            });
+                        
+                        selectedAssessment.dataProvider = new ArrayCollection(aliases);
+                        selectedAssessment.selectedIndex = aliases.indexOf("point");
+                                 
+                        initComplete = true;
+                        
+                        refresh();
+                    });                
+            }
+
+            public function refresh():void {
+                if (initComplete) {                         
+                    selectAssessmentAction();
+                }
+            }
+            
+            private function clearGraphs():void {
+                    dataGridAssessmentVars.dataProvider = new ArrayCollection;
+                                    
+                    kinectPlot.clear();
+                    kinectPlotSlider.value = 0;
+                    hprChart.clear();
+                    timePlot.clear();
+                    distancePlot.clear();
+                    velocityPlot.clear();
+                    accelPlot.clear();
+                    forcePlot.clear();                                                       
+            }
+                        
+            private function selectAssessmentAction():void {
+                clearGraphs();
+                
+                assessmentReportTabNavigator.enabled = false;
+                assessmentReportTabNavigator.selectedIndex = 0;
+                                
+				sessionList.dataProvider = new ArrayCollection;
+				sessionList.dataProvider.refresh();
+				
+                if (selectedAssessment.selectedItem) {
+                    var activityAlias:String = selectedAssessment.selectedItem as String;
+                    
+                    setupTabs(activityAlias);
+                    
+                    app.pcmsService.findActivitySessions(app.selectedPatient, activityAlias,
+                        function(sessions:ArrayCollection):void {
+                            sessionList.dataProvider = sessions;
+                            sessionList.dataProvider.refresh();
+                        });
+                }
+                else {
+                    setupTabs("__default__");                    
+                }                               
+            }
+                                    
+            private function selectSessionAction():void {
+                if (sessionList.selectedItem) {
+                    clearGraphs();
+                    var session:Session = sessionList.selectedItem as Session;
+                    stats.track('view-assessment', { 'alias':session.activity.alias, 'kind':session.activity.kind } );                    
+                    app.pcmsService.getAssessmentData(session,                    
+                            function(data:ObjectProxy):void {                                     
+                                distancePlot.loadSession(data);
+                                velocityPlot.loadSession(data);
+                                accelPlot.loadSession(data);
+                                forcePlot.loadSession(data);
+                                
+                                if (session.activity.alias == "point") {
+                                    timePlot.loadSession(data, "press_target");
+                                    hprChart.loadSession(data, "press_target");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["press_target"],
+                                        [], 
+                                        true, false, 13);
+                                }
+                                else if (session.activity.alias == "neglecttest") {
+                                    timePlot.loadSession(data, "target_press");
+                                    hprChart.loadSession(data, "target_press");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["target_press"],
+                                        ["distractor_press"], 
+                                        true, true, 13);
+                                }
+                                else if (session.activity.alias == "precision_h") {
+                                    timePlot.loadSession(data, "press_target");
+                                    hprChart.loadSession(data, "press_target");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["press_target"],
+                                        [], 
+                                        false, true, 10, 270);
+                                }
+                                else if (session.activity.alias == "precision_v") {
+                                    timePlot.loadSession(data, "press_target");
+                                    hprChart.loadSession(data, "press_target");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["press_target"],
+                                        [], 
+                                        false, true, 10);
+                                }
+                                else if (session.activity.alias == "tmt_a") {
+                                    timePlot.loadSession(data, "target_press_correct");
+                                    hprChart.loadSession(data, "target_press_correct");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["target_press_correct"],
+                                        ["target_press_incorrect"], 
+                                        true, true, 10);
+                                }
+                                else if (session.activity.alias == "tmt_b") {
+                                    timePlot.loadSession(data, "target_press_correct");
+                                    hprChart.loadSession(data, "target_press_correct");
+                                    kinectPlot.loadSession(
+                                        data, 
+                                        ["target_press_correct"],
+                                        ["target_press_incorrect"], 
+                                        true, true, 10);
+                                }
+                                                          
+                                dataGridAssessmentVars.dataProvider = formatAssessmentVars(session.activity.alias, data);
+
+                                assessmentReportTabNavigator.enabled = true;
+                            });                         
+                }
+            }
+            
+            private function setupTabs(activityAlias:String):void {
+                // NOTE: the order below must between both all the configuration 
+                // variables as the physical layout of the TabNavigators children!
+                var charts:Array = [kinectPlot, timePlot, distancePlot, hprChart, forcePlot, velocityPlot, accelPlot];
+
+                const CHART_ENABLED:Object = {
+                    //               Kinect       Time         Distance      HPR          Force        Velocity     Acceleration
+                    //               ------       ----         --------      ---          -----        --------     ------------
+                    "point"       : [true,        true,        true,         true,        true,        true,        true         ],
+                    "neglecttest" : [true,        true,        false,        false,       true,        false,       false	     ],
+                    "tmt_a"       : [true,        true,        false,        false,       false,       false,       false	     ],
+                    "tmt_b"       : [true,        true,        false,        false,       false,       false,       false	     ],
+                    "precision_h" : [true,        true,        false,        true,        false,       true,        true	     ],
+                    "precision_v" : [true,        true,        false,        true,        false,       true,        true	     ],
+                    "__default__" : [true,        true,        true,         true,        true,        true,        true         ]
+                };
+                
+                // Setting min/max for a chart to [null,null] will skip configuration altogether.
+                const FORMAT_CHART_YAXIS:Object = {
+                    //               Kinect        Time         Distance     HPR          Force        Velocity     Acceleration
+                    //               ------        ----         --------     ---          -----        --------     ------------
+                    "point"       : [[null, null], [0, 90],     [0, 15],     [0.9, 4],    [0, 5],      [0, 1],      [-15, 15]    ],
+                    "neglecttest" : [[null, null], [0, 120],    [NaN, NaN],  [NaN, NaN],  [0, 5],      [NaN, NaN],  [NaN, NaN]   ],
+                    "tmt_a"       : [[null, null], [0, 90],     [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN]   ],
+                    "tmt_b"       : [[null, null], [0, 90],     [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN]   ],
+                    "precision_h" : [[null, null], [0, 60],     [NaN, NaN],  [0.9, 3],    [NaN, NaN],  [0, 1],      [-10, 10]    ],
+                    "precision_v" : [[null, null], [0, 60],     [NaN, NaN],  [0.9, 3],    [NaN, NaN],  [0, 1],      [-10, 10]    ],
+                    "__default__" : [[null, null], [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN],  [NaN, NaN]   ]
+                };
+                
+                var paneConfig:Object = CHART_ENABLED[activityAlias];
+                var yAxisConfig:Object = FORMAT_CHART_YAXIS[activityAlias];
+                
+                for (var i:int = 0; i < paneConfig.length; i ++ ) {
+                    var b:Boolean = paneConfig[i];
+                    
+                    // NOTE: the order below matters, otherwise you'll get ugly rendering artifacts.
+                    assessmentReportTabNavigator.getTabAt(i).visible = b;
+                    assessmentReportTabNavigator.getTabAt(i).enabled = b;                    
+                    assessmentReportTabNavigator.getTabAt(i).includeInLayout = b;
+                    assessmentReportTabNavigator.validateNow();
+
+                    var min:Object = yAxisConfig[i][0];
+                    var max:Object = yAxisConfig[i][1];
+                    if (min !== null && max !== null)
+                        charts[i].setupYAxis(min as Number, max as Number);
+                }                
+            }
+            
+            private function formatAssessmentVars(activityAlias:String, data:ObjectProxy):ArrayCollection {
+                const FORMAT_ASSESSMENT_VARS:Object = {
+                    "duration"               : { "translate": _("Duration"),               "format": "%2.2fs" },
+                    "errors"                 : { "translate": _("Errors"),                 "format": "%d"     },
+                    "left_score"             : { "translate": _("Left score"),             "format": "%d"     },
+                    "right_score"            : { "translate": _("Right score"),            "format": "%d"     },
+					"target_represses"       : { "translate": _("Target represses"),       "format": "%d"     },
+					"laterality_index"       : { "translate": _("Laterality index"),       "format": "%2.2f"  },
+					"middle_targets_pressed" : { "translate": _("Middle targets"),         "format": "%d"     }
+                };
+                
+                var vars:ArrayCollection = data["vars"];
+                var result:Array = new Array;
+                
+                for (var i:int = 0; i < vars.source.length; i++) {
+                    var item:Object = vars.getItemAt(i);
+                    
+                    if (FORMAT_ASSESSMENT_VARS.hasOwnProperty(item["key"])) {
+                        result.push( { 
+                            "key": FORMAT_ASSESSMENT_VARS[item["key"]]["translate"], 
+                            "value": sprintf(FORMAT_ASSESSMENT_VARS[item["key"]]["format"], item["value"])
+                        });
+                    }
+                }
+                
+                const ASSESSMENT_EXTRA_CALCULATED_VARS:Object = {
+                    "point"       : ["distance", "hpr_avg", "f_max", "v_avg", "v_max", "a_max", "a_min"],
+                    "precision_h" : [            "hpr_avg",          "v_avg", "v_max", "a_max", "a_min"],
+                    "precision_v" : [            "hpr_avg",          "v_avg", "v_max", "a_max", "a_min"]
+                }
+                
+                if (ASSESSMENT_EXTRA_CALCULATED_VARS.hasOwnProperty(activityAlias)) {
+                    var keys:Array = ASSESSMENT_EXTRA_CALCULATED_VARS[activityAlias];
+                    for (var j:int = 0; j < keys.length; j++) {                      
+                        switch(keys[j]) {
+                        case "distance":
+                            result.push( { "key":_("Distance"), "value": sprintf("%2.2f m", data["distance"]) } ); // Hack: grab calculated value
+                            break;
+                        case "hpr_avg":
+                            result.push( { "key":_("Avg HPR"), "value": sprintf("%2.2f", hprChart.averageHPR) } ); // Hack: grab calculated value
+                            break;
+                        case "f_max":
+                            result.push( { "key":_("Max force"), "value": sprintf("%2.2f N", data["f_max"]) } );
+                            break;
+                        case "v_max":
+                            result.push( { "key":_("Max velocity"), "value": sprintf("%2.2f m/s", data["v_max"]) } );
+                            break;
+                        case "v_avg":
+                            result.push( { "key":_("Avg velocity"), "value": sprintf("%2.2f m/s", data["v_avg"]) } );
+                            break;
+                        case "a_max":
+                            result.push( { "key":_("Max acceleration"), "value": sprintf("%2.2f m/s2", data["a_max"]) } );
+                            break;
+                        case "a_min":
+                            result.push( { "key":_("Min acceleration"), "value": sprintf("%2.2f m/s2", data["a_min"]) } );
+                            break;
+                        }
+                    }
+                }
+                
+                return new ArrayCollection(result);
+            }
+            private function formatActivityAlias(alias:String):String {
+                return getActivityName(alias);
+            }
+            
+            private function formatSession(session:Session):String {
+                return dateFormatter.format(session.timestamp);
+            }
+        ]]>
+    </mx:Script>
+    
+    <mx:DateFormatter id="dateFormatter" formatString="YYYY-MM-DD (HH:NN)" />
+    
+    <mx:HBox horizontalGap="20" width="100%" height="100%">
+        <mx:Panel title="{_('Assessments')}" titleIcon="@Embed('assets/icons/chart_bar.png')" width="250" height="100%" horizontalScrollPolicy="off">
+            <mx:ComboBox id="selectedAssessment" labelFunction="formatActivityAlias" change="{selectAssessmentAction()}" width="100%" />
+            <mx:VDividedBox width="100%" height="100%">
+                <mx:List id="sessionList" labelFunction="formatSession" width="100%" height="100%" change="{selectSessionAction()}" />
+                <mx:DataGrid id="dataGridAssessmentVars" fontSize="9" width="100%" height="100%" selectable="false">
+                <mx:columns>
+                        <mx:DataGridColumn dataField="key" sortable="false" headerText="{_('Variable')}" />
+                        <mx:DataGridColumn dataField="value" sortable="false" headerText="{_('Data')}" />
+                    </mx:columns> 
+                </mx:DataGrid>		                             
+            </mx:VDividedBox>
+        </mx:Panel>
+		
+        <mx:Panel width="100%" horizontalAlign="center" verticalAlign="middle" height="100%" title="{_('Results') + ' (' + Format.padPatientAlias(app.selectedPatient.alias) + ')'}" titleIcon="@Embed('assets/icons/calendar.png')">    
+            <mx:TabNavigator id="assessmentReportTabNavigator" width="100%" height="100%" tabHeight="25" creationPolicy="all">    
+                <!-- 
+                    NOTE: If you change the order of the panes/charts below you have to update setupTabs()! 
+                -->
+                <mx:VBox label="{_('Overview')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_day.png')">
+                    <local:KinectPlot id="kinectPlot" width="100%" height="100%" />
+                    <mx:HBox width="100%">
+                        <mx:Spacer width="100%" />
+                        <mx:Label text="{_('Rotate:')}" textAlign="right" fontSize="10" color="0x333333" />
+                        <mx:HSlider id="kinectPlotSlider" width="200" minimum="0" maximum="360" snapInterval="5" tickInterval="30" showDataTip="false" liveDragging="true" change="kinectPlot.rotate(kinectPlotSlider.value)" />
+                        <mx:Label text="{kinectPlotSlider.value}°" fontSize="10" width="40" color="0x333333" />
+                        <mx:Spacer width="100%" />
+                    </mx:HBox>
+                    <mx:Spacer height="1" />
+                </mx:VBox>
+
+				<mx:Box label="{_('Time')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_month.png')">
+                    <local:TimePlot id="timePlot" width="100%" height="100%" />
+				</mx:Box>	
+                
+				<mx:Box label="{_('Distance')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_month.png')">
+                    <local:DistancePlot id="distancePlot" width="100%" height="100%" />
+				</mx:Box>	
+                
+				<mx:Box label="{_('Hand-Path Ratio')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_month.png')">
+                    <local:HPRChart id="hprChart" width="100%" height="100%" />
+				</mx:Box>	
+				
+				<mx:Box label="{_('Force')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_week.png')">
+                    <local:ForcePlot id="forcePlot" width="100%" height="100%" />
+				</mx:Box>
+
+				<mx:Box label="{_('Velocity')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_week.png')">
+                    <local:VelocityPlot id="velocityPlot" width="100%" height="100%" />
+				</mx:Box>
+                
+				<mx:Box label="{_('Acceleration')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_week.png')">
+                    <local:AccelPlot id="accelPlot" width="100%" height="100%" />
+				</mx:Box>
+				
+            </mx:TabNavigator>
+        </mx:Panel>
+    </mx:HBox>
+</mx:Canvas>

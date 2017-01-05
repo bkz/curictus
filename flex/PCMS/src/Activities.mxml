@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:controls="nl.flexcoders.controls.*"
+    xmlns:display="com.visualempathy.display.*"
+    xmlns:local="*"
+    width="100%" height="100%" 
+	horizontalScrollPolicy="off"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Style>
+		.sliderLabelStyleName { color: #888888; fontSize: 10; }
+	</mx:Style>
+   
+	<mx:Script>
+        <![CDATA[
+            import vrs.shared.ActivityInfo;
+            import mx.controls.Alert;
+            import vrs.util.Format;
+            
+            private function complete():void {
+                app.populateActivities();
+            }
+            
+            private function updateActivity():void {
+                var ai:ActivityInfo = this.dataGrid.selectedItem as ActivityInfo;
+                
+                this.activityName.text = getActivityName(ai.alias);
+                this.activitySummary.text = getActivityDescSummary(ai.alias);
+                this.activityDescription.htmlText = getActivityDesc(ai.alias);
+                
+                var imgUrl:String = Application.application.getServerURL() + "static/screenshots/" + ai.alias + "_small.jpg";
+                this.imageSwap.changeImage(imgUrl);
+                
+                this.patientInstructionsViewStack.selectedIndex = 1;
+            }
+            
+            // FIXME: Fulhack, should switch on colName (but colName seems to be an object, not a string, and time is short.)
+            // FIXME: Need a custom sort, otherwise sorted by alias / kind which looks strange to user.
+            private function formatAlias(ai:ActivityInfo, colName:String):String {
+                return getActivityName(ai.alias);
+            }
+            
+            private function formatCategory(ai:ActivityInfo, colName:String):String {
+                if (ai.kind == 'game') {
+                    return _('Game');
+                } else {
+                    return _('Assessment');
+                }
+            }
+            
+		]]>
+    </mx:Script>
+    
+	<mx:HDividedBox horizontalGap="20" width="100%" height="100%">
+ 
+		 <mx:Panel horizontalAlign="center" verticalAlign="middle" width="440" height="100%" titleIcon="@Embed('assets/icons/bricks.png')" title="{_('Available activities')  + ' (' + _('Profile') + ' ' + Format.padPatientAlias(app.selectedPatient.alias) + ')'}">    
+            <!-- FIXME: add custom sorting before turning on sortableColumns, activities sorted by internal names -->
+            <mx:DataGrid sortableColumns="false"
+                id="dataGrid" width="100%" height="100%" draggableColumns="false" styleName="{null}" 
+                useRollOver="true" itemClick="this.updateActivity()"
+                selectedIndex="0"
+            >
+                <mx:columns>
+                        <mx:DataGridColumn width="120" labelFunction="formatCategory" dataField="kind" headerText="{_('Category')}" />
+                        <mx:DataGridColumn dataField="alias" labelFunction="formatAlias" headerText="{_('Name')}" />
+                </mx:columns>
+            </mx:DataGrid>
+        </mx:Panel>
+		
+        <mx:Panel id="leftPanel" titleIcon="@Embed('assets/icons/brick.png')" title="{_('Selected activity')}" width="100%" height="100%">    
+            <mx:TabNavigator width="100%" height="100%" tabHeight="25">
+			
+			<mx:VBox label="{_('Description and settings')}" icon="@Embed('assets/icons/control_equalizer.png')" width="100%" height="100%" horizontalAlign="center" styleName="padded">                
+                <mx:ViewStack width="100%" height="100%" id="patientInstructionsViewStack" creationPolicy="all">
+                    <mx:HBox height="100%" width="100%" horizontalAlign="center" verticalAlign="middle">
+                        <mx:Image source="@Embed('assets/icons/lightbulb.png')" />
+                        <mx:Label text="{_('Click on an activity to the left.')}" />
+                    </mx:HBox>
+                    <mx:VBox width="100%" height="100%" horizontalAlign="center" styleName="padded" horizontalScrollPolicy="off">
+                        
+                        <mx:Box styleName="padded" borderStyle="solid" backgroundColor="0xffffff" borderColor="0xbbbbbb"
+                            filters="{[new GlowFilter(0x000000, 0.2, 15, 15)]}"
+                        >
+                            <local:ImageSwap id="imageSwap" width="300" height="188" />
+                        </mx:Box>
+                        <mx:Spacer height="10" />
+                        <mx:Text width="100%" id="activityName" fontSize="24" styleName="droid" text="" />
+                        <mx:Text width="100%" id="activitySummary" fontWeight="bold" text="" />
+                        <mx:Text width="100%" id="activityDescription" text="" />
+                        <mx:Spacer height="100%" />
+                        <mx:Button visible="false" label="{_('Enabled')}" icon="@Embed('assets/icons/star.png')" toggle="true" selected="true" />
+                    </mx:VBox>
+                </mx:ViewStack>
+            </mx:VBox>
+						
+			<mx:VBox enabled="false" label="{_('Video tutorial')}" icon="@Embed('assets/icons/film.png')" width="100%" height="100%" horizontalAlign="center" styleName="padded">
+				<!--
+                 <mx:Spacer height="10" />
+				 <controls:YouTubePlayer id="player_container" videoID="aybfUSSNPv0" width="320" height="240"/>
+				 <mx:Spacer height="10" />
+				 <mx:HBox>
+					<mx:Button label="Play" click="this.player_container.play()"/>
+					<mx:Button label="Pause" click="this.player_container.pause()"/>
+				</mx:HBox>
+				<mx:Spacer height="10" />
+				<mx:HSlider liveDragging="true" minimum="0" value=".5" maximum="1" toolTip="Ljudvolym" 
+					labels="{['Låg', 'Hög']}" labelStyleName="sliderLabelStyleName" snapInterval="0.1" tickInterval="0.1" allowTrackClick="true" 
+					change="this.player_container.volume = event.currentTarget['value']"
+					/>
+				<mx:Spacer height="10" />
+				<mx:TextArea color="#888888" borderStyle="None" width="90%" height="100%" wordWrap="true" textAlign="center" text="Denna instruktionsfilm är även tillgänglig via VRS så att den kan visas för patienter som använder systemet för första gången." />
+                -->
+            </mx:VBox>
+            
+            <mx:VBox enabled="false" label="{_('Therapist instructions')}" icon="@Embed('assets/icons/book_open.png')" width="100%" height="100%" horizontalAlign="center" styleName="padded" />
+			
+			</mx:TabNavigator>
+				
+        </mx:Panel>
+        
+		</mx:HDividedBox>
+
+</mx:Canvas>

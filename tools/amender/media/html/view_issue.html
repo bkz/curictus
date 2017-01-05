@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h4>{{ _("Issue overview") }} ({{ issue.id  }})</h4> 
+<table cellpadding="5px" border="0px" width="95%">
+  <tr>
+    <td>
+      <b>{{ _("Customer:") }}</b>
+    </td>
+    <td>
+      {{ ", ".join([user.email for user in customers]) }}
+    </td>
+    <td>
+      <b>{{ _("Created:") }}</b>
+    </td>
+    <td>
+      {{ issue.created.strftime("%Y-%m-%d %H:%M:%S") }}
+    </td>
+  <tr>
+    <td>
+      <b>{{ _("Assigned to:") }}</b>
+    </td>
+    <td>
+      {% if len(support_team) > 0 %}
+        {{ ", ".join([user.email for user in support_team]) }}
+      {% else %}
+        {{ _("unassigned") }}
+      {% end %}
+    </td>
+    <td>
+      <b>{{ _("Modified:") }}</b>
+    </td>
+    <td>
+      {{ issue.modified.strftime("%Y-%m-%d %H:%M:%S") }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>{{ _("Patient injury:") }}</b>
+    </td>
+    <td>
+      {{ handler.get_severity_name(issue.severity) }}
+    </td>
+    <td>
+      <b>{{ _("Status:") }}</b>
+    </td>
+    <td>
+      {{ handler.get_status_name(issue.status) }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>{{ _("Labels:") }}</b>
+    </td>
+    <td colspan="3">
+      {% if len(issue.labels) > 0 %}
+        {{ ", ".join([l.title for l in issue.labels]) }}
+      {% else %}
+        {{ _("(empty)") }}
+      {% end %}
+    </td>
+  </tr>
+</table>
+
+<br/>
+<small>
+  {% if current_user %}
+    <a href="/edit?guid={{ issue.guid }}"> 
+      {{ _("Edit details") }} 
+    </a>
+  {% end %}
+</small>
+
+<h4>{{ _("Description") }}</h4> 
+<pre>{{ issue.description }}</pre>
+
+
+{% if len(issue.comments) > 0 %}
+  <h4>{{ _("Comments") }}</h4> 
+  {% for (n,c) in enumerate(issue.comments) %}
+    {% if c.user.kind == UserKind.CUSTOMER %}
+      <h6>
+        <img align="middle" src="{{ static_url('icons/user_comment.png') }}"/>&nbsp;
+        #{{ n+1 }}&nbsp;|
+        {{ c.user.email }}&nbsp;&raquo;&nbsp;{{ handler.locale_format_date(c.created) }}
+      </h6>
+    {% else %}
+      <h6>
+        <img align="middle" src="{{ static_url('icons/user_go.png') }}"/>&nbsp;
+        #{{ n+1 }}&nbsp;|
+        {{ c.user.email }}&nbsp;&raquo;&nbsp;{{ handler.locale_format_date(c.created) }}
+      </h6>
+    {% end %}
+    <pre>{{ c.text }}</pre>
+  {% end %}
+{% end %}
+
+
+{% if issue.status == IssueStatus.OPEN %}
+  <h4>{{ _("Add new comment") }}</h4>
+  <form action="/issue?guid={{ issue.guid }}" method="post">  
+    <ol>
+
+      {% if invalid_email or invalid_comment %}
+      <li>
+	<label>&nbsp;</label>
+	<p><em>{{ _("Please enter a valid email and comment you wish to add to the ticket.") }}</em></p>
+      </li>
+      {% end %}
+
+      {% if not current_user %}
+      <li>
+        <label>{{ _("Email:") }}</label> 
+        <input type="text" name="email" size="30" value="{{ email }}" />
+      </li>
+      {% end %}  
+        
+      <li>
+        <label>{{ _("Comment:") }}</label> 
+        <textarea name="comment" cols="50" rows="10">{{ comment }}</textarea>
+      </li>
+      
+      <li>
+	<label>&nbsp;</label>
+        {% if current_user %}
+          <input type="submit" name="save_comment" value="{{ _("Reply") }}" class="submit" />
+          <input type="submit" name="save_comment_and_close" value="{{ _("Close ticket") }}" class="submit" />
+        {% else %}
+          <input type="submit" name="save_comment" value="{{ _("Save") }}" class="submit" />
+        {% end %}
+      </li>
+    </ol>
+  </form>
+{% end %}
+
+
+{% end %}

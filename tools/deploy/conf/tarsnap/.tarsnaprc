@@ -1,0 +1,3 @@
+keyfile ~/.tarsnap/tarsnap-HOSTNAME-rw.key
+cachedir ~/.tarsnap
+humanize-numbers

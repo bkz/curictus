@@ -1,0 +1,103 @@
+Unless otherwise stated below, all Blender (.blend), Photoshop (.psd) and Illustrator (.ai) files are Copyright (c) 2006-2011 Curictus AB and licensed under a Creative Commons Attribution 3.0 Unported License (see LICENSE-CC-BY-3.0.txt)
+
+Unless otherwise stated below, sound files are licensed under the Soundsnap license (http://www.soundsnap.com, see LICENSE-Soundsnap.txt)
+
+Archigraph icons by Cyberella
+    link: http://www.archigraphs.com/dockicons.htm 
+    license: CC BY-NC-ND 3.0
+    license link: http://creativecommons.org/licenses/by-nc-nd/3.0/
+    formats: jpg 
+    location: /trunk/Curegame/media/avatars/
+
+KatorLegaz Blender 3D Models (katorlegaz)
+    link: http://3dmodels.katorlegaz.com/ 
+    license: CC-BY-3.0
+    license link: http://creativecommons.org/licenses/by/3.0/
+    formats: blend 
+    location: /trunk/Curegame/activities/games/CodeBreak
+              /trunk/Curegame/activities/games/Colors
+              /trunk/Curegame/activities/games/Intro
+              /trunk/Curegame/activities/games/Racer
+              /trunk/Curegame/activities/stylus/Spoon
+
+FAMFAMFAM Flag Icons (famfamfam-flag)
+    link: http://www.famfamfam.com/lab/icons/flags/
+    license: Public Domain
+    license link: http://en.wikipedia.org/wiki/Public_domain
+    formats: png
+    location: /trunk/flex/PCMS/src/assets/icons
+
+FAMFAMFAM Silk Icons 1.3 (famfamfam-silk)
+    link: http://www.famfamfam.com/lab/icons/silk/
+    license: CC-BY-2.5 or CC-BY-3.0
+    license link: http://creativecommons.org/licenses/by/3.0/
+                  http://creativecommons.org/licenses/by/2.5/
+    formats: png
+    location: /trunk/flex/PCMS/src/assets/icons
+
+Kämmerer - Leaving Paradise (kämmerer)
+    link: http://www.jamendo.com/
+    license: CC-BY-3.0
+    license link: http://creativecommons.org/licenses/by/3.0/
+    formats: ogg 
+    location: /trunk/Curegame/activities/games/Racer/
+
+Gioachino Rossini's William Tell Overture (tell)
+    link: http://en.wikipedia.org/wiki/File:Rossini-William_Tell_Overture.ogg
+    license: CC-BY-3.0
+    license link: http://creativecommons.org/licenses/by/3.0/
+    formats: ogg 
+    location: /trunk/Curegame/activities/games/Archery2/
+
+Clouds over Kinder by sidibousaid60 
+    link: http://www.flickr.com/photos/sidibousaid/6052350962/
+    license: CC-BY-2.0
+    license link: http://creativecommons.org/licenses/by/2.0/
+    formats: jpg 
+    location: /trunk/Curegame/activities/games/Archery2/
+              /trunk/Curegame/activities/games/FishTank2/
+
+Clouds by supertin 
+    link: http://www.flickr.com/photos/supertin/1368972764/ 
+    license: CC-BY-2.0
+    license link: http://creativecommons.org/licenses/by/2.0/
+    formats: jpg 
+    location: /trunk/Curegame/media/wallpapers/
+
+Earth 1k texture by Planetpixelemporium.com 
+    link: http://planetpixelemporium.com/earth.html
+    license link: http://planetpixelemporium.com/planets.html 
+    formats: jpg 
+    location: /trunk/Curegame/activities/games/Intro/
+
+Exit sign by Benedicto16 
+    link: http://en.wikipedia.org/wiki/File:Fire_exit.svg 
+    license: CC-BY-SA 3.0
+    license link: http://creativecommons.org/licenses/by-sa/3.0/ 
+    formats: jpg 
+    location: /trunk/Curegame/activities/games/Intro/
+
+Bedroom in Arles by Vincent "Vinnie" van Gogh  
+    link: http://en.wikipedia.org/wiki/File:VanGogh_Bedroom_Arles1.jpg 
+    license: Public Domain 
+    formats: jpg 
+    location: /trunk/Curegame/activities/games/Intro/
+
+Genetica textures by Spiral Graphics  
+    link: http://www.spiralgraphics.biz/packs/index.htm 
+    license link: http://www.spiralgraphics.biz/packs/usage_rights.htm 
+    formats: jpg 
+    location: /trunk/Curegame/activities/games/Archery2/
+              /trunk/Curegame/activities/games/CodeBreak/
+              /trunk/Curegame/activities/games/FishTank2/
+              
+Samples used from Freesound:
+    February 21, 2011
+        By Corsica_S (http://www.freesound.org/usersViewSingle.php?id=7037)
+            erasing 2.aif (http://www.freesound.org/samplesViewSingle.php?id=43448)
+   ---------------------------------------
+    February 11, 2011
+        By klankbeeld (http://www.freesound.org/usersViewSingle.php?id=1648170)
+            writing on chalkboard.wav (http://www.freesound.org/samplesViewSingle.php?id=106566)
+
+    location: /trunk/Curegame/activities/games/Math2/

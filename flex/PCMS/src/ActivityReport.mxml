@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:controls="nl.flexcoders.controls.*"
+    xmlns:display="com.visualempathy.display.*"
+    xmlns:local="*"
+    width="100%" height="100%" 
+    horizontalScrollPolicy="off"
+    creationComplete="refreshReport()"
+    show="refreshControls()">
+    
+    <mx:Script source="defs.as" />
+    
+    <mx:Stroke id="blueStrokeColor" color="0x1B78D9" weight="0" alpha="1" />
+    <mx:SolidColor id="blueFillColor" color="0x1B78D9" alpha="1" />
+    
+    <mx:Script>
+        <![CDATA[           
+            import com.adobe.utils.DateUtil;
+            import flash.events.Event;
+            import mx.utils.ObjectProxy;
+			import mx.controls.Alert;
+            import vrs.util.Format;
+			
+            private function refreshReport():void {
+                app.populateActivityReport();
+            }
+           
+            private function refreshControls():void
+            {        
+                /*
+                try 
+                {
+					patientBirthDate.text = DateUtil.parseW3CDTF(app.selectedPatient.medical_record.birthdate).fullYear.toString();
+                }
+                catch (err:Error)
+                {
+                    patientBirthDate.text = "";
+                }                
+                try 
+                {
+					patientDiseaseYear.text = DateUtil.parseW3CDTF(app.selectedPatient.medical_record.disease_date).fullYear.toString();
+                    patientDiseaseMonth.selectedIndex = DateUtil.parseW3CDTF(app.selectedPatient.medical_record.disease_date).month;
+                }
+                catch (err:Error)
+                {
+                    patientDiseaseYear.text = "";
+                    patientDiseaseMonth.selectedIndex = -1;
+                }      
+                */
+                saveButton.enabled = false;
+            }
+            
+            private function saveMedicalRecord():void 
+            {
+                var record:Object = { 
+                       "gender"       : patientGender.selectedValue 
+                       /*
+                       "diagnosis"    : patientDiagnosis.text,
+                       "symptoms"     : patientSymptoms.text,
+                       "notes"        : patientNotes.text
+                       */
+                    };                                                      		               
+				
+                var valid:Boolean = true;
+                
+                /*
+                if (patientBirthDate.text.length)
+                {
+                    var birthYear:int = int(patientBirthDate.text);
+                    
+                    if (!isValidYear(birthYear))
+                    {
+                        Alert.show( _("Patient birthdate is missing or invalid"), _("PCMS"));
+                        
+                        valid = false;
+                    }
+                    else
+                    {
+                        record["birthdate"] = DateUtil.toW3CDTF(new Date(birthYear, 6)); // 6 = July                        
+                    }
+                }
+                
+                if (patientDiseaseYear.text.length)
+                {
+                        var diseaseYear:int  = int(patientDiseaseYear.text);
+                        var diseaseMonth:int = patientDiseaseMonth.selectedIndex;
+                        
+                        if (!isValidYear(diseaseYear) || !isValidMonth(diseaseMonth))
+                        {
+                            Alert.show( _("Patient disease date is missing or invalid"), _("PCMS"));                   
+                            
+                            valid = false;
+                        }                   
+                        else
+                        {
+                            record["disease_date"] = DateUtil.toW3CDTF(new Date(diseaseYear, diseaseMonth));
+                        }
+                }
+                */
+                
+                if (valid)
+                {                                                 
+                    app.saveMedicalRecord(new ObjectProxy(record));
+                    saveButton.enabled = false;                                                        
+                }
+            }
+            
+            private function enableSaveButton():void {
+                saveButton.enabled = true;
+            }
+			
+			private function isValidYear(n:int):Boolean {
+				return n > 1800 && n < 2100;
+			}
+            private function isValidMonth(n:int):Boolean {
+				return n >= 0 && n < 12;
+			}
+        ]]>
+    </mx:Script>
+    
+    <mx:DateFormatter id="dateFormatter" formatString="YYYY-MM-DD" />
+    
+    <mx:HDividedBox horizontalGap="20" width="100%" height="100%">
+        <!-- FIXME: (?) form dataProvider instead?? -->
+        <mx:Panel title="{_('General information')}" titleIcon="@Embed('assets/icons/user_edit.png')" width="350" height="100%" horizontalScrollPolicy="off">
+            <mx:Form id="patientForm" verticalGap="15" label="Foop" width="100%" height="100%">
+                <mx:FormItem label="{_('PIN code')}:" labelStyleName="formItemLabel">
+                    <mx:Label text="{Format.padPatientAlias(app.selectedPatient.alias)}" />
+                </mx:FormItem>
+                <mx:FormItem label="{_('Gender')}:" direction="vertical" labelStyleName="formItemLabel">
+                    <mx:RadioButtonGroup id="patientGender" selectedValue="{app.selectedPatient.medical_record.gender}" change="enableSaveButton()" />
+                    <mx:RadioButton groupName="patientGender" value="male" label="{_('Male')}" />
+                    <mx:RadioButton groupName="patientGender" value="female" label="{_('Female')}" />
+                    <mx:RadioButton groupName="patientGender" value="unspecified" label="{_('Unspecified')}" />
+                </mx:FormItem>
+                <mx:FormItem label="{_('First activity')}:" labelStyleName="formItemLabel">
+                    <mx:Label text="{dateFormatter.format(app.selectedPatient.medical_record.first_session_date)}" />
+                </mx:FormItem>
+                <mx:FormItem label="{_('Latest activity')}:" labelStyleName="formItemLabel">
+                    <mx:Label text="{dateFormatter.format(app.selectedPatient.medical_record.latest_session_date)}" />
+                </mx:FormItem>
+                <mx:FormItem>   
+                    <mx:Button id="saveButton" label="{_('Save')}" icon="@Embed('assets/icons/disk.png')" width="90%" toolTip="{_('Click here to save your changes.')}" click="saveMedicalRecord()" />
+                </mx:FormItem>
+                
+                <!-- 
+                
+                !!! ALL THE FORM ITEMS BELOW HAVE BEEN DISABLED, REMOVE WHEN MEDICAL RECORD IS FINALIZED !!!
+                    
+                <mx:FormItem label="{_('Born')}:" labelStyleName="formItemLabel" visible="false">
+					<mx:TextInput id="patientBirthDate" restrict="0-9" maxChars="4" change="enableSaveButton()" />
+				</mx:FormItem>
+				<mx:FormItem label="{_('Disease date')}:" labelStyleName="formItemLabel" direction="horizontal" visible="false">
+					<mx:ComboBox id="patientDiseaseMonth" change="enableSaveButton()" > 
+					  <mx:ArrayCollection>
+						 <mx:String>{_('Jan')}</mx:String>
+						 <mx:String>{_('Feb')}</mx:String>
+						 <mx:String>{_('Mar')}</mx:String>
+						 <mx:String>{_('Apr')}</mx:String>
+						 <mx:String>{_('May')}</mx:String>
+						 <mx:String>{_('Jun')}</mx:String>
+						 <mx:String>{_('Jul')}</mx:String>
+						 <mx:String>{_('Aug')}</mx:String>
+						 <mx:String>{_('Sep')}</mx:String>
+						 <mx:String>{_('Oct')}</mx:String>
+						 <mx:String>{_('Nov')}</mx:String>
+						 <mx:String>{_('Dec')}</mx:String>
+					  </mx:ArrayCollection>
+					</mx:ComboBox>
+					<mx:TextInput id="patientDiseaseYear" restrict="0-9" maxChars="4" change="enableSaveButton()" />
+                </mx:FormItem>
+				<mx:FormItem label="{_('Diagnosis')}:" width="100%" height="100%" labelStyleName="formItemLabel" visible="false">
+                    <mx:TextArea id="patientDiagnosis" text="{app.selectedPatient.medical_record.diagnosis}" width="100%" height="100%" change="enableSaveButton()" />
+                </mx:FormItem>
+				<mx:FormItem label="{_('Symptoms')}:" width="100%" height="100%" labelStyleName="formItemLabel" visible="false">
+                    <mx:TextArea id="patientSymptoms" text="{app.selectedPatient.medical_record.symptoms}" width="100%" height="100%" change="enableSaveButton()" />
+                </mx:FormItem>
+                <mx:FormItem label="{_('Notes')}:" width="100%" height="100%" labelStyleName="formItemLabel" visible="false">
+                    <mx:TextArea id="patientNotes" text="{app.selectedPatient.medical_record.notes}" width="100%" height="100%" change="enableSaveButton()" />
+                </mx:FormItem>  
+                -->
+            </mx:Form>
+        </mx:Panel>
+        
+		 <mx:Script>
+        <![CDATA[
+        import mx.charts.HitData;
+        import mx.collections.ArrayCollection;
+
+        public function formatDateLabel(value:Object, prevValue:Object, axis:CategoryAxis, labelItem:Object):String 
+        {
+            var d:Date = value as Date;           
+
+            return { 0 : _("Sun"),
+                     1 : _("Mon"),
+                     2 : _("Tue"),
+                     3 : _("Wed"),
+                     4 : _("Thu"),
+                     5 : _("Fri"),
+                     6 : _("Sat")}[d.day] + "\n" + d.date + "/" + (d.month + 1);
+        }  
+
+        public function formatWeekLabel(value:Object, prevValue:Object, axis:CategoryAxis, labelItem:Object):String 
+        {
+            return _("v") + value;
+        }
+               
+        public function formatMonthLabel(value:Object, prevValue:Object, axis:CategoryAxis, labelItem:Object):String 
+        {
+            var d:Date = value as Date;           
+
+            return {  0 : _("Jan"),
+                      1 : _("Feb"),
+                      2 : _("Mar"),
+                      3 : _("Apr"),
+                      4 : _("May"),
+                      5 : _("Jun"),
+                      6 : _("Jul"),
+                      7 : _("Aug"),
+                      8 : _("Sep"),
+                      9 : _("Okt"),
+                     10 : _("Nov"),
+                     11 : _("Dec") } [d.month];
+        }          
+        
+        public function formatDurationMinLabel(value:Object, prevValue:Object, axis:LinearAxis):String 
+        {
+            return value + " " + _("min");
+        }            
+               
+        public function formatDurationSecLabel(value:Object, prevValue:Object, axis:LinearAxis):String 
+        {
+            return value + " " + _("sec");
+        }            
+
+        public function dayReportDataTipFunction(e:HitData):String 
+        {
+            return sprintf( _("Duration: %(minutes)d min\n%(date)s"), { 
+                minutes : e.item.duration, 
+                date    : e.item.date.toLocaleDateString() 
+                });
+        }
+
+        public function weekReportDataTipFunction(e:HitData):String 
+        {
+            return sprintf( _("Duration: %(minutes)d min\nWeek: %(week)s\n%(date)s"), { 
+                minutes : e.item.duration, 
+                week    : e.item.week,
+                date    : e.item.date.toLocaleDateString() 
+                });
+        }
+
+        public function monthReportDataTipFunction(e:HitData):String 
+        {
+            return sprintf( _("Duration: %(minutes)d min\n%(date)s"), { 
+                minutes : e.item.duration, 
+                date    : e.item.date.toLocaleDateString() 
+                });
+        }
+
+        public function pointTestDataTipFunction(e:HitData):String 
+        {
+            return sprintf( _("Duration: %(seconds)d sec\n%(date)s"), { 
+                seconds : e.item.duration, 
+                date    : e.item.date.toLocaleDateString() 
+                });
+        }
+        		
+		import mx.collections.ArrayCollection;
+        [Bindable]
+        private var _testData1:ArrayCollection = new ArrayCollection( [
+            /*
+            { date: new Date(2010, 7, 31), duration: 0 },
+            { date: new Date(2010, 7, 23), duration: 15 },
+            { date: new Date(2010, 7, 22), duration: 20 },
+            { date: new Date(2010, 7, 20), duration: 30 },
+            { date: new Date(2010, 7, 15), duration: 14 },
+            { date: new Date(2010, 7, 10), duration: 12 },
+			{ date: new Date(2010, 7, 31), duration: 0 },
+            { date: new Date(2010, 7, 23), duration: 5 },
+            { date: new Date(2010, 7, 22), duration: 10 },
+            { date: new Date(2010, 7, 20), duration: 20 },
+            { date: new Date(2010, 7, 15), duration: 17 },
+            { date: new Date(2010, 7, 10), duration: 0 },
+			{ date: new Date(2010, 7, 10), duration: 25 },
+			{ date: new Date(2010, 7, 10), duration: 40 },
+            */
+            ]);
+
+        [Bindable]
+        private var _testData2:ArrayCollection = new ArrayCollection( [
+            /*
+            { date: new Date(2010, 7, 24), duration: 10 },
+            { date: new Date(2010, 7, 23), duration: 40 },
+            { date: new Date(2010, 7, 21), duration: 10 },
+            */
+            ]);
+
+        [Bindable]
+        private var _testData3:ArrayCollection = new ArrayCollection( [
+            /*
+            { date: new Date(2010, 7, 24), duration: 20, mistakes : 1 },
+            { date: new Date(2010, 7, 23), duration: 10, mistakes : 4 },
+            { date: new Date(2010, 7 , 21), duration: 80, mistakes : 2 },
+            */
+            ]);
+            
+        [Bindable]
+        private var _testData4:ArrayCollection = new ArrayCollection( [
+            /*
+            { date: new Date(2010,  7, 31), duration: 10 },
+            { date: new Date(2010,  6, 23), duration: 20 },
+            { date: new Date(2010,  5, 22), duration: 30 },
+            { date: new Date(2010,  4, 20), duration: 40 },
+            { date: new Date(2010,  3, 23), duration: 10 },
+            { date: new Date(2010,  2, 22), duration: 20 },
+            { date: new Date(2010,  1, 20), duration: 30 },
+            { date: new Date(2010, 11, 15), duration: 40 },
+            { date: new Date(2010, 10, 10), duration: 50 },
+            */
+            ]);
+
+        [Bindable]
+        private var _testData5:ArrayCollection = new ArrayCollection( [
+            /*
+            { date: new Date(2010, 7, 23), week: 34, duration: 40 },
+            { date: new Date(2010, 7, 16), week: 33, duration: 30 },
+            { date: new Date(2010, 7,  9), week: 32, duration: 10 },
+            { date: new Date(2010, 7,  2), week: 31, duration: 20 },
+            { date: new Date(2010, 6, 26), week: 30, duration: 50 },
+            { date: new Date(2010, 6, 19), week: 29, duration: 20 },
+            { date: new Date(2010, 6, 12), week: 28, duration: 10 },
+            */
+            ]);
+            
+		
+        ]]>
+    </mx:Script>		
+    
+        <mx:Panel width="100%" horizontalAlign="center" verticalAlign="middle" height="100%" title="{_('Training report') + ' (' + Format.padPatientAlias(app.selectedPatient.alias) + ')'}" titleIcon="@Embed('assets/icons/calendar.png')">    
+            <mx:TabNavigator id="activityReportTabNavigator" width="100%" height="100%" tabHeight="25" creationPolicy="all">    
+                <mx:Box label="{_('2 weeks')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_day.png')">
+					<mx:Label width="100%" styleName="activityChartTitle" text="{_('Effective Training Duration Per Day')}" />
+					<mx:Label width="100%" styleName="activityChartSubtitle" text="{_('Last 14 days')}" />
+					<mx:ColumnChart id="dayReportChart" width="100%" height="100%" styleName="activityChart" showDataTips="true" dataTipFunction="dayReportDataTipFunction" dataProvider="{_testData1}">                
+						<mx:horizontalAxis>
+							<mx:CategoryAxis id="dayReportChartCategoryAxis" categoryField="date" labelFunction="formatDateLabel" />
+						</mx:horizontalAxis>
+						
+						<mx:horizontalAxisRenderers> 
+							<mx:AxisRenderer axis="{dayReportChartCategoryAxis}" canDropLabels="true" /> 
+						</mx:horizontalAxisRenderers>                 
+
+						<mx:verticalAxis>
+							<mx:LinearAxis interval="5" minorInterval="1" labelFunction="formatDurationMinLabel" />
+						</mx:verticalAxis>
+						
+						<mx:series>
+							<mx:ColumnSeries xField="date" yField="duration" displayName="{_('Duration (minutes)')}" fill="{blueFillColor}" stroke="{blueStrokeColor}" />
+						</mx:series>
+					</mx:ColumnChart>
+					<mx:HBox width="100%">
+                        <mx:Spacer width="5" />
+                        <mx:Legend dataProvider="{dayReportChart}"/>
+                    </mx:HBox>
+                    <mx:Spacer height="5" />
+				</mx:Box>
+				
+				<mx:Box label="{_('6 months')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_week.png')">
+					<mx:Label width="100%" styleName="activityChartTitle" text="{_('Effective Training Duration Per Week')}" />
+					<mx:Label width="100%" styleName="activityChartSubtitle" text="{_('Last 24 weeks')}" />
+					<mx:ColumnChart id="weekReportChart" width="100%" height="100%" styleName="activityChart" showDataTips="true" dataTipFunction="weekReportDataTipFunction" dataProvider="{_testData5}">                
+						<mx:horizontalAxis>
+							<mx:CategoryAxis id="weekReportChartCategoryAxis" categoryField="week" labelFunction="formatWeekLabel" />
+						</mx:horizontalAxis>
+						
+						<mx:horizontalAxisRenderers> 
+							<mx:AxisRenderer axis="{weekReportChartCategoryAxis}" canDropLabels="true" /> 
+						</mx:horizontalAxisRenderers>                 
+
+						<mx:verticalAxis>
+							<mx:LinearAxis interval="5" minorInterval="1" labelFunction="formatDurationMinLabel" />
+						</mx:verticalAxis>
+						
+						<mx:series>
+							<mx:ColumnSeries xField="week" yField="duration" displayName="{_('Duration (minutes)')}" fill="{blueFillColor}" stroke="{blueStrokeColor}" />
+						</mx:series>
+					</mx:ColumnChart>
+                    <mx:HBox width="100%">
+                        <mx:Spacer width="5" />
+                        <mx:Legend dataProvider="{weekReportChart}"/>
+                    </mx:HBox>
+                    <mx:Spacer height="5" />                        
+				</mx:Box>
+				
+				<mx:Box label="{_('12 months')}" width="100%" height="100%" icon="@Embed('assets/icons/calendar_view_month.png')">
+					<mx:Label width="100%" styleName="activityChartTitle" text="{_('Effective Training Duration Per Month')}" />
+					<mx:Label width="100%" styleName="activityChartSubtitle" text="{_('Last 12 months')}" />
+					<mx:ColumnChart id="monthReportChart" width="100%" height="100%" styleName="activityChart" showDataTips="true" dataTipFunction="monthReportDataTipFunction" dataProvider="{_testData4}">                
+						<mx:horizontalAxis>
+							<mx:CategoryAxis id="monthReportChartCategoryAxis" categoryField="date" labelFunction="formatMonthLabel" />
+						</mx:horizontalAxis>
+						
+						<mx:horizontalAxisRenderers> 
+							<mx:AxisRenderer axis="{monthReportChartCategoryAxis}" canDropLabels="true" /> 
+						</mx:horizontalAxisRenderers>                 
+
+						<mx:verticalAxis>
+							<mx:LinearAxis interval="5" minorInterval="1" labelFunction="formatDurationMinLabel" />
+						</mx:verticalAxis>
+						
+						<mx:series>
+							<mx:ColumnSeries xField="date" yField="duration" displayName="{_('Duration (minutes)')}" fill="{blueFillColor}" stroke="{blueStrokeColor}" />
+						</mx:series>
+					</mx:ColumnChart>
+                    <mx:HBox width="100%">
+                        <mx:Spacer width="5" />                   
+                        <mx:Legend dataProvider="{monthReportChart}"/>
+                    </mx:HBox>
+                    <mx:Spacer height="5" />                       
+				</mx:Box>
+	
+				<mx:Box width="100%" height="100%" label="{_('Training log')}" icon="@Embed('assets/icons/timeline_marker.png')" styleName="padded" horizontalAlign="center">
+                    <mx:DataGrid showHeaders="false" styleName="overviewDataGridStyle" alternatingItemColors="[0xffffff, 0xffffff]"
+                        id="overviewDataGrid" width="100%" height="100%" draggableColumns="false" 
+                        useRollOver="false" selectable="false" sortableColumns="false"
+                    >
+                        <mx:columns>
+                                <mx:DataGridColumn itemRenderer="ActivityOverviewRenderer" />
+                        </mx:columns>
+                    </mx:DataGrid>
+                    <mx:Spacer height="20" />
+                    <mx:Button id="refresh" label="{_('Refresh')}" icon="@Embed('assets/icons/arrow_refresh.png')" toolTip="{_('Click here to refresh activity report.')}" click="refreshReport()" />
+                </mx:Box>
+
+				<mx:Box label="{_('Point Test')}" width="100%" height="100%" icon="@Embed('assets/icons/chart_bar.png')">
+					<mx:Label width="100%" styleName="activityChartTitle" text="{_('Point Test - Summary')}" />
+					<mx:Label width="100%" styleName="activityChartSubtitle" text="{_('Best result for each day shown (shortest duration)')}" />
+					<mx:ColumnChart id="pointTestChart" width="100%" height="100%" styleName="activityChart" showDataTips="true" dataTipFunction="pointTestDataTipFunction" dataProvider="{_testData2}">                
+						<mx:horizontalAxis>
+							<mx:CategoryAxis id="pointTestChartCategoryAxis" categoryField="date" labelFunction="formatDateLabel" />
+						</mx:horizontalAxis>
+						
+						<mx:horizontalAxisRenderers> 
+							<mx:AxisRenderer axis="{pointTestChartCategoryAxis}" canDropLabels="true" /> 
+						</mx:horizontalAxisRenderers>                 
+
+						<mx:verticalAxis>
+							<mx:LinearAxis interval="5" minorInterval="1" labelFunction="formatDurationSecLabel" />
+						</mx:verticalAxis>
+						
+						<mx:series>
+							<mx:ColumnSeries xField="date" yField="duration" displayName="{_('Duration (seconds)')}" fill="{blueFillColor}" stroke="{blueStrokeColor}" />
+						</mx:series>
+					</mx:ColumnChart>
+                    <mx:HBox width="100%">
+                        <mx:Spacer width="5" />                    
+                        <mx:Legend dataProvider="{pointTestChart}"/>
+                    </mx:HBox>
+                    <mx:Spacer height="5" />                       
+				</mx:Box>
+												
+                <!--
+				<mx:Box enabled="false" label="{_('Decision support')}" icon="@Embed('assets/icons/arrow_divide.png')" />
+				-->
+            </mx:TabNavigator>
+        </mx:Panel>
+
+    </mx:HDividedBox>
+
+</mx:Canvas>

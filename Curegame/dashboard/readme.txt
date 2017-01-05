@@ -1,0 +1,1 @@
+Note: dashboard.swf is generated/copied here during a FlashDevelop build!

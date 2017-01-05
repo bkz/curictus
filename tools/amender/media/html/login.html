@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h4>{{ _("Log in") }}</h4>
+<form action="/login" method="post">
+<ol>
+
+  {% if invalid_email or invalid_password %}
+  <li>
+    <label>&nbsp;</label>
+    <p><em>{{ _("The email or password you entered is incorrect!") }}</em></p>
+  </li>
+  {% end %}
+
+  <li>
+  <label>{{ _("Email:") }}</label> 
+  <input type="text" name="email" size="30" value="{{ email }}" />
+  </li>
+
+  <li>
+  <label>{{ _("Password:") }}</label> 
+  <input type="password" name="password" size="30" value="{{ password }}" />
+  </li>
+
+  <li>
+  <label>&nbsp;</label>
+  <input type="submit" value="{{ _("Log in") }}" name="submit" class="submit" /> 
+  </li>
+</ol>
+</form>
+
+{% end %}

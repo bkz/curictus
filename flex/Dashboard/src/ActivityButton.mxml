@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Box width="100%" height="100%" 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    styleName="activityButton"
+    mouseDown="{app.clickSoundAsset.play()}"
+    mouseUp="{app.setCurrentActivity(activityId)}"
+	mouseOver="styleName = 'activityButtonOver'"
+	mouseOut="styleName = 'activityButton'"
+	>
+    <mx:Script source="defs.as" />
+
+    <mx:Script>
+    <![CDATA[
+    [Bindable] public var activityId:String;
+    
+    public function setActivityId(id:String):void {
+        this.visible = true;
+        this.activityId = id;
+        this.img.source = DASHBOARD_ADDRESS + "static/screenshots/" + id + "_small.jpg";
+        this.alpha = 1.0;
+        //this.img.click = "app.setCurrentActivityId('" + id + "')";
+    }
+    
+    public function clear():void {
+        this.visible = false;
+        this.img.source = null;
+        this.activityId = null;
+        this.alpha = 0.2;
+    }
+    
+    ]]>
+    </mx:Script>
+    <mx:Box>
+        <mx:Image id="img" width="300" height="188" />
+    </mx:Box>
+</mx:Box>

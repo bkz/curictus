@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*">
+
+    <mx:Script source="defs.as" />
+    <mx:Style source="assets/style/componentstyle.css" />
+    
+    <mx:Script>
+    <![CDATA[
+    
+    import flash.text.TextLineMetrics;
+    import mx.collections.ArrayCollection;
+    import mx.controls.Alert;
+    import mx.controls.Label;
+    import mx.controls.Text;
+    import mx.formatters.DateFormatter;
+    import mx.utils.ObjectProxy;
+    import mx.managers.PopUpManager;
+    
+    import vrs.shared.Session;
+    import vrs.util.assert;
+    
+    private var activityId:String;
+    private var activityType:String;
+    private var instructionDialog:InstructionDialog;
+       
+    private const ACTIVITY_TITLE_MAX_FONT_SIZE:Number = 60;
+    private const ACTIVITY_TITLE_MIN_FONT_SIZE:Number = 30;
+    
+    [Embed(source="assets/icons/images/1-star.png")]
+    [Bindable]
+    private static var Icon1StarEnabled:Class;
+    
+    [Embed(source = './assets/icons/images_disabled/1-star.png')]
+    [Bindable]
+    private static var Icon1StarDisabled:Class;
+    
+    [Embed(source="assets/icons/images/2-star.png")]
+    [Bindable]
+    private static var Icon2StarEnabled:Class;
+    
+    [Embed(source = './assets/icons/images_disabled/2-star.png')]
+    [Bindable]
+    private static var Icon2StarDisabled:Class;
+    
+    [Embed(source="assets/icons/images/3-star.png")]
+    [Bindable]
+    private static var Icon3StarEnabled:Class;
+    
+    [Embed(source = './assets/icons/images_disabled/3-star.png')]
+    [Bindable]
+    private static var Icon3StarDisabled:Class;
+        
+    public function setActivityType(t:String):void {
+        this.activityType = t;        
+    }
+    
+    private function goBack():void {  
+        unglowButton();
+        
+        if (this.activityType == 'game') {
+            app.currentState = 'selectActivityState';
+        } else {
+            app.currentState = 'selectAssessmentState';
+        }
+    }
+    
+    private function playActivity():void {
+        if (this.activityType == 'game') {
+            app.launchGame();
+        } else {
+            app.launchTest();
+        }
+    }
+    
+    private function formatTime(t:Number):String {
+        return sprintf("%02d:%02d", t / 60, t % 60);
+    }
+    
+    private function formatScoreTitle(s:Object): String {
+        switch(this.activityId) {           
+            case "bandit":
+			case "bingo2":
+            case "archery":
+			case "archery2":
+            case "fishtank":
+			case "fishtank2":
+			case "math2":
+			case "neglecttest":
+			case "simon2":
+			case "slotmachine":
+                return _('Score');
+                break;
+        
+            case "pong":
+                return _('You vs. Opponent');
+                break;
+            
+            case "bingo":
+			case "codebreak":
+            case "math":
+            case "memory":
+            case "mugmastermind":
+            case "point":
+            case "precision_h":
+            case "precision_v":
+            case "racer":
+            case "simon":
+            case "tmt_a":
+            case "tmt_b":
+                return _('Time');
+                break;
+                
+            case "colors":
+                return _('Moves');
+                break;
+                
+            default:
+                break;
+        }       
+        
+        return '';
+    }
+    
+    private function formatScoreText(s:Object): String {
+        switch(this.activityId) {           
+            case "bandit":
+			case "bingo2":
+            case "archery":
+			case "archery2":
+            case "fishtank":
+			case "fishtank2":
+			case "math2":
+			case "simon2":
+			case "slotmachine":
+                return s.score;
+                break;
+        
+			case "neglecttest":
+				return s.left_score + " / " + s.right_score;
+				break;
+				
+            case "pong":
+                return s.player_score + " - " + s.opponent_score;
+                break;
+            
+            case "bingo":
+			case "codebreak":
+            case "math":
+            case "memory":
+            case "mugmastermind":
+            case "point":
+            case "precision_h":
+            case "precision_v":            
+            case "racer":
+            case "simon":
+            case "tmt_a":
+            case "tmt_b":
+                return this.formatTime(parseFloat(s.duration));
+                break;
+                
+            case "colors":
+                return s.moves;    
+                break;
+                
+            default:
+                break;
+        }       
+        
+        return '';
+    }
+    
+    private function formatTimeAgo(d:Date):String 
+    {
+		var midnightToday:Date = new Date();
+		var midnightYesterday:Date = new Date();
+		midnightToday.hours = 0;
+		midnightToday.minutes = 0;
+		midnightToday.seconds = 0;
+		midnightYesterday.setTime(midnightToday.time - (24 * 60 * 60 * 1000));
+		
+		/*
+		var seconds:int = (new Date().getTime() - d.getTime()) / 1000;
+        var minutes:int = seconds / 60;
+		*/
+		
+        //if  (d >= midnightToday && minutes <= 1440)
+        if  (d >= midnightToday)
+		{
+            return _("Today");
+        }
+        
+        //if  (d >= midnightYesterday && minutes > 1440 && minutes <= 2880)
+        if  (d >= midnightYesterday)
+		{
+            return _("Yesterday")
+        }
+        
+        var df:DateFormatter = new DateFormatter();
+        df.formatString = "YYYY-MM-DD";
+        
+        return  df.format(d);
+    }
+    
+    public function setActivity(id:String):void {    
+        this.activityId = id;
+               
+        activityImage.source = DASHBOARD_ADDRESS + "static/screenshots/" + this.activityId + "_medium.jpg"; 
+        if (this.activityType == 'game') {
+            playButton.label = _('Play');            
+        }
+        else {
+            playButton.label = _('Start');
+        }
+        
+        switchToInfoScreen();
+        
+        updateHighscore();
+        
+        // TEMPORARY: Remove this check when we properly support difficulty settings.
+        if (app.featureFlags["enable_hgt_levels"] && (
+			id == "archery2" || 
+			id == "bandit" || 
+			id == "bingo2" || 
+			id == "codebreak" || 
+			id == "colors" || 
+			id == "fishtank2" || 
+			id == "math2" || 
+			id == "memory" || 
+			id == "pong" || 
+			id == "racer" || 
+			id == "simon2" 
+		))        
+		{
+            settingsButton.enabled = true;
+            updateDifficultyLevel();
+        }
+        else
+        {
+            settingsButton.enabled = false;
+            difficultyLevelInfo.text = "--";
+        }
+                            
+        var title:String = getActivityName(id);
+        for (var i:int = ACTIVITY_TITLE_MAX_FONT_SIZE; i > ACTIVITY_TITLE_MIN_FONT_SIZE; i--) {
+            this.activityTitle.setStyle('fontSize', i);    
+            var metrics:TextLineMetrics = this.activityTitle.measureText(title);
+            if (metrics.width < (this.activityTitle.width * 0.95))
+                break;
+        }
+                           
+        this.activityTitle.text = title;
+        this.activitySummary.text = getActivityDescSummary(id);
+        this.activityDescription.htmlText= getActivityDesc(id);           
+    }
+	
+	public function setResults(s:Session):void {              
+        this.resultTitle.text = formatScoreTitle(s.score);
+        this.resultText.text = formatScoreText(s.score);
+        
+		// Don't bother showing an empty results screen for the intro activity.
+		if (activityId == "intro") {
+			switchToInfoScreen();
+		}
+		else {
+			app.dashboardService.getActivityHighscoreList(activityId, 1,
+				function(a:ArrayCollection): void {
+					// VRS might report an empty highscore list even though it acknowledged 
+					// that we have played the activity for two reasons:
+					// (1) highscore support is not available for activity
+					// (2) after filtering away "invalid" sessions we ended up with an empty list
+					if (a.length > 0) {
+						var best:Session = a.getItemAt(0) as Session;     
+						
+						if (activityType == 'game') {
+							if (best.id == s.id) {
+								resultInfoText.text = _("Well done, new record!")
+							}
+							else {
+                                app.dashboardService.wasLowScoring(s, 
+                                    function(yes:Boolean):void {
+                                        if (yes) {
+                                            resultInfoText.text = _("Please try again!"); 
+                                        }
+                                        else {
+								            var cheers:Array = [_("Good job!"), _("Keep it up!"), _("Nice work!")];
+								            resultInfoText.text = cheers[Math.floor(Math.random() * cheers.length)];                                            
+                                        }
+                                    });
+							}
+						} else {
+							resultInfoText.text = " "; 
+						}
+					}
+				});
+				
+			switchToResultScreen();
+		}
+    }
+    
+    public function setDifficultyLevel(difficultyLevel:String): void
+    {
+        assert(difficultyLevel == "easy" || difficultyLevel == "medium" || difficultyLevel == "hard");
+        
+        app.dashboardService.getDifficultyLevels(activityId,
+            function(config:ObjectProxy):void {
+                app.dashboardService.setDifficultyLevel(activityId, config[difficultyLevel],
+                    function(ok:Boolean):void {
+                        updateHighscore();
+                        updateDifficultyLevel();
+                    })               
+            })
+    }
+
+    public function updateHighscore(): void {
+        app.dashboardService.hasPlayedBefore(activityId,
+            function(yes:Boolean):void {
+                if (yes) {
+                    // Already played at least once, try to update and show highscore info.
+                    app.dashboardService.getActivityHighscoreList(activityId, 5,
+                        function(a:ArrayCollection): void {
+                            // VRS might report an empty highscore list even though it acknowledged 
+                            // that we have played the activity for two reasons:
+                            // (1) highscore support is not available for activity
+                            // (2) after filtering away "invalid" sessions we ended up with an empty list
+                            if (a.length > 0) {
+                                resultsButton.enabled = true;
+                                
+                                var s:Session = a.getItemAt(0) as Session;                                                                                       
+                                highScoreHeader.text = formatScoreTitle(s.score);
+                                
+                                switch (a.length) {
+                                    case 1:
+                                        highScoreResult2.text = "--";
+                                        highScoreDate2.text = "--";
+                                    case 2:
+                                        highScoreResult3.text = "--";
+                                        highScoreDate3.text = "--";
+                                    case 3:
+                                        highScoreResult4.text = "--";
+                                        highScoreDate4.text = "--";
+                                    case 4:
+                                        highScoreResult5.text = "--";
+                                        highScoreDate5.text = "--";
+                                    case 5:
+                                        break;
+                                } 
+                                
+                                
+
+                                switch (a.length) {
+                                    case 5:
+                                        var item5:Session = a.getItemAt(4) as Session;
+                                        highScoreResult5.text = formatScoreText(item5.score);
+                                        highScoreDate5.text = formatTimeAgo(item5.timestamp);
+                                    case 4:
+                                        var item4:Session = a.getItemAt(3) as Session;
+                                        highScoreResult4.text = formatScoreText(item4.score);
+                                        highScoreDate4.text = formatTimeAgo(item4.timestamp);
+                                    case 3:
+                                        var item3:Session = a.getItemAt(2) as Session;
+                                        highScoreResult3.text = formatScoreText(item3.score);
+                                        highScoreDate3.text = formatTimeAgo(item3.timestamp);
+                                    case 2:
+                                        var item2:Session = a.getItemAt(1) as Session;
+                                        highScoreResult2.text = formatScoreText(item2.score);
+                                        highScoreDate2.text = formatTimeAgo(item2.timestamp);
+                                    case 1:
+                                        var item1:Session = a.getItemAt(0) as Session;
+                                        highScoreResult1.text = formatScoreText(item1.score);
+                                        highScoreDate1.text = formatTimeAgo(item1.timestamp);
+                                }                                
+                            }
+                            else {
+                                // No valid sessions found.
+                                resultsButton.enabled = false;
+                            }
+                        })      
+                }
+                else {
+                    // Never played this activity before.
+                    resultsButton.enabled = false;
+                }
+            })               
+    }
+    
+	private function getDifficultyLevelDesc(activityId:String, level:int):String {
+		// Get description string and split it on newlines
+		
+		// Build name string, then pass it to _() to avoid parsing _() as an i18n string.
+		var descriptionName:String = "$activity_" + activityId + "_level_desc";
+		var description:String = _(descriptionName);
+		
+		var descriptions:Array = description.split("\n");
+		
+		// If there are enough splits, return the appropriate line
+		var index:int = level - 1;
+		if (descriptions.length > index) {
+			return descriptions[index];
+		} else {
+			return description;
+		}
+	}
+	
+    public function updateDifficultyLevel(): void {
+        difficultyLevelHelp.visible = false;
+        
+        app.dashboardService.getCurrentDifficultyLevel(activityId,
+            function(level:int):void {
+                app.dashboardService.getDifficultyLevels(activityId,
+                    function(config:ObjectProxy):void {
+                        var easySelected:Boolean   = false;
+                        var mediumSelected:Boolean = false;
+                        var hardSelected:Boolean   = false;
+                        
+                        if (level == config["easy"]) {
+                            difficultyLevelInfo.text = _("Easy");
+                            difficultyLevelDesc.text = getDifficultyLevelDesc(activityId, level);
+							easySelected = true;
+                        }
+                        else if (level == config["medium"]) {
+                            difficultyLevelInfo.text = _("Medium");
+                            difficultyLevelDesc.text = getDifficultyLevelDesc(activityId, level);
+							mediumSelected = true;
+                        }
+                        else if (level == config["hard"]) {
+                            difficultyLevelInfo.text = _("Hard");
+							difficultyLevelDesc.text = getDifficultyLevelDesc(activityId, level);
+                            hardSelected = true;
+                        }
+                        else {
+                            difficultyLevelInfo.text = level.toString();
+                            difficultyLevelDesc.text = " ";
+							difficultyLevelHelp.text = sprintf(_("(Easy = %s, Medium = %s, Hard = %s)"), 
+                                config["easy"], config["medium"], config["hard"]);
+                            difficultyLevelHelp.visible = true;
+                        }
+                        
+                        easyButton.setStyle("icon",   easySelected   ? Icon1StarEnabled : Icon1StarDisabled);
+                        mediumButton.setStyle("icon", mediumSelected ? Icon2StarEnabled : Icon2StarDisabled);
+                        hardButton.setStyle("icon",   hardSelected   ? Icon3StarEnabled : Icon3StarDisabled);
+                    })                   
+            })                                
+    }  
+    
+    public function glowButton(b:Object): void {
+        unglowButton();
+        
+        glowButtonEffect.target = b;
+        unglowButtonEffect.target = b;
+        
+        glowButtonEffect.play();        
+    }
+    
+    public function unglowButton(): void {
+        glowButtonEffect.end();
+        glowButtonEffect.target = null;
+
+        unglowButtonEffect.end();
+        unglowButtonEffect.target = null;
+    }
+    
+    public function switchToInfoScreen(): void {       
+        glowButton(playButton);
+
+        this.activityViewStack.selectedIndex = 0;
+        this.instructionsButton.styleName = "buttonGroupActive";
+        this.resultsButton.styleName = "buttonGroup";
+        this.settingsButton.styleName = "buttonGroup";
+    }
+    
+    public function switchToHighScoreScreen(): void {
+        unglowButton();
+        
+        this.activityViewStack.selectedIndex = 1;               
+        this.instructionsButton.styleName = "buttonGroup";
+        this.resultsButton.styleName = "buttonGroupActive";
+        this.settingsButton.styleName = "buttonGroup";
+    }
+    
+    public function switchToSettingsScreen(): void {
+        unglowButton();
+        
+        this.activityViewStack.selectedIndex = 2;
+        this.instructionsButton.styleName = "buttonGroup";
+        this.resultsButton.styleName = "buttonGroup";
+        this.settingsButton.styleName = "buttonGroupActive";                
+    }
+
+    public function switchToResultScreen(): void {
+        unglowButton();
+        
+        this.activityViewStack.selectedIndex = 3;               
+        this.instructionsButton.styleName = "buttonGroup";
+        this.resultsButton.styleName = "buttonGroup";
+        this.settingsButton.styleName = "buttonGroup";                
+    }            
+    
+    public function showInstructions(): void {      
+        unglowButton();
+        
+        var instructionDialog:InstructionDialog;
+        instructionDialog = new InstructionDialog();
+        instructionDialog.activityAlias = this.activityId;
+        instructionDialog.closeHook = function():void {        
+            glowButton(playButton);
+        }
+        
+        PopUpManager.addPopUp(instructionDialog, this, true);        
+    }
+    ]]>
+    </mx:Script>
+        
+    <mx:Glow id="glowButtonEffect" effectEnd="{unglowButtonEffect.play()}"
+        alphaFrom="1.0" alphaTo="0.9" 
+        blurXFrom="0.0" blurXTo="40.0" 
+        blurYFrom="0.0" blurYTo="40.0" 
+        color="#6AADE4" duration="1000"/>
+    <mx:Glow id="unglowButtonEffect" duration="2500" effectEnd="{glowButtonEffect.play()}"
+        alphaFrom="0.9" alphaTo="1.0" 
+        blurXFrom="40.0" blurXTo="0.0" 
+        blurYFrom="40.0" blurYTo="0.0" 
+        color="#6AADE4" />
+    <mx:Fade id="fadeOut" duration="250" alphaFrom="1.0" alphaTo="0.0"/>
+    <mx:Fade id="fadeIn" duration="250" alphaFrom="0.0" alphaTo="1.0"/>
+	
+    <mx:VBox styleName="roundedBox" width="100%" height="100%" horizontalAlign="center" filters="{[new GlowFilter(0x000000, 0.25, 10, 10)]}">
+                
+        <mx:HBox width="100%" height="100%">
+            <mx:ViewStack id="activityViewStack" selectedIndex="0" width="100%" height="100%">
+                
+                <!-- Activity info screen -->
+                <mx:VBox verticalAlign="top" width="100%" height="100%" verticalScrollPolicy="off" paddingLeft="20" showEffect="{fadeIn}" hideEffect="{fadeOut}">
+                    <mx:Spacer height="0" />
+                    <mx:Text selectable="false" id="activitySummary" kerning="true" styleName="activitySummary" width="100%" />
+                    <mx:Spacer height="20" />
+                    <mx:Text selectable="false" color="0x404040" id="activityDescription" kerning="true" styleName="activityDescription" width="95%" />
+                </mx:VBox>
+                                
+                <!-- Activity results screen (view highscore,  top N sessions) -->
+                <mx:VBox horizontalAlign="center" width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off" showEffect="{fadeIn}" hideEffect="{fadeOut}">
+                    <mx:Label textAlign="center" text="{_('My Best Results')}" fontSize="50" />
+                    <mx:HRule width="90%" strokeWidth="1" strokeColor="0x000000" showEffect="zoomLine" />
+                    <mx:Spacer height="30" />
+                    <mx:VBox styleName="activityDescription" width="100%" height="100%">
+                        <mx:HBox>
+                            <mx:Label width="120" text="" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreHeader" width="250" text="..." textAlign="center" textDecoration="underline" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label width="250" text="{_('Date')}" textAlign="center" textDecoration="underline" fontSize="30" />
+                        </mx:HBox>
+                        <mx:HBox>
+                            <mx:Label width="120" text="1." textAlign="right" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreResult1" width="250" text="..." textAlign="center" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreDate1" width="250" text="..." textAlign="center" fontSize="30" />
+                        </mx:HBox>                       
+                        <mx:HBox>
+                            <mx:Label width="120" text="2." textAlign="right" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreResult2" width="250" text="..." textAlign="center" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreDate2" width="250" text="..." textAlign="center" fontSize="30" />
+                        </mx:HBox>                       
+                        <mx:HBox>
+                            <mx:Label width="120" text="3." textAlign="right" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreResult3" width="250" text="..." textAlign="center" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreDate3" width="250" text="..." textAlign="center" fontSize="30" />
+                        </mx:HBox>                       
+                        <mx:HBox>
+                            <mx:Label width="120" text="4." textAlign="right" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreResult4" width="250" text="..." textAlign="center" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreDate4" width="250" text="..." textAlign="center" fontSize="30" />
+                        </mx:HBox>                       
+                        <mx:HBox>
+                            <mx:Label width="120" text="5." textAlign="right" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreResult5" width="250" text="..." textAlign="center" fontSize="30" />
+                            <mx:Spacer width="20" />
+                            <mx:Label id="highScoreDate5" width="250" text="..." textAlign="center" fontSize="30" />
+                        </mx:HBox>                       
+                    </mx:VBox>
+                </mx:VBox>
+
+                <!-- Activity info screen -->
+                <mx:VBox horizontalAlign="center" width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off" showEffect="{fadeIn}" hideEffect="{fadeOut}">
+                    <mx:Label textAlign="center" text="{_('Difficulty Settings')}" fontSize="50" />
+                    <mx:HRule width="90%" strokeWidth="1" strokeColor="0x000000" showEffect="zoomLine" />
+                    <mx:Spacer height="100%" />
+                    <mx:HBox>
+                        <local:StretchButton id="easyButton" width="200" height="180" label="{_('Easy')}" click="this.setDifficultyLevel('easy')" />
+                        <mx:Spacer width="20" />
+                        <local:StretchButton id="mediumButton" width="200" height="180" label="{_('Medium')}" click="this.setDifficultyLevel('medium')" />
+                        <mx:Spacer width="20" />
+                        <local:StretchButton id="hardButton" width="200" height="180" label="{_('Hard')}" click="this.setDifficultyLevel('hard')" />
+                    </mx:HBox>
+                    <mx:Label id="difficultyLevelHelp" textAlign="center" fontSize="24" />
+					<mx:Text width="600" id="difficultyLevelDesc" textAlign="center" fontSize="24" selectable="false" />
+                    <mx:Spacer height="100%" />
+                </mx:VBox>
+        
+                <!-- Activity results screen (after new session, compare result with highscore result) -->
+                <mx:VBox horizontalAlign="center" width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off" showEffect="{fadeIn}" hideEffect="{fadeOut}">
+                    <mx:Label textAlign="center" text="{_('Result')}" fontSize="50" />
+                    <mx:HRule width="90%" strokeWidth="1" strokeColor="0x000000" showEffect="zoomLine" />
+                    <mx:Spacer height="30" />
+                    <mx:Label id="resultTitle" textAlign="center" fontSize="40" />
+                    <mx:Spacer height="10" />
+                    <mx:Text id="resultText" textAlign="center" fontSize="100" />
+                    <mx:Spacer height="10" />
+                    <mx:Label id="resultInfoText" textAlign="center" fontSize="40" />
+                    <mx:Spacer height="10" />
+                </mx:VBox>
+                
+            </mx:ViewStack>
+            
+            <mx:VBox height="100%" paddingLeft="40" horizontalAlign="center">		
+                <mx:Label id="activityTitle" kerning="true" styleName="message" text="" textAlign="center" width="504" />                
+                <mx:HBox id="activityOverview" width="100%" verticalAlign="middle" horizontalAlign="center">
+                    <mx:Label textAlign="center" text="{_('Difficulty Level') + ':'}" fontSize="24" />
+                    <mx:Label id="difficultyLevelInfo" textAlign="center" fontSize="22" />
+                </mx:HBox>               
+                <mx:Spacer height="5" />
+                <mx:Box >
+                    <mx:Image                                                             
+                        id="activityImage"
+                        width="504"
+                        height="315"
+                        x="0"
+                        y="0"
+                        /> 
+                </mx:Box>
+                <mx:Spacer height="100%" />
+                <local:StretchButton label="{_('View tutorial')}" styleName="buttonGroup" width="80%" height="60" click="{stats.track('show-instructions', { 'alias':this.activityId, 'kind':this.activityType } );showInstructions()}" />
+                <mx:Spacer height="100%" />
+            </mx:VBox>		
+        </mx:HBox>
+            
+        <mx:HBox width="100%">
+            <local:StretchButton width="100%" height="200"
+                label="{_('Back')}" 
+                click="this.goBack()" 
+                icon="@Embed(source='assets/icons/images/back.png')"
+            />
+            
+            <local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                id="instructionsButton"
+                label="{_('Information')}"
+                icon="@Embed(source='assets/icons/images/info.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/info.png')"
+				click="switchToInfoScreen()"
+            />
+                        
+			<local:StretchButton styleName="buttonGroup" width="100%" height="200"
+                id="resultsButton"
+                label="{_('My Results')}"
+                icon="@Embed(source='assets/icons/images/assess.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/assess.png')"
+				click="{stats.track('show-highscore', { 'alias':this.activityId, 'kind':this.activityType } );switchToHighScoreScreen()}"
+            />
+			
+            <local:StretchButton id="settingsButton" styleName="buttonGroup" width="100%" height="200"
+                label="{_('Difficulty Level')}"
+                icon="@Embed(source='assets/icons/images/settings.png')"
+                disabledIcon="@Embed(source='assets/icons/images_disabled/settings.png')"
+                click="{stats.track('show-settings', { 'alias':this.activityId, 'kind':this.activityType } );switchToSettingsScreen()}"
+            />
+            
+            <local:StretchButton width="100%" height="200"
+                id="playButton"
+                label="{_('Play')}"
+                icon="@Embed(source='assets/icons/images/play.png')"
+                click="this.playActivity()"
+            />
+            
+        </mx:HBox>
+    </mx:VBox>
+    
+</mx:VBox>

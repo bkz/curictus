@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:pcms="*"
+    xmlns:local="*"
+    width="100%" horizontalAlign="center" verticalAlign="middle" height="100%" 
+    title="{_('All Profiles') + ' (' + app.selectedZone.alias + ')'}"
+    titleIcon="@Embed('assets/icons/group.png')"
+    creationComplete="refreshList()"
+    show="refreshList()">    
+    
+    <mx:Script source="defs.as" />    
+    <mx:Script>
+    <![CDATA[
+        import com.adobe.utils.DateUtil;
+        import vrs.util.natCaseCompare;
+        import vrs.shared.Patient;
+        import mx.formatters.DateFormatter;
+		import mx.controls.Alert;
+        import mx.events.CloseEvent;
+        import vrs.util.Format;
+        
+        private function refreshList():void {
+            app.populatePatientList();
+            app.activityReportComponent.enabled = false;
+            app.activitiesComponent.enabled = false;
+            app.dataAnalysisComponent.enabled = false
+            this.deletePatientButton.enabled = false;
+            this.selectPatientButton.enabled = false; 
+            this.selectPatientButton.emphasized = false;
+        }
+
+        private function changePatient():void {
+			//Alert.show('changePatient');
+            var patient:Patient = this.dataGridPatients.selectedItem as Patient;
+            if (patient != app.selectedPatient) {                
+                this.selectPatientButton.enabled = true; 
+                this.selectPatientButton.emphasized = true;
+                
+                app.activityReportComponent.enabled = false;
+                app.activitiesComponent.enabled = false;
+            } else {
+                this.selectPatientButton.enabled = false; 
+                this.selectPatientButton.emphasized = false;
+                
+                app.activityReportComponent.enabled = true;
+                app.activitiesComponent.enabled = true;
+                app.dataAnalysisComponent.enabled = true;
+            }
+            
+            this.deletePatientButton.enabled = (patient.alias != "guest");
+        }
+        
+        public function deletePatient(patient:Patient): void {
+                Alert.yesLabel = _("Yes");
+                Alert.noLabel = _("No");
+				
+                Alert.show(
+                    sprintf(_("Delete profile '%s'?"), patient.alias), 
+                    _("VRS Analytics"),
+                    Alert.YES | Alert.NO,
+                    null,
+                    function(e:CloseEvent):void {
+                        if (e.detail == Alert.YES) {
+                            app.pcmsService.deactivatePatient(patient.guid, 
+                                function(ok:Boolean):void {
+                                    refreshList();
+                                });
+                        }
+                    });
+        }
+        
+        private function formatPatientAlias(item:Object, column:DataGridColumn):String {
+            return Format.padPatientAlias(item.alias);
+        }
+        
+        // FIXME: Fulhack/cutnpaste
+        private function formatDate (item:Object, column:DataGridColumn):String {
+            var df:DateFormatter = new DateFormatter();
+            df.formatString = "YYYY-MM-DD";
+
+			var yf:DateFormatter = new DateFormatter();
+            yf.formatString = "YYYY";
+			
+			// Special date format for new users who have no training sessions
+			if (df.format(item.medical_record.first_session_date) == '1970-01-01') {
+				return "-";
+			}
+			
+            if (column.dataField == "medical_record.birthdate") {
+                try 
+                {
+                    return yf.format(DateUtil.parseW3CDTF(item.medical_record.birthdate));
+                }
+                catch (err:Error)
+                {
+                }     
+                
+                return ""
+            }
+            
+            if (column.dataField == "medical_record.first_session_date") {
+                return df.format(item.medical_record.first_session_date);
+            }
+            if (column.dataField == "medical_record.latest_session_date") {
+                return df.format(item.medical_record.latest_session_date);
+            }
+            
+            // FIXME: Compiler complains if we do not return anything.
+            return "n/a";
+        }
+        
+        private function formatGender(item:Object, column:DataGridColumn):String 
+        {          
+            return {
+                "male"        : _("Male"),
+                "female"      : _("Female"),
+                "unspecified" : _("Unspecified")
+            }[item.medical_record.gender];
+        }
+        
+        private function naturalSortField(fieldName:String): Function
+        {
+            return function(obj1:Object, obj2:Object):int 
+            {
+                var s1:String = obj1[fieldName] as String;
+                var s2:String = obj2[fieldName] as String;
+
+                return natCaseCompare(s1, s2, false);
+            }
+        }
+        
+		private function sortMedicalRecordDateField(fieldName:String): Function
+        {
+            return function(obj1:Object, obj2:Object):int
+            {
+                var d1:Date = obj1.medical_record[fieldName];
+                var d2:Date = obj2.medical_record[fieldName];
+
+                if (d1 < d2) 
+                {
+                    return -1;
+                } 
+                else if (d1 > d2) 
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+        
+        private function sortMedicalRecordNumberField(fieldName:String): Function
+        {
+            return function(obj1:Object, obj2:Object):int
+            {
+                var d1:Number = obj1.medical_record[fieldName] as Number;
+                var d2:Number = obj2.medical_record[fieldName] as Number;
+
+                if (d1 < d2) 
+                {
+                    return -1;
+                } 
+                else if (d1 > d2) 
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+    ]]>
+    </mx:Script>
+    <mx:DataGrid
+        id="dataGridPatients" width="100%" height="100%" draggableColumns="false" 
+        useRollOver="false"
+        change="this.changePatient()"
+        doubleClickEnabled="true"
+		itemDoubleClick="app.doubleClickSelectPatient()"
+    >
+        <mx:columns>  
+                <mx:DataGridColumn dataField="alias" headerText="{_('PIN code')}" width="100" labelFunction="formatPatientAlias"
+                    sortCompareFunction="naturalSortField('alias')" />
+                <mx:DataGridColumn dataField="medical_record.gender" labelFunction="formatGender" headerText="{_('Gender')}" width="140" />
+                <!--
+                <mx:DataGridColumn dataField="medical_record.birthdate" labelFunction="formatDate" headerText="{_('Born')}" width="100" />
+                -->
+                <mx:DataGridColumn dataField="medical_record.first_session_date" labelFunction="formatDate" headerText="{_('First activity')}" width="150" 
+                    sortCompareFunction="sortMedicalRecordDateField('first_session_date')" />
+                <mx:DataGridColumn dataField="medical_record.latest_session_date" labelFunction="formatDate" headerText="{_('Latest activity')}" width="150" 
+                    sortCompareFunction="sortMedicalRecordDateField('latest_session_date')" />
+                <mx:DataGridColumn dataField="medical_record.training_session_count" headerText="{_('Number of training activities')}" 
+                    sortCompareFunction="sortMedicalRecordNumberField('training_session_count')" width="210" />
+                <mx:DataGridColumn dataField="medical_record.assessment_session_count" headerText="{_('Number of assessments')}" 
+                    sortCompareFunction="sortMedicalRecordNumberField('assessment_session_count')" />
+        </mx:columns>
+       
+    </mx:DataGrid>
+    <mx:HBox width="100%" styleName="padded">
+        <!--
+            <mx:Label text="{_('Search patient:')}" />
+            <mx:TextInput />
+        -->
+        <mx:Button id="refresh" label="{_('Update profile list')}" icon="@Embed('assets/icons/arrow_refresh.png')" toolTip="{_('Click here to refresh profile list.')}" click="refreshList()" />
+        <mx:Spacer width="100%" />
+        <mx:Button enabled="false" id="deletePatientButton" click="deletePatient(this.dataGridPatients.selectedItem as Patient)" label="{_('Deactivate profile')}" icon="@Embed('assets/icons/delete.png')" />            
+        <mx:Spacer width="100%" />
+        <mx:Button enabled="false" id="selectPatientButton" click="app.selectPatient(this.dataGridPatients.selectedItem)" label="{_('Show profile')}" icon="@Embed('assets/icons/user_go.png')" />
+    </mx:HBox>
+</mx:Panel>

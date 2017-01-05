@@ -1,0 +1,8 @@
+<Group DEF="G" >
+    <NavigationInfo type='"NONE"'/>
+    <HapticDeviceLogger />
+    <PythonScript url="hgtstart.py">
+        <Group USE="G" containerField="references" />
+        <HapticDeviceStats containerField="references" />
+    </PythonScript>
+</Group>

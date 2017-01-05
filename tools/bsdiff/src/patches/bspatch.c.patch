@@ -1,0 +1,24 @@
+75c75
+< 	if ((f = fopen(argv[3], "r")) == NULL)
+---
+> 	if ((f = fopen(argv[3], "rb")) == NULL)
+113c113
+< 	if ((cpf = fopen(argv[3], "r")) == NULL)
+---
+> 	if ((cpf = fopen(argv[3], "rb")) == NULL)
+120c120
+< 	if ((dpf = fopen(argv[3], "r")) == NULL)
+---
+> 	if ((dpf = fopen(argv[3], "rb")) == NULL)
+127c127
+< 	if ((epf = fopen(argv[3], "r")) == NULL)
+---
+> 	if ((epf = fopen(argv[3], "rb")) == NULL)
+135c135
+< 	if(((fd=open(argv[1],O_RDONLY,0))<0) ||
+---
+> 	if(((fd=open(argv[1],O_RDONLY|O_BINARY,0))<0) ||
+196c196
+< 	if(((fd=open(argv[2],O_CREAT|O_TRUNC|O_WRONLY,0666))<0) ||
+---
+> 	if(((fd=open(argv[2],O_CREAT|O_TRUNC|O_WRONLY|O_BINARY,0666))<0) ||

@@ -1,0 +1,94 @@
+/* Embedding DroidSans as otf solves problem with swedish umlauts running off to the right. */
+@font-face {
+	src: url('../fonts/DroidSans.otf');
+	fontFamily: 'Droid Sans Embedded';
+	fontWeight: Regular;
+}
+
+global {
+	font-family: 'Droid Sans Embedded';
+}
+
+Box {
+    border-style:none;
+}
+
+Application {
+    background-color: #fff;
+}
+
+Button {
+    fontWeight: normal;
+}
+
+EnhancedButton {
+    upSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    overSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    downSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    disabledSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    selectedUpSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    selectedOverSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    selectedDownSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    selectedDisabledSkin:ClassReference('flexlib.skins.EnhancedButtonSkin');
+    borderThickness: 5;
+    disabled-border-alpha: 0.25;
+    fill-alphas: 1, 1;
+    fill-colors: #ddd, #fff;
+    over-fill-colors: #fff, #fff;
+    down-fill-colors: #fff, #fff;
+    border-colors: #6aade4, #6aade4;
+    over-border-colors: #fecb00, #fecb00;
+    border-alpha: 1.0;
+}
+
+.stretchButton {
+    cornerRadius: 7;
+    font-size: 40;
+    font-weight: normal;
+    verticalGap: 30;
+    borderThickness: 5;
+}
+
+.buttonGroup {
+    cornerRadius: 7;
+    font-size: 30;
+    font-weight: normal;
+    verticalGap: 30;
+    borderThickness: 5;
+    
+    borderColors: #aaaaaa, #aaaaaa;
+}
+
+.buttonGroupActive {
+    cornerRadius: 7;
+    font-size: 30;
+    font-weight: normal;
+    verticalGap: 30;
+    borderThickness: 5;
+    
+    borderColors: #00cc33, #00cc33;
+}
+
+
+/* TODO: Fix the hovering behavior. Not really a button. */
+.activityButton {
+    cornerRadius: 7;
+    font-size: 40;
+    font-weight: normal;
+    verticalGap: 30;
+    borderThickness: 5;
+    borderStyle: solid;
+    borderColor: #6aade4;
+    borderDisabledColor: #aaaaaa;
+}
+
+.activityButtonOver {
+    cornerRadius: 7;
+    font-size: 40;
+    font-weight: normal;
+    verticalGap: 30;
+    borderThickness: 5;
+    borderStyle: solid;
+    borderColor: #fecb00;
+    borderDisabledColor: #aaaaaa;
+}

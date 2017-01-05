@@ -1,0 +1,17 @@
+<X3D profile='H3DAPI' version='2.0'>
+  <Scene>
+    <Shape>
+      <Appearance>
+        <Material emissiveColor="1 0 0"/>
+      </Appearance>
+      <LineSet vertexCount="4">
+        <Coordinate point="0.1 0.1 0, 0.1 -0.1 0, -0.1 -0.1 0, -0.1 0.1 0"/>
+      </LineSet>
+    </Shape>
+    <HapticDeviceLogger />
+    <PythonScript DEF="PS" url="demo.py" >
+      <HapticDeviceStats containerField="references" />
+    </PythonScript>
+    <AbortIfUserIdle />
+  </Scene>
+</X3D>

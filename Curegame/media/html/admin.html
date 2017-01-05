@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="{{ static_url('html/default.css') }}" type="text/css" />
+    <title>VRS</title>
+  </head>
+  <body>
+    <span style="float:right;margin-right:2em">
+      <a href="/admin/logout/">Sign out</a>
+    </span>
+    <div style="margin-left:1em;margin-top:1em;">
+      <h2>Active Stations</h2>
+      <table border="1">
+        <tr>
+          <th>Zone</th>
+          <th>Station</th>
+          <th>IP</th>
+          <th>Version</th>
+          <th>Ping</th>
+          <th>Synced</th>
+          <th>GUID</th>
+        </tr>
+        {% for s in syncdata %}
+        <tr>
+          <td>{{ s.zone.alias }}</td>
+          <td>{{ s.station.alias }}</td>
+          <td>{{ s.station.ip }}</td>
+          <td>{{ s.station.version }}</td>
+          <td>{{ s.last_ping.ctime() }}</td>
+          <td>{{ s.last_sync.ctime() }}</td>
+          <td>{{ s.station.guid }}</td>
+          <td>
+            <form action="/admin/reset/sync/" method="post">
+              <input type="hidden" name="station_guid" value="{{ s.station_guid }}"/>
+              <input value="Reset Sync" type="submit"/>
+          </form>
+          </td>
+        </tr>
+        {% end %}
+      </table>
+    </div>
+  </body>
+</html>

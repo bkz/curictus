@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    width="100%" height="100%" 
+    paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5"
+	horizontalScrollPolicy="off"
+    verticalAlign="middle"
+    horizontalAlign="center"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Script>
+        <![CDATA[
+            import mx.charts.HitData;
+            import mx.graphics.Stroke;
+            import mx.utils.ObjectProxy;
+            
+            private function complete():void {
+                clear();
+            }           
+            
+            public function dtFunc(hd:HitData):String {
+                return sprintf( _("Acceleration: %2.2f m/s2\nTime: %3.2fs"), hd.item.a, hd.item.timestamp);
+            }
+            
+            public function clear(): void {
+                visible = false;
+            }
+            
+            public function loadSession(data:ObjectProxy):void {
+                title.text = sprintf( _("Max = %2.2f m/s2, Min = %2.2f m/s2"), data["a_max"], data["a_min"]);
+
+                if (data["a_min"] < yAxis.minimum)
+                    yAxis.minimum = data["a_min"] * 1.10; // Use 10% margin for spacing.
+                if (data["a_max"] > yAxis.maximum)
+                    yAxis.maximum = data["a_max"] * 1.10; // Use 10% margin for spacing.
+                
+                chart.dataProvider = data["kinematics"];
+                dataSeries.setStyle('lineStroke', new Stroke(0x1B78D9, 2, 0.95));
+                                    
+                visible = true;
+            }
+            
+            public function setupYAxis(min:Number = NaN, max:Number = NaN):void {
+                yAxis.minimum = min;
+                yAxis.maximum = max;
+            }
+		]]>
+    </mx:Script>
+
+    <mx:Spacer height="10" />
+    <mx:Label id="title" text="" textAlign="center" styleName="activityChartSubtitle" width="100%" />
+    <mx:LineChart id="chart" showDataTips="true" dataTipFunction="dtFunc" width="100%" height="100%">
+        <mx:seriesFilters>
+           <mx:Array/>
+        </mx:seriesFilters>
+        <mx:verticalAxis>
+            <mx:LinearAxis id="yAxis" title="{_('Acceleration (m/s2)')}" />
+        </mx:verticalAxis>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer axis="{yAxis}" verticalAxisTitleAlignment="vertical" />
+        </mx:verticalAxisRenderers>                
+        <mx:horizontalAxis>
+           <mx:LinearAxis title="{_('Time (s)')}" />
+        </mx:horizontalAxis>
+        <mx:series>
+           <mx:LineSeries id="dataSeries" xField="timestamp" yField="a" />
+        </mx:series>
+     </mx:LineChart>
+    <mx:Spacer height="10" />
+</mx:Box>

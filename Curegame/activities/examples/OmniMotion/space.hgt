@@ -1,0 +1,58 @@
+<Transform DEF="HGT_BASE_TRANSFORM">
+	<Transform rotation="1 0 0 1.570796">
+		<Background groundColor="0.203487 0.406660 0.332267" skyColor="0.203487 0.406660 0.332267"/>
+	</Transform>
+	<ToggleGroup DEF="ToggleGroup_yEquation">
+		<TransformInfo DEF="TransformInfo_yEquation"/>
+		<Transform DEF="Transform_yEquation" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.000000 0.023813 0.000000">
+			<Shape>
+				<Appearance>
+					<Material DEF="Material_Material.001" ambientIntensity="1.0" diffuseColor="0.820980 0.820980 0.820980" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.735357 0.735357 0.735357"/>
+				</Appearance>
+				<Text DEF="Text_yEquation" string="y = something">
+					<FontStyle family="EraserDust" justify="MIDDLE" size="0.0399999991059"/>
+				</Text>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_xEquation">
+		<TransformInfo DEF="TransformInfo_xEquation"/>
+		<Transform DEF="Transform_xEquation" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.000000 0.072691 0.000000">
+			<Shape>
+				<Appearance>
+					<Material USE="Material_Material.001"/>
+				</Appearance>
+				<Text DEF="Text_xEquation" string="x = something">
+					<FontStyle family="EraserDust" justify="MIDDLE" size="0.0399999991059"/>
+				</Text>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_zEquation">
+		<TransformInfo DEF="TransformInfo_zEquation"/>
+		<Transform DEF="Transform_zEquation" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.000000 -0.023813 0.000000">
+			<Shape>
+				<Appearance>
+					<Material USE="Material_Material.001"/>
+				</Appearance>
+				<Text DEF="Text_zEquation" string="z = something">
+					<FontStyle family="EraserDust" justify="MIDDLE" size="0.0399999991059"/>
+				</Text>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<ToggleGroup DEF="ToggleGroup_Target">
+		<TransformInfo DEF="TransformInfo_Target"/>
+		<Transform DEF="Transform_Target" rotation="1.000000 0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" translation="0.000000 0.000000 0.000000">
+			<Shape>
+				<Appearance>
+					<Material DEF="Material_Material" ambientIntensity="1.0" diffuseColor="0.820980 0.439638 0.767014" emissiveColor="0.000000 0.000000 0.000000" shininess="0.09765625" specularColor="0.362898 0.362898 0.362898"/>
+				</Appearance>
+				<IndexedFaceSet DEF="Mesh_Solid.002" coordIndex="0 8 4 16 -1, 8 9 4 -1, 0 12 1 8 -1, 12 13 1 -1, 0 16 2 12 -1, 16 17 2 -1, 8 1 5 9 -1, 1 18 5 -1, 12 2 3 13 -1, 2 10 3 -1, 16 4 6 17 -1, 4 14 6 -1, 9 5 14 4 -1, 5 15 14 -1, 6 11 2 17 -1, 11 10 2 -1, 3 19 1 13 -1, 19 18 1 -1, 7 15 18 19 -1, 15 5 18 -1, 7 11 14 15 -1, 11 6 14 -1, 7 19 10 11 -1, 19 3 10 -1" solid="false">
+					<Coordinate DEF="Coord_Solid.002" point="0.006020 0.008289 -0.001942, 0.006020 -0.001942 -0.008289, 0.006020 0.001942 0.008289, 0.006020 -0.008289 0.001942, -0.006020 0.008289 -0.001942, -0.006020 -0.001942 -0.008289, -0.006020 0.001942 0.008289, -0.006020 -0.008289 0.001942, 0.003721 0.005135 -0.008277, -0.003721 0.005135 -0.008277, 0.003721 -0.005135 0.008277, -0.003721 -0.005135 0.008277, 0.009741 0.003162 0.001961, 0.009741 -0.003162 -0.001961, -0.009741 0.003162 0.001961, -0.009741 -0.003162 -0.001961, -0.000000 0.010239 0.001973, -0.000000 0.006316 0.008296, 0.000000 -0.006316 -0.008296, 0.000000 -0.010239 -0.001973"/>
+				</IndexedFaceSet>
+			</Shape>
+		</Transform>
+	</ToggleGroup>
+	<PointLight DEF="PointLight_Point" attenuation="1 0 0" color="1.000000 1.000000 1.000000" intensity="1.0" location="0.000000 0.390787 0.567491"/>
+</Transform>

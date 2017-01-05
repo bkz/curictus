@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Group DEF="ROOT">
+    <NavigationInfo headlight="true" />
+    <Background skyColor="0 0 0" />
+
+    <Group />
+   
+    <PythonScript DEF="CTRL" url="VRSCalib.py">
+        <Group USE="ROOT" containerField="references" />
+    </PythonScript>
+    
+    <Transform translation="0 0.13 0">
+        <Shape>
+            <Appearance DEF="TEXT_APP">
+                <Material emissiveColor="1 1 1"/>
+            </Appearance>
+            <Text DEF="LABEL" string="Curictus VRS Calibration">
+                <FontStyle family="Verdana" size="0.014" justify="MIDDLE"/>
+            </Text>
+        </Shape>
+    </Transform>
+    <ROUTE fromNode="CTRL" fromField="TEXT_LABEL"
+         toNode="LABEL" toField="string" />
+
+</Group>

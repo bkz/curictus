@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:local="*"
+    width="100%" height="100%" 
+    paddingLeft="10" paddingRight="10" paddingTop="5" paddingBottom="5"
+	horizontalScrollPolicy="off"
+    verticalAlign="middle"
+    horizontalAlign="center"
+    creationComplete="complete()">
+    
+    <mx:Script source="defs.as" />
+    
+	<mx:Script>
+        <![CDATA[
+            import mx.charts.HitData;
+            import mx.graphics.Stroke;
+            import mx.utils.ObjectProxy;
+            
+            private function complete():void {
+                clear();
+            }           
+            
+            public function dtFunc(hd:HitData):String {
+                return sprintf( _("Distance: %2.2f m\nTime: %3.2fs\nEvent: %s"), hd.item.distance, hd.item.timestamp, hd.item.description);
+            }
+            
+            public function clear(): void {
+                visible = false;
+            }
+            
+            public function loadSession(data:ObjectProxy):void {
+                title.text = sprintf( _("Total distance = %2.2f m"), data["distance"]);
+                
+                if (data["distance"] > yAxis.maximum)
+                    yAxis.maximum = data["distance"] * 1.10; // Use 10% margin for spacing.
+                
+                chart.dataProvider = data["events"];
+                                
+                visible = true;
+            }
+            
+            public function setupYAxis(min:Number = NaN, max:Number = NaN):void {
+                yAxis.minimum = min;
+                yAxis.maximum = max;
+            }
+		]]>
+    </mx:Script>
+
+    <mx:Stroke id="strokeColor" color="0x1B78D9" weight="0" alpha="1" />
+    <mx:SolidColor id="fillColor" color="0x1B78D9" alpha="1" />
+    
+    <mx:Spacer height="10" />
+    <mx:Label id="title" text="" textAlign="center" styleName="activityChartSubtitle" width="100%" />
+    <mx:PlotChart id="chart" showDataTips="true" dataTipFunction="dtFunc" width="100%" height="100%">
+        <mx:verticalAxis>
+            <mx:LinearAxis id="yAxis" title="{_('Distance (m)')}" />
+        </mx:verticalAxis>
+        <mx:verticalAxisRenderers>
+            <mx:AxisRenderer axis="{yAxis}" verticalAxisTitleAlignment="vertical" />
+        </mx:verticalAxisRenderers>                
+        <mx:horizontalAxis>
+           <mx:LinearAxis title="{_('Time (s)')}" />
+        </mx:horizontalAxis>
+        <mx:series>
+           <mx:PlotSeries id="dataSeries" xField="timestamp" yField="distance" fill="{fillColor}" stroke="{strokeColor}" />
+        </mx:series>
+     </mx:PlotChart>
+    <mx:Spacer height="10" />
+</mx:Box>
